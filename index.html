@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BitterCare | Post-Purchase Guide</title>
-  <meta name="description" content="비터케어 구매 후 고객 전용 사용 안내 페이지. 사용 전 꼭 읽어주세요." />
+  <title>BitterCare | 다정한 훈육의 시작</title>
+  <meta name="description" content="비터케어 구매 후 고객 전용 안내 페이지. 올바른 사용법과 재구매 안내를 확인해보세요." />
   <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
     :root {
-      --bg: #f6f2eb;
-      --surface: rgba(255,255,255,0.82);
-      --text: #211c17;
-      --muted: #6f675d;
-      --brand: #3b2a1f;
-      --brand-2: #6d5138;
-      --brand-3: #b88b5a;
-      --safe: #eff7f1;
-      --warn: #fcf2e7;
-      --soft: #f2ebe1;
+      --bg: #FDFBF7;
+      --surface: rgba(255, 255, 255, 0.88);
+      --text: #2C241E;
+      --muted: #7A6D61;
+      --brand: #4A3320;
+      --brand-2: #855C3B;
+      --accent: #E88D35;
+      --accent-hover: #D97A22;
+      --safe: #E8F3EB;
+      --warn: #FFF1E0;
+      --soft: #F5EFEB;
       --radius-xl: 32px;
       --radius-lg: 24px;
-      --shadow-lg: 0 24px 60px rgba(49, 37, 24, 0.10);
-      --shadow-md: 0 12px 28px rgba(49, 37, 24, 0.08);
+      --shadow-sm: 0 4px 12px rgba(74, 51, 32, 0.05);
+      --shadow-md: 0 16px 32px rgba(74, 51, 32, 0.08);
+      --shadow-lg: 0 24px 64px rgba(74, 51, 32, 0.12);
       --max: 1120px;
     }
 
@@ -29,45 +33,64 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Noto Sans SC", "Apple SD Gothic Neo", Arial, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(184, 139, 90, 0.14), transparent 24%),
-        radial-gradient(circle at top left, rgba(109, 81, 56, 0.07), transparent 20%),
-        linear-gradient(180deg, #fcfaf6 0%, var(--bg) 55%, #f7f3ed 100%);
-      line-height: 1.72;
-      letter-spacing: -0.01em;
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 100% 0%, rgba(232, 141, 53, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(133, 92, 59, 0.06) 0%, transparent 40%);
+      background-attachment: fixed;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
       word-break: keep-all;
-      overflow-wrap: normal;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseSoft {
+      0% { box-shadow: 0 0 0 0 rgba(232, 141, 53, 0.35); }
+      70% { box-shadow: 0 0 0 14px rgba(232, 141, 53, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(232, 141, 53, 0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(18px);
-      background: rgba(252, 250, 246, 0.82);
-      border-bottom: 1px solid rgba(60, 45, 28, 0.06);
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(253, 251, 247, 0.86);
+      border-bottom: 1px solid rgba(74, 51, 32, 0.06);
     }
 
     .topbar-inner {
-      min-height: 78px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
     }
 
     .brand {
@@ -78,321 +101,387 @@
     }
 
     .brand-mark {
-      width: 46px;
       height: 46px;
-      border-radius: 14px;
-      overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(59, 42, 31, 0.08);
       flex-shrink: 0;
     }
 
     .brand-mark img {
-      width: 100%;
       height: 100%;
+      width: auto;
       object-fit: contain;
     }
 
     .brand-copy strong {
       display: block;
       font-size: 15px;
-      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--brand);
+      letter-spacing: 0.04em;
     }
 
     .brand-copy span {
       display: block;
       font-size: 12px;
       color: var(--muted);
+      margin-top: 2px;
     }
 
     .lang-switch {
       display: inline-flex;
+      background: rgba(74, 51, 32, 0.05);
+      border-radius: 99px;
       padding: 4px;
-      border-radius: 999px;
-      background: rgba(59, 42, 31, 0.06);
-      border: 1px solid rgba(59, 42, 31, 0.08);
       flex-shrink: 0;
     }
 
     .lang-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      padding: 10px 16px;
-      border-radius: 999px;
-      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .lang-btn.active {
-      background: linear-gradient(145deg, var(--brand) 0%, var(--brand-2) 100%);
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(59, 42, 31, 0.16);
+      background: #fff;
+      color: var(--brand);
+      box-shadow: var(--shadow-sm);
     }
 
     .hero {
-      padding: 36px 0 20px;
+      padding: 56px 0 36px;
     }
 
-    .hero-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, rgba(59, 42, 31, 0.97) 0%, rgba(87, 65, 46, 0.95) 52%, rgba(122, 90, 61, 0.92) 100%);
-      color: #fff;
-      box-shadow: var(--shadow-lg);
-      padding: 44px;
-    }
-
-    .hero-card::before,
-    .hero-card::after {
-      content: "";
-      position: absolute;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(232, 141, 53, 0.1);
+      color: var(--accent);
       border-radius: 999px;
-      pointer-events: none;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 22px;
+      animation: fadeUp 0.6s ease-out forwards;
     }
 
-    .hero-card::before {
-      width: 340px;
-      height: 340px;
-      right: -90px;
-      top: -110px;
-      background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 58%, transparent 72%);
-    }
-
-    .hero-card::after {
-      width: 220px;
-      height: 220px;
-      left: -70px;
-      bottom: -100px;
-      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulseSoft 2s infinite;
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
       gap: 28px;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
     .hero h1 {
-      margin: 0;
-      font-size: clamp(34px, 5.2vw, 58px);
-      line-height: 1.14;
-      letter-spacing: -0.04em;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--brand);
+      margin: 0 0 20px;
+      letter-spacing: -0.03em;
+      animation: fadeUp 0.8s ease-out forwards;
+      animation-delay: 0.08s;
+      opacity: 0;
     }
 
     .hero-copy {
-      margin-top: 18px;
-      max-width: 760px;
-      font-size: 17px;
-      color: rgba(255,255,255,0.90);
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 26px;
+      animation: fadeUp 0.8s ease-out forwards;
+      animation-delay: 0.16s;
+      opacity: 0;
     }
 
-    .hero-copy p,
-    .hero-quote p,
-    .section-desc,
-    .card-text,
-    .step p,
-    .use-item span,
-    .tip-box,
-    .footer-card p {
-      word-break: keep-all;
-      overflow-wrap: normal;
+    .hero-copy strong {
+      color: var(--brand);
     }
 
-    .hero-media {
+    .hero-points {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease-out forwards;
+      animation-delay: 0.24s;
+      opacity: 0;
+    }
+
+    .hero-point {
       display: flex;
-      justify-content: center;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .hero-point-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--safe);
+      color: #2E7D32;
+      display: flex;
       align-items: center;
-    }
-
-    .hero-media-card {
-      width: 100%;
-      max-width: 360px;
-      padding: 18px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
-    }
-
-    .hero-media-card img {
-      width: 100%;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.88);
-      object-fit: contain;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .hero-quote {
-      margin-top: 24px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 22px;
-      backdrop-filter: blur(8px);
-      max-width: 760px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(74, 51, 32, 0.08);
+      box-shadow: var(--shadow-sm);
+      animation: fadeUp 0.8s ease-out forwards;
+      animation-delay: 0.32s;
+      opacity: 0;
     }
 
     .hero-quote strong {
       display: block;
       font-size: 17px;
-      margin-bottom: 10px;
+      color: var(--brand);
+      margin-bottom: 8px;
     }
 
     .hero-quote p {
       margin: 0;
+      color: var(--muted);
       font-size: 15px;
-      color: rgba(255,255,255,0.84);
     }
 
-    .section { padding: 14px 0; }
+    .hero-visual {
+      animation: fadeUp 1s ease-out forwards;
+      animation-delay: 0.26s;
+      opacity: 0;
+    }
 
-    .section-head { margin-bottom: 18px; }
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(180deg, #f7f1ea 0%, #efe7dd 100%);
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-    .section-kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(59, 42, 31, 0.06);
-      border: 1px solid rgba(59, 42, 31, 0.08);
-      color: var(--brand-2);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 480px;
+      object-fit: contain;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 44px;
     }
 
     .section-title {
-      margin: 0;
-      font-size: clamp(26px, 3.2vw, 38px);
-      line-height: 1.2;
-      letter-spacing: -0.03em;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--brand);
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
     }
 
     .section-desc {
-      margin: 10px 0 0;
+      font-size: 18px;
       color: var(--muted);
-      font-size: 16px;
-      max-width: 760px;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
     }
 
     .card {
-      grid-column: span 12;
-      position: relative;
-      overflow: hidden;
       background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.7);
       border-radius: var(--radius-lg);
+      padding: 36px;
       box-shadow: var(--shadow-md);
-      padding: 26px;
-      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.34), transparent 42%);
-      pointer-events: none;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .card > * { position: relative; z-index: 1; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-12 { grid-column: span 12; }
 
     .card-title {
-      margin: 0 0 12px;
       font-size: 24px;
-      line-height: 1.2;
+      line-height: 1.3;
+      color: var(--brand);
+      margin: 0 0 12px;
       letter-spacing: -0.02em;
     }
 
-    .card-text {
+    .card-copy {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
     }
 
-    .feature-list,
-    .bullet-list {
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(74, 51, 32, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(232, 141, 53, 0.35);
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-num {
+      font-size: 60px;
+      font-weight: 900;
+      color: rgba(232, 141, 53, 0.10);
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      line-height: 1;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .step-card h3 {
+      font-size: 19px;
+      color: var(--brand);
+      margin: 0 0 10px;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .feature-list {
       list-style: none;
       padding: 0;
-      margin: 18px 0 0;
+      margin: 26px 0 0;
       display: grid;
-      gap: 12px;
+      gap: 20px;
     }
 
-    .feature-list li,
-    .bullet-list li {
+    .feature-item {
       display: flex;
+      gap: 14px;
       align-items: flex-start;
-      gap: 12px;
-      padding: 15px 16px;
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(59, 42, 31, 0.08);
-      border-radius: 16px;
     }
 
-    .feature-icon,
-    .bullet-icon {
-      flex: 0 0 28px;
+    .feature-check {
+      flex-shrink: 0;
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 14px;
+      background: var(--safe);
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 800;
+    }
+
+    .feature-check.warn {
+      background: #FFEBEE;
+      color: #D32F2F;
+    }
+
+    .feature-text strong {
+      display: block;
+      font-size: 18px;
       color: var(--brand);
-      background: rgba(184, 139, 90, 0.18);
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .use-cases {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 24px;
     }
 
     .use-item {
       padding: 16px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(59, 42, 31, 0.08);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(74, 51, 32, 0.06);
     }
 
     .use-item strong {
       display: block;
       margin-bottom: 6px;
       font-size: 16px;
+      color: var(--brand);
     }
 
     .use-item span {
@@ -400,153 +489,127 @@
       font-size: 14px;
     }
 
-    .steps {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 66px 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.60);
-      border: 1px solid rgba(59, 42, 31, 0.08);
-    }
-
-    .step-num {
-      width: 66px;
-      height: 66px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--brand) 0%, var(--brand-2) 100%);
-      color: #fff;
-      box-shadow: 0 12px 26px rgba(59, 42, 31, 0.18);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 6px;
-    }
-
-    .step h3 {
-      margin: 4px 0 8px;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .tip-stack {
+    .tips-stack {
       display: grid;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 22px;
     }
 
     .tip-box {
       padding: 16px 18px;
       border-radius: 18px;
-      border: 1px solid rgba(59, 42, 31, 0.08);
-      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(74, 51, 32, 0.08);
+      background: rgba(255,255,255,0.72);
       color: var(--text);
+      font-size: 15px;
     }
 
     .tip-box.safe { background: var(--safe); }
     .tip-box.warn { background: var(--warn); }
     .tip-box.soft { background: var(--soft); }
 
-    .emphasis {
-      font-weight: 800;
+    .tip-box strong {
       color: var(--brand);
     }
 
-    .repurchase-strip {
-      margin-top: 18px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .cta {
-      margin-top: 20px;
-      padding: 26px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(59, 42, 31, 0.96) 0%, rgba(101, 76, 53, 0.94) 100%);
+    .highlight-box {
+      background: linear-gradient(135deg, var(--brand) 0%, #6A4A30 100%);
       color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
       box-shadow: var(--shadow-lg);
     }
 
-    .cta strong {
-      display: block;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
+    .highlight-box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(232,141,53,0.25) 0%, transparent 70%);
+      border-radius: 50%;
     }
 
-    .cta p {
-      margin: 0;
-      font-size: 15px;
-      color: rgba(255,255,255,0.84);
+    .highlight-box > * {
+      position: relative;
+      z-index: 1;
     }
 
-    .button-row {
+    .highlight-box h3 {
+      font-size: 30px;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-box p {
+      font-size: 16px;
+      opacity: 0.92;
+      margin: 0 auto 28px;
+      max-width: 640px;
+    }
+
+    .btn-group {
       display: flex;
       gap: 12px;
+      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 20px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
+      padding: 16px 30px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
       font-weight: 800;
-      font-size: 15px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-size: 16px;
+      transition: all 0.25s ease;
       cursor: pointer;
+      border: none;
+      text-decoration: none;
     }
 
-    .btn:hover { transform: translateY(-1px); }
-
     .btn-primary {
-      background: linear-gradient(145deg, #ff9e1a 0%, #ff8c00 100%);
+      background: var(--accent);
       color: #fff;
-      box-shadow: 0 12px 28px rgba(255, 140, 0, 0.28);
-      border-color: rgba(255,255,255,0.08);
-      opacity: 0.95;
+      box-shadow: 0 8px 20px rgba(232, 141, 53, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(232, 141, 53, 0.38);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.12);
       color: #fff;
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.22);
     }
 
-    .footer { padding: 30px 0 52px; }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.20);
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 24px 0 48px;
+    }
 
     .footer-card {
-      border-radius: 24px;
-      padding: 22px 24px;
-      background: rgba(255,255,255,0.64);
-      border: 1px solid rgba(59, 42, 31, 0.08);
-      box-shadow: var(--shadow-md);
+      padding: 20px 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(74, 51, 32, 0.06);
+      box-shadow: var(--shadow-sm);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
+      align-items: center;
       flex-wrap: wrap;
     }
 
@@ -559,50 +622,75 @@
     .footer-sign {
       font-weight: 800;
       color: var(--brand);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
     }
 
-    .lang-ko [data-lang="en"],
-    .lang-ko [data-lang="cn"],
-    .lang-en [data-lang="ko"],
-    .lang-en [data-lang="cn"],
-    .lang-cn [data-lang="ko"],
-    .lang-cn [data-lang="en"] {
+    .lang-ko [data-lang]:not([data-lang="ko"]),
+    .lang-en [data-lang]:not([data-lang="en"]),
+    .lang-cn [data-lang]:not([data-lang="cn"]) {
       display: none !important;
     }
 
-    @media (min-width: 900px) {
-      .span-5 { grid-column: span 5; }
-      .span-6 { grid-column: span 6; }
-      .span-7 { grid-column: span 7; }
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-media-card {
-        max-width: 320px;
-        margin: 0 auto;
+      .steps-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .span-4, .span-5, .span-6, .span-7 {
+        grid-column: span 12;
+      }
+
+      .hero-image-wrapper {
+        min-height: 420px;
       }
     }
 
-    @media (max-width: 720px) {
-      .topbar-inner { min-height: 72px; }
-      .hero-card { padding: 28px 22px; border-radius: 26px; }
-      .card { padding: 22px; }
-      .use-cases { grid-template-columns: 1fr; }
-      .step { grid-template-columns: 1fr; }
-      .step-num { width: 58px; height: 58px; border-radius: 16px; }
-      .footer-card { padding: 20px; }
-      .lang-btn { padding: 9px 13px; font-size: 13px; }
-      .button-row { flex-direction: column; }
-      .btn { width: 100%; }
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 40px 0 24px;
+      }
+
+      .card {
+        padding: 26px 20px;
+      }
+
+      .hero-image-wrapper {
+        min-height: 300px;
+        padding: 16px;
+      }
+
+      .steps-container {
+        grid-template-columns: 1fr;
+      }
+
+      .use-cases {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .brand-copy {
+        display: none;
+      }
     }
   </style>
 </head>
 <body class="lang-ko">
+
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
@@ -617,10 +705,10 @@
         </div>
       </div>
 
-      <div class="lang-switch" aria-label="Language Switcher">
-        <button type="button" class="lang-btn active" data-set-lang="ko">KR</button>
-        <button type="button" class="lang-btn" data-set-lang="en">EN</button>
-        <button type="button" class="lang-btn" data-set-lang="cn">CN</button>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-set-lang="ko">KR</button>
+        <button class="lang-btn" data-set-lang="en">EN</button>
+        <button class="lang-btn" data-set-lang="cn">CN</button>
       </div>
     </div>
   </header>
@@ -628,303 +716,222 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero-card">
-          <div class="hero-grid">
-            <div>
-              <div class="eyebrow">
-                <span data-lang="ko">Post-Purchase Guide</span>
-                <span data-lang="en">Post-Purchase Guide</span>
-                <span data-lang="cn">Post-Purchase Guide</span>
+        <div class="hero-badge">
+          <span data-lang="ko">구매해주셔서 감사합니다</span>
+          <span data-lang="en">Thank you for your purchase</span>
+          <span data-lang="cn">感谢您的购买</span>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <h1>
+              <span data-lang="ko">혼내지 말고 다정하게,<br />평화로운 일상의 시작</span>
+              <span data-lang="en">Stop Scolding, Start Guiding.<br />A Peaceful Home Begins.</span>
+              <span data-lang="cn">告别责骂，温和引导。<br />开启平静的日常生活。</span>
+            </h1>
+
+            <p class="hero-copy">
+              <span data-lang="ko">비터케어는 억지로 막는 것이 아닙니다. <strong>무해한 콩기름 잉크 기반의 쓴맛</strong>으로 반려동물이 스스로 반복 행동을 줄이도록 돕는 <strong>학습형 솔루션</strong>입니다.</span>
+              <span data-lang="en">BitterCare doesn’t force a stop. Powered by a <strong>harmless soy-ink bitter cue</strong>, it helps pets naturally reduce repetitive behaviors through <strong>learning</strong>.</span>
+              <span data-lang="cn">BitterCare 不是强行制止，而是通过<strong>无害大豆油墨基础的苦味提示</strong>，帮助宠物以<strong>学习方式</strong>自然减少重复行为。</span>
+            </p>
+
+            <div class="hero-points">
+              <div class="hero-point">
+                <div class="hero-point-mark">✓</div>
+                <div>
+                  <span data-lang="ko">처음 <strong>3~5일</strong>이 가장 중요합니다.</span>
+                  <span data-lang="en">The first <strong>3–5 days</strong> matter most.</span>
+                  <span data-lang="cn">前 <strong>3–5 天</strong>最关键。</span>
+                </div>
               </div>
-
-              <h1>
-                <span data-lang="ko">비터케어 구매 후<br />사용 안내 페이지</span>
-                <span data-lang="en">BitterCare<br />Post-Purchase Guide</span>
-                <span data-lang="cn">BitterCare 购买后<br />使用说明页面</span>
-              </h1>
-
-              <div class="hero-copy">
-                <p data-lang="ko">
-                  비터케어는 <strong>세계최초 BitterINK 기반 행동 교정 스티커</strong>입니다.<br />
-                  반려동물의 씹기, 핥기, 긁기 같은 반복 행동을 보다 정교하게 관리할 수 있도록 설계했습니다.<br />
-                  가족처럼 소중한 반려동물을 생각하는 마음으로,<br />
-                  <strong>무해한 콩기름 잉크 기반</strong> BitterINK 철학을 담아 필요한 위치에만 깔끔하게 적용할 수 있도록 완성했습니다.
-                </p>
-                <p data-lang="en">
-                  BitterCare is the <strong>world’s first BitterINK-based behavior training sticker</strong>.<br />
-                  It is designed to help manage repetitive pet behaviors such as chewing, licking, and scratching with greater precision.<br />
-                  Created with the same care one would have for a beloved family member,<br />
-                  it reflects the BitterINK philosophy with a <strong>harmless soy-based ink foundation</strong> for cleaner, more thoughtful everyday use.
-                </p>
-                <p data-lang="cn">
-                  BitterCare 是<strong>全球首创的 BitterINK 行为训练贴纸</strong>。<br />
-                  专为更精准地管理宠物反复出现的啃咬、舔舐、抓挠等行为而设计。<br />
-                  以对家人般珍贵宠物的关爱为出发点，<br />
-                  融入<strong>无害大豆油墨基础</strong>的 BitterINK 理念，只在需要的位置干净利落地使用。
-                </p>
+              <div class="hero-point">
+                <div class="hero-point-mark">✓</div>
+                <div>
+                  <span data-lang="ko">가구 모서리, 전선 주변, 반복 접촉 표면에 정확히 부착해 주세요.</span>
+                  <span data-lang="en">Apply precisely to furniture edges, cable areas, and repeat-contact surfaces.</span>
+                  <span data-lang="cn">请准确贴在家具边角、线缆周边和反复接触表面。</span>
+                </div>
+              </div>
+              <div class="hero-point">
+                <div class="hero-point-mark">✓</div>
+                <div>
+                  <span data-lang="ko">효과가 줄어들면 교체가 필요합니다.</span>
+                  <span data-lang="en">Replacement is recommended when the effect feels weaker.</span>
+                  <span data-lang="cn">当效果减弱时，建议及时更换。</span>
+                </div>
               </div>
             </div>
 
-            <div class="hero-media">
-              <div class="hero-media-card">
-                <img src="bittercare-main.png" alt="BitterCare Main Visual" />
-              </div>
+            <div class="hero-quote">
+              <strong data-lang="ko">사용 전, 단 3분만 읽어주세요.</strong>
+              <strong data-lang="en">Please read for 3 minutes before use.</strong>
+              <strong data-lang="cn">使用前请花 3 分钟阅读。</strong>
+              <p data-lang="ko">처음 사용하는 고객님을 위해 효과를 높이는 핵심 사용 팁과 주의사항을 정리했습니다.</p>
+              <p data-lang="en">We’ve organized the key usage tips and precautions to help first-time customers get the best results.</p>
+              <p data-lang="cn">我们整理了首次使用时最重要的技巧与注意事项，帮助您获得更好的效果。</p>
             </div>
           </div>
 
-          <aside class="hero-quote">
-            <strong data-lang="ko">사용 전 꼭 읽어주세요</strong>
-            <strong data-lang="en">Please Read Before Use</strong>
-            <strong data-lang="cn">使用前请务必阅读</strong>
-            <p data-lang="ko">이 페이지는 비터케어 구매 후 사용하는 고객 전용 안내 페이지입니다. 처음 사용하시는 경우 아래 사용법과 주의사항을 먼저 확인해 주세요.</p>
-            <p data-lang="en">This page is a post-purchase guide for BitterCare customers. If this is your first time using the product, please review the instructions and precautions below before use.</p>
-            <p data-lang="cn">本页面为购买 BitterCare 后的客户专用说明页面。首次使用时，请先阅读以下使用方法和注意事项。</p>
-          </aside>
+          <div class="hero-visual">
+            <div class="hero-image-wrapper">
+              <img src="bittercare-main.png" alt="BitterCare Main Visual" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="overview">
+    <section class="section">
       <div class="container">
-        <div class="section-head">
-          <span class="section-kicker" data-lang="ko">사용 전 안내</span>
-          <span class="section-kicker" data-lang="en">Before You Start</span>
-          <span class="section-kicker" data-lang="cn">使用前说明</span>
-          <h2 class="section-title">
-            <span data-lang="ko">사용 전 먼저 이해하면 더 잘 쓰실 수 있습니다</span>
-            <span data-lang="en">A Quick Overview Before You Begin</span>
-            <span data-lang="cn">先了解这些内容，使用起来会更顺手</span>
-          </h2>
-          <p class="section-desc" data-lang="ko">비터케어는 단순 차단용 제품이 아니라, 반복 행동을 줄이도록 돕는 학습형 솔루션입니다. 먼저 제품 특성과 사용 위치를 이해하면 사용 만족도가 더 높아집니다.</p>
-          <p class="section-desc" data-lang="en">BitterCare is not just a barrier product. It is a learning-based solution that helps reduce repetitive behavior. Understanding where and how to use it will improve the overall experience.</p>
-          <p class="section-desc" data-lang="cn">BitterCare 并不只是单纯的阻隔产品，而是帮助减少重复行为的学习型解决方案。先了解产品特性和适用位置，会更容易获得理想效果。</p>
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title" data-lang="ko">마법 같은 변화를 위한 4단계</h2>
+          <h2 class="section-title" data-lang="en">4 Steps to Gentle Change</h2>
+          <h2 class="section-title" data-lang="cn">带来温和改变的 4 个步骤</h2>
+          <p class="section-desc" data-lang="ko">비터케어의 진정한 효과는 올바른 부착과 기다림에서 나옵니다.</p>
+          <p class="section-desc" data-lang="en">The real power of BitterCare comes from proper placement and patience.</p>
+          <p class="section-desc" data-lang="cn">BitterCare 的真正效果来自正确粘贴与耐心等待。</p>
         </div>
 
+        <div class="steps-container animate-on-scroll">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon">✨</div>
+            <h3 data-lang="ko">표면 클렌징</h3>
+            <h3 data-lang="en">Surface Clean</h3>
+            <h3 data-lang="cn">清洁表面</h3>
+            <p data-lang="ko">먼지와 유분기를 닦아내면 접착력이 더욱 안정적으로 유지됩니다.</p>
+            <p data-lang="en">Removing dust and oils helps maintain better adhesion.</p>
+            <p data-lang="cn">去除灰尘和油污后，贴附会更稳定。</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon">✂️</div>
+            <h3 data-lang="ko">맞춤형 재단</h3>
+            <h3 data-lang="en">Custom Cut</h3>
+            <h3 data-lang="cn">定制裁剪</h3>
+            <p data-lang="ko">문제 행동이 반복되는 영역만큼 알맞게 잘라 사용하세요.</p>
+            <p data-lang="en">Cut the sticker to fit the exact area where the behavior repeats.</p>
+            <p data-lang="cn">按问题行为反复出现的范围裁剪使用。</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon">👇</div>
+            <h3 data-lang="ko">빈틈없는 밀착</h3>
+            <h3 data-lang="en">Firm Press</h3>
+            <h3 data-lang="cn">牢固按压</h3>
+            <p data-lang="ko">들뜸이 없도록 표면에 꼼꼼하게 눌러 부착해 주세요.</p>
+            <p data-lang="en">Press firmly so no edge is left lifting.</p>
+            <p data-lang="cn">请仔细按压，避免边缘翘起。</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-icon">👀</div>
+            <h3 data-lang="ko">다정한 관찰</h3>
+            <h3 data-lang="en">Gentle Watch</h3>
+            <h3 data-lang="cn">温和观察</h3>
+            <p data-lang="ko">첫 3~5일 동안 반려동물이 쓴맛을 학습하는 과정을 지켜봐 주세요.</p>
+            <p data-lang="en">Observe how your pet learns the bitter cue over the first 3–5 days.</p>
+            <p data-lang="cn">请在前 3–5 天观察宠物对苦味提示的学习过程。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: #FAF7F2;">
+      <div class="container">
         <div class="grid">
-          <article class="card span-6">
-            <h3 class="card-title" data-lang="ko">브랜드 핵심 가치</h3>
-            <h3 class="card-title" data-lang="en">Core Brand Values</h3>
-            <h3 class="card-title" data-lang="cn">品牌核心价值</h3>
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">브랜드 핵심 가치</h2>
+            <h2 class="card-title" data-lang="en">Core Brand Values</h2>
+            <h2 class="card-title" data-lang="cn">品牌核心价值</h2>
+            <p class="card-copy" data-lang="ko">비터케어는 단순 차단이 아니라, 감각을 통해 기억을 만들고 행동 변화를 유도하는 학습형 솔루션입니다.</p>
+            <p class="card-copy" data-lang="en">BitterCare is not a simple blocker, but a learning-based solution that creates memory through sensation and encourages behavior change.</p>
+            <p class="card-copy" data-lang="cn">BitterCare 不是单纯阻隔工具，而是通过感官形成记忆、引导行为变化的学习型解决方案。</p>
+
             <ul class="feature-list">
-              <li>
-                <span class="feature-icon">01</span>
-                <div>
+              <li class="feature-item">
+                <div class="feature-check">✓</div>
+                <div class="feature-text">
                   <strong data-lang="ko">세계최초 BitterINK 기반</strong>
                   <strong data-lang="en">World’s First BitterINK-Based</strong>
                   <strong data-lang="cn">全球首创 BitterINK 概念</strong>
-                  <div class="card-text" data-lang="ko">비터케어는 BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념으로, 기능성과 브랜드 인지도를 동시에 갖추고 있습니다.</div>
-                  <div class="card-text" data-lang="en">BitterCare introduces a differentiated BitterINK concept in behavior training sticker form, combining functionality with strong brand distinction.</div>
-                  <div class="card-text" data-lang="cn">BitterCare 以行为训练贴纸的形式实现 BitterINK 差异化概念，在功能与品牌辨识度之间取得平衡。</div>
+                  <p data-lang="ko">BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념입니다.</p>
+                  <p data-lang="en">A differentiated concept that brings BitterINK into behavior training sticker form.</p>
+                  <p data-lang="cn">将 BitterINK 以行为训练贴纸形式实现的差异化概念。</p>
                 </div>
               </li>
-              <li>
-                <span class="feature-icon">02</span>
-                <div>
+              <li class="feature-item">
+                <div class="feature-check">✓</div>
+                <div class="feature-text">
                   <strong data-lang="ko">소중한 반려동물을 위한 설계</strong>
                   <strong data-lang="en">Designed with Loving Care</strong>
                   <strong data-lang="cn">为珍贵宠物而设计</strong>
-                  <div class="card-text" data-lang="ko">자극만 강조한 제품이 아니라, 반려동물과 보호자가 함께 더 편안한 일상을 만들 수 있도록 설계했습니다.</div>
-                  <div class="card-text" data-lang="en">It is not designed as a harsh deterrent, but as a thoughtful solution for a more comfortable daily life with pets.</div>
-                  <div class="card-text" data-lang="cn">不是单纯强调刺激，而是为了让宠物与主人共同拥有更舒适的日常而设计。</div>
+                  <p data-lang="ko">강한 자극보다 더 편안하고 지속 가능한 방식의 행동 관리를 지향합니다.</p>
+                  <p data-lang="en">Designed for gentler and more sustainable behavior care rather than harsh deterrence.</p>
+                  <p data-lang="cn">比起强刺激，更重视温和且可持续的行为管理方式。</p>
                 </div>
               </li>
-              <li>
-                <span class="feature-icon">03</span>
-                <div>
+              <li class="feature-item">
+                <div class="feature-check">✓</div>
+                <div class="feature-text">
                   <strong data-lang="ko">무해한 콩기름 잉크 철학</strong>
                   <strong data-lang="en">Harmless Soy-Ink Philosophy</strong>
                   <strong data-lang="cn">无害大豆油墨理念</strong>
-                  <div class="card-text" data-lang="ko">BitterINK는 무해한 콩기름 잉크 기반 철학 위에서 출발했으며, 비터케어는 그 가치를 일상 속 행동 관리 제품으로 확장한 결과물입니다.</div>
-                  <div class="card-text" data-lang="en">BitterINK begins with a harmless soy-ink philosophy, and BitterCare extends that value into an everyday behavior care product.</div>
-                  <div class="card-text" data-lang="cn">BitterINK 源于无害大豆油墨理念，而 BitterCare 则将这一价值延伸到日常宠物行为管理产品中。</div>
+                  <p data-lang="ko">무해한 콩기름 잉크 기반 철학 위에서 출발한 BitterINK의 가치를 담고 있습니다.</p>
+                  <p data-lang="en">Built on the BitterINK philosophy rooted in harmless soy-ink principles.</p>
+                  <p data-lang="cn">承载了以无害大豆油墨理念为基础的 BitterINK 价值观。</p>
                 </div>
               </li>
             </ul>
-          </article>
+          </div>
 
-          <article class="card span-6">
-            <h3 class="card-title" data-lang="ko">추천 사용 위치</h3>
-            <h3 class="card-title" data-lang="en">Recommended Areas</h3>
-            <h3 class="card-title" data-lang="cn">推荐使用位置</h3>
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">추천 사용 위치</h2>
+            <h2 class="card-title" data-lang="en">Recommended Areas</h2>
+            <h2 class="card-title" data-lang="cn">推荐使用位置</h2>
+            <p class="card-copy" data-lang="ko">반려동물이 반복적으로 입을 대는 위치에 정확히 적용해 주세요.</p>
+            <p class="card-copy" data-lang="en">Apply precisely where your pet repeatedly chews, licks, or targets.</p>
+            <p class="card-copy" data-lang="cn">请准确贴在宠物反复啃咬、舔舐或接触的位置。</p>
+
             <div class="use-cases">
               <div class="use-item">
                 <strong data-lang="ko">가구 모서리</strong>
                 <strong data-lang="en">Furniture Edges</strong>
                 <strong data-lang="cn">家具边角</strong>
-                <span data-lang="ko">소파, 의자 다리, 테이블 가장자리 등</span>
-                <span data-lang="en">Sofas, chair legs, table edges, and more</span>
-                <span data-lang="cn">如沙发、椅脚、桌边等位置</span>
+                <span data-lang="ko">소파, 의자 다리, 테이블 가장자리</span>
+                <span data-lang="en">Sofas, chair legs, table edges</span>
+                <span data-lang="cn">沙发、椅脚、桌边</span>
               </div>
               <div class="use-item">
                 <strong data-lang="ko">생활 소품</strong>
                 <strong data-lang="en">Household Items</strong>
                 <strong data-lang="cn">日常用品</strong>
                 <span data-lang="ko">리모컨, 케이블 주변, 자주 건드리는 물건</span>
-                <span data-lang="en">Remotes, cable areas, and frequently targeted items</span>
-                <span data-lang="cn">遥控器、线缆周边、宠物常碰触的物品</span>
+                <span data-lang="en">Remotes, cable areas, frequently targeted items</span>
+                <span data-lang="cn">遥控器、线缆周边、常被碰触的物品</span>
               </div>
               <div class="use-item">
                 <strong data-lang="ko">특정 구역</strong>
                 <strong data-lang="en">Restricted Areas</strong>
                 <strong data-lang="cn">限制区域</strong>
                 <span data-lang="ko">문틀, 벽면 일부, 접근을 줄이고 싶은 구역</span>
-                <span data-lang="en">Door frames, wall sections, or zones you want to discourage</span>
+                <span data-lang="en">Door frames, wall areas, restricted zones</span>
                 <span data-lang="cn">门框、墙面局部、希望减少进入的区域</span>
               </div>
               <div class="use-item">
                 <strong data-lang="ko">반복 접촉 표면</strong>
                 <strong data-lang="en">Repeat-Contact Surfaces</strong>
                 <strong data-lang="cn">重复接触表面</strong>
-                <span data-lang="ko">반려동물이 자주 물거나 핥는 표면</span>
-                <span data-lang="en">Surfaces that pets repeatedly chew, lick, or scratch</span>
-                <span data-lang="cn">宠物反复啃咬、舔舐或抓挠的表面</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker" data-lang="ko">사용 방법</span>
-          <span class="section-kicker" data-lang="en">How To Use</span>
-          <span class="section-kicker" data-lang="cn">使用方法</span>
-          <h2 class="section-title">
-            <span data-lang="ko">처음 사용하시는 분도 쉽게 따라오는 4단계</span>
-            <span data-lang="en">A Clear 4-Step Guide for First-Time Use</span>
-            <span data-lang="cn">首次使用也能轻松跟着做的 4 个步骤</span>
-          </h2>
-          <p class="section-desc" data-lang="ko">표면 정리부터 부착, 관찰까지 순서대로 따라 하시면 됩니다. 처음 3~5일은 행동 변화를 살피는 것이 중요합니다.</p>
-          <p class="section-desc" data-lang="en">Follow the process from surface cleaning to application and observation. The first 3–5 days are especially important for checking behavioral change.</p>
-          <p class="section-desc" data-lang="cn">按照清洁表面、粘贴、观察的顺序使用即可。前 3–5 天尤其重要，请留意行为变化。</p>
-        </div>
-
-        <article class="card">
-          <div class="steps">
-            <div class="step">
-              <div class="step-num">Step 1</div>
-              <div>
-                <h3 data-lang="ko">표면을 깨끗하게 정리해 주세요</h3>
-                <h3 data-lang="en">Clean the Surface First</h3>
-                <h3 data-lang="cn">先清洁表面</h3>
-                <p data-lang="ko">먼지, 기름기, 수분을 제거한 후 부착하면 접착력이 더욱 안정적으로 유지됩니다.</p>
-                <p data-lang="en">Remove dust, oil, and moisture before application to help ensure stable adhesion.</p>
-                <p data-lang="cn">在粘贴前先去除灰尘、油污和水分，可让贴附更稳定。</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">Step 2</div>
-              <div>
-                <h3 data-lang="ko">필요한 길이만큼 잘라주세요</h3>
-                <h3 data-lang="en">Cut to the Desired Length</h3>
-                <h3 data-lang="cn">裁剪到合适长度</h3>
-                <p data-lang="ko">문제 행동이 발생하는 범위에 맞춰 알맞은 길이로 재단합니다.</p>
-                <p data-lang="en">Trim the sticker to match the area where the unwanted behavior occurs.</p>
-                <p data-lang="cn">根据问题行为发生的范围裁剪到合适长度。</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">Step 3</div>
-              <div>
-                <h3 data-lang="ko">원하는 위치에 밀착 부착하세요</h3>
-                <h3 data-lang="en">Apply Firmly to the Target Area</h3>
-                <h3 data-lang="cn">牢固贴在目标位置</h3>
-                <p data-lang="ko">반려동물이 접촉하는 표면에 고르게 눌러 붙여 주세요.</p>
-                <p data-lang="en">Press evenly so the sticker adheres smoothly to the surface your pet contacts.</p>
-                <p data-lang="cn">均匀按压，使贴纸平整贴合在宠物会接触到的表面上。</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">Step 4</div>
-              <div>
-                <h3 data-lang="ko">행동 변화를 관찰해 주세요</h3>
-                <h3 data-lang="en">Observe Behavioral Change</h3>
-                <h3 data-lang="cn">观察行为变化</h3>
-                <p data-lang="ko">초기 며칠간 반복 접촉을 통해 쓴맛을 인식하며 행동이 점차 줄어들 수 있습니다.</p>
-                <p data-lang="en">Over the first few days, repeated contact may help your pet recognize the bitter cue and reduce the behavior.</p>
-                <p data-lang="cn">在最初几天的重复接触中，宠物可能逐渐识别苦味提示，从而减少该行为。</p>
+                <span data-lang="ko">자주 물거나 핥는 표면</span>
+                <span data-lang="en">Surfaces repeatedly chewed or licked</span>
+                <span data-lang="cn">反复啃咬或舔舐的表面</span>
               </div>
             </div>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="grid">
-          <article class="card span-5">
-            <h3 class="card-title" data-lang="ko">효과를 높이는 사용 팁</h3>
-            <h3 class="card-title" data-lang="en">Tips for Better Results</h3>
-            <h3 class="card-title" data-lang="cn">提升效果的小技巧</h3>
-            <div class="tip-stack">
-              <div class="tip-box safe">
-                <span data-lang="ko"><span class="emphasis">처음 3~5일</span>은 학습 형성에 중요한 기간입니다.</span>
-                <span data-lang="en">The <span class="emphasis">first 3–5 days</span> are often the most important for behavior learning.</span>
-                <span data-lang="cn"><span class="emphasis">前 3–5 天</span>通常是行为学习最重要的阶段。</span>
-              </div>
-              <div class="tip-box">
-                <span data-lang="ko">행동이 자주 발생하는 위치에 <span class="emphasis">정확히 부착</span>하는 것이 중요합니다.</span>
-                <span data-lang="en">Precise placement in the exact problem area is key to effective use.</span>
-                <span data-lang="cn">贴在问题行为最常发生的位置，效果会更好。</span>
-              </div>
-              <div class="tip-box soft">
-                <span data-lang="ko">효과는 보통 <span class="emphasis">3~5일 내 행동 감소</span>로 나타나기 시작합니다.</span>
-                <span data-lang="en">Behavior change often begins to appear within <span class="emphasis">3–5 days</span>.</span>
-                <span data-lang="cn">通常在 <span class="emphasis">3–5 天内</span>开始出现行为减少的变化。</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card span-7">
-            <h3 class="card-title" data-lang="ko">사용 전 주의사항</h3>
-            <h3 class="card-title" data-lang="en">Important Precautions</h3>
-            <h3 class="card-title" data-lang="cn">使用前注意事项</h3>
-            <ul class="bullet-list">
-              <li>
-                <span class="bullet-icon">•</span>
-                <div>
-                  <span data-lang="ko">식품, 식기류, 직접 섭취하는 물품에는 사용하지 마십시오.</span>
-                  <span data-lang="en">Do not apply to food, tableware, or any item intended for direct consumption.</span>
-                  <span data-lang="cn">请勿用于食品、餐具或任何会直接入口的物品。</span>
-                </div>
-              </li>
-              <li>
-                <span class="bullet-icon">•</span>
-                <div>
-                  <span data-lang="ko">피부 또는 털에 직접 부착하지 마십시오.</span>
-                  <span data-lang="en">Do not apply directly to skin or fur.</span>
-                  <span data-lang="cn">请勿直接贴在皮肤或毛发上。</span>
-                </div>
-              </li>
-              <li>
-                <span class="bullet-icon">•</span>
-                <div>
-                  <span data-lang="ko">영유아 및 어린이 손이 닿지 않는 곳에 보관해 주세요.</span>
-                  <span data-lang="en">Keep out of reach of infants and children.</span>
-                  <span data-lang="cn">请放在婴幼儿和儿童接触不到的地方。</span>
-                </div>
-              </li>
-              <li>
-                <span class="bullet-icon">•</span>
-                <div>
-                  <span data-lang="ko">눈, 입 등 민감 부위에 직접 닿지 않도록 주의해 주세요.</span>
-                  <span data-lang="en">Avoid direct contact with sensitive areas such as eyes and mouth.</span>
-                  <span data-lang="cn">请避免直接接触眼睛、口腔等敏感部位。</span>
-                </div>
-              </li>
-              <li>
-                <span class="bullet-icon">•</span>
-                <div>
-                  <span data-lang="ko">이상 반응이 있거나 맞지 않는 표면에서는 즉시 사용을 중단해 주세요.</span>
-                  <span data-lang="en">Stop use immediately if there is an unexpected reaction or if the surface is not suitable.</span>
-                  <span data-lang="cn">如出现异常反应或表面不适合，请立即停止使用。</span>
-                </div>
-              </li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
@@ -932,75 +939,168 @@
     <section class="section">
       <div class="container">
         <div class="grid">
-          <article class="card span-6">
-            <h3 class="card-title" data-lang="ko">제거 및 보관 방법</h3>
-            <h3 class="card-title" data-lang="en">Removal & Storage</h3>
-            <h3 class="card-title" data-lang="cn">移除与保存方法</h3>
-            <div class="tip-stack">
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">효과를 높이는 사용 팁</h2>
+            <h2 class="card-title" data-lang="en">Tips for Better Results</h2>
+            <h2 class="card-title" data-lang="cn">提升效果的小技巧</h2>
+
+            <div class="tips-stack">
+              <div class="tip-box safe">
+                <span data-lang="ko"><strong>첫 3~5일</strong>은 학습 형성에 가장 중요한 기간입니다.</span>
+                <span data-lang="en"><strong>The first 3–5 days</strong> are the most important for building the learning response.</span>
+                <span data-lang="cn"><strong>前 3–5 天</strong>是形成学习反应最关键的阶段。</span>
+              </div>
+              <div class="tip-box">
+                <span data-lang="ko">행동이 자주 발생하는 위치에 <strong>정확히 부착</strong>하는 것이 중요합니다.</span>
+                <span data-lang="en">Precise placement on the exact problem spot is key.</span>
+                <span data-lang="cn">准确贴在问题行为发生的位置很重要。</span>
+              </div>
+              <div class="tip-box soft">
+                <span data-lang="ko">비터케어는 단순 억제가 아니라 <strong>학습 유도형 솔루션</strong>입니다.</span>
+                <span data-lang="en">BitterCare is not just a deterrent. It is a <strong>learning-oriented solution</strong>.</span>
+                <span data-lang="cn">BitterCare 不是单纯阻止工具，而是<strong>学习引导型解决方案</strong>。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">꼭 지켜주세요</h2>
+            <h2 class="card-title" data-lang="en">Important Precautions</h2>
+            <h2 class="card-title" data-lang="cn">请务必遵守</h2>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-check warn">✕</div>
+                <div class="feature-text">
+                  <strong data-lang="ko">절대 몸이나 식기에 붙이지 마세요</strong>
+                  <strong data-lang="en">Never apply to fur or food bowls</strong>
+                  <strong data-lang="cn">绝不可贴在身体或食具上</strong>
+                  <p data-lang="ko">피부, 털, 식기류, 직접 섭취하는 물품에는 사용하지 마세요.</p>
+                  <p data-lang="en">Do not use on skin, fur, bowls, or items intended for direct consumption.</p>
+                  <p data-lang="cn">请勿用于皮肤、毛发、餐具或任何直接入口物品。</p>
+                </div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-check warn">✕</div>
+                <div class="feature-text">
+                  <strong data-lang="ko">눈·입 등 민감 부위는 피해주세요</strong>
+                  <strong data-lang="en">Avoid sensitive areas</strong>
+                  <strong data-lang="cn">避开敏感部位</strong>
+                  <p data-lang="ko">눈, 입 등 민감한 부위에 직접 닿지 않도록 주의해 주세요.</p>
+                  <p data-lang="en">Avoid direct contact with sensitive areas such as eyes and mouth.</p>
+                  <p data-lang="cn">请避免直接接触眼睛、口腔等敏感部位。</p>
+                </div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-check warn">✕</div>
+                <div class="feature-text">
+                  <strong data-lang="ko">잔여물 제거 시 강제로 뜯지 마세요</strong>
+                  <strong data-lang="en">Do not rip off forcefully</strong>
+                  <strong data-lang="cn">请勿强行撕下</strong>
+                  <p data-lang="ko">모서리부터 부드럽게 제거해야 표면 손상을 줄일 수 있습니다.</p>
+                  <p data-lang="en">Peel gently from the edge to reduce the risk of surface damage.</p>
+                  <p data-lang="cn">请从边缘轻柔撕下，以减少表面损伤风险。</p>
+                </div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-check warn">✕</div>
+                <div class="feature-text">
+                  <strong data-lang="ko">어린이 손이 닿지 않게 보관하세요</strong>
+                  <strong data-lang="en">Keep out of reach of children</strong>
+                  <strong data-lang="cn">请置于儿童接触不到的地方</strong>
+                  <p data-lang="ko">영유아 및 어린이 손이 닿지 않는 곳에 보관해 주세요.</p>
+                  <p data-lang="en">Store out of reach of infants and children.</p>
+                  <p data-lang="cn">请放在婴幼儿和儿童接触不到的地方。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="grid">
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">제거 및 보관 방법</h2>
+            <h2 class="card-title" data-lang="en">Removal & Storage</h2>
+            <h2 class="card-title" data-lang="cn">移除与保存方法</h2>
+
+            <div class="tips-stack">
               <div class="tip-box">
                 <span data-lang="ko">제거 시에는 한쪽 끝에서부터 천천히 떼어내는 방식을 권장합니다.</span>
-                <span data-lang="en">When removing, peel slowly starting from one edge.</span>
-                <span data-lang="cn">移除时，建议从一侧边缘开始慢慢撕下。</span>
+                <span data-lang="en">When removing, start from one edge and peel slowly.</span>
+                <span data-lang="cn">移除时建议从一侧边缘开始慢慢撕下。</span>
               </div>
               <div class="tip-box">
                 <span data-lang="ko">직사광선과 고온다습한 환경을 피하고 서늘하고 건조한 곳에 보관해 주세요.</span>
                 <span data-lang="en">Store in a cool, dry place away from direct sunlight, heat, and humidity.</span>
-                <span data-lang="cn">请避开阳光直射及高温潮湿环境，存放在阴凉干燥处。</span>
+                <span data-lang="cn">请避开阳光直射及高温潮湿环境，存放于阴凉干燥处。</span>
               </div>
               <div class="tip-box warn">
-                <span data-lang="ko">표면 상태와 사용 환경에 따라 접착력 및 제거감은 달라질 수 있습니다.</span>
+                <span data-lang="ko">표면 상태와 사용 환경에 따라 접착력과 제거감은 달라질 수 있습니다.</span>
                 <span data-lang="en">Adhesion and removal feel may vary depending on the surface and environment.</span>
                 <span data-lang="cn">根据表面状态和使用环境不同，粘附力与移除感可能有所差异。</span>
               </div>
             </div>
-          </article>
+          </div>
 
-          <article class="card span-6">
-            <h3 class="card-title" data-lang="ko">추가 구매가 필요하신가요?</h3>
-            <h3 class="card-title" data-lang="en">Need More Stickers?</h3>
-            <h3 class="card-title" data-lang="cn">需要追加购买吗？</h3>
-            <p class="card-text" data-lang="ko">비터케어를 더 넓은 공간에 사용하거나 교체용이 필요하신 경우, 공식 구매처에서 추가 구매하실 수 있습니다.</p>
-            <p class="card-text" data-lang="en">If you need more BitterCare for wider areas or replacements, you can purchase additional units through the official store.</p>
-            <p class="card-text" data-lang="cn">如果需要在更大范围使用，或需要替换用贴纸，可通过官方购买渠道追加购买。</p>
+          <div class="card span-6 animate-on-scroll">
+            <h2 class="card-title" data-lang="ko">효과가 떨어졌다면, 교체할 시간입니다</h2>
+            <h2 class="card-title" data-lang="en">If the effect feels weaker, it’s time to replace</h2>
+            <h2 class="card-title" data-lang="cn">如果效果减弱，就是该更换的时候了</h2>
 
-            <div class="repurchase-strip">
+            <div class="tips-stack">
               <div class="tip-box soft">
-                <span data-lang="ko">아직도 가구를 물거나, 특정 장소를 계속 물고 있나요?<br />같은 행동이 반복된다면 지금이 다시 사용할 타이밍입니다.</span>
-                <span data-lang="en">Is your pet still chewing furniture or repeatedly targeting the same area?<br />If the behavior is repeating, now is the right time to use it again.</span>
-                <span data-lang="cn">宠物是否仍在啃咬家具，或反复去同一个位置？<br />如果问题行为再次出现，现在就是重新使用的时机。</span>
+                <span data-lang="ko">아직도 가구를 물거나 같은 장소를 반복적으로 건드리고 있나요?<br />같은 행동이 반복된다면 지금이 다시 사용할 타이밍입니다.</span>
+                <span data-lang="en">Is your pet still chewing furniture or targeting the same area?<br />If the behavior is repeating, now is the right time to use it again.</span>
+                <span data-lang="cn">宠物是否仍在啃咬家具或反复去同一位置？<br />如果问题行为再次出现，现在就是重新使用的时机。</span>
               </div>
-
               <div class="tip-box safe">
-                <span data-lang="ko">효과가 줄어들었다면 <span class="emphasis">교체 시점</span>입니다.<br />지속적인 행동 관리를 위해 정기적으로 교체해 주세요.</span>
-                <span data-lang="en">If the effect feels weaker, it is likely time for <span class="emphasis">replacement</span>.<br />For ongoing behavior management, regular replacement is recommended.</span>
-                <span data-lang="cn">如果感觉效果减弱，通常已到<span class="emphasis">更换时点</span>。<br />为了持续进行行为管理，建议定期更换。</span>
+                <span data-lang="ko">지속적인 행동 관리가 필요할 때는 <strong>정기적인 교체</strong>가 도움이 됩니다.</span>
+                <span data-lang="en"><strong>Regular replacement</strong> helps when ongoing behavior care is needed.</span>
+                <span data-lang="cn">如需持续管理行为，<strong>定期更换</strong>会更有帮助。</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="cta">
-              <strong data-lang="ko">필요한 만큼, 필요한 곳에</strong>
-              <strong data-lang="en">Use It Where You Need It Most</strong>
-              <strong data-lang="cn">按需使用，贴在需要的位置</strong>
+    <section class="section">
+      <div class="container animate-on-scroll">
+        <div class="highlight-box">
+          <h3 data-lang="ko">행동 교정은 단거리 경주가 아닌 마라톤입니다</h3>
+          <h3 data-lang="en">Behavior training is a marathon, not a sprint</h3>
+          <h3 data-lang="cn">行为训练是一场马拉松，而不是短跑</h3>
 
-              <p data-lang="ko">지속적인 행동 관리가 필요할 때는 교체 주기를 정해 사용하는 것이 좋습니다.</p>
-              <p data-lang="en">For continued behavior management, it is often best to use the product with a regular replacement cycle.</p>
-              <p data-lang="cn">如需持续进行行为管理，建议按照一定更换周期使用。</p>
+          <p data-lang="ko">
+            꾸준한 관리가 필요하다면 새로운 비터케어로 교체해 주세요.<br />
+            필요한 만큼, 필요한 곳에 다시 시작하시면 됩니다.
+          </p>
+          <p data-lang="en">
+            If continued support is needed, refresh with new BitterCare stickers.<br />
+            Use it again where and when you need it most.
+          </p>
+          <p data-lang="cn">
+            如果需要持续管理，请更换新的 BitterCare 贴纸。<br />
+            在需要的时候，贴在需要的位置，重新开始即可。
+          </p>
 
-              <div class="button-row">
-                <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">
-                  <span data-lang="ko">지금 바로 재구매하기</span>
-                  <span data-lang="en">Reorder Now</span>
-                  <span data-lang="cn">立即再次购买</span>
-                </a>
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <span data-lang="ko">지금 바로 재구매하기</span>
+              <span data-lang="en">Reorder Now</span>
+              <span data-lang="cn">立即再次购买</span>
+            </a>
 
-                <a class="btn btn-secondary" href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener noreferrer">
-                  <span data-lang="ko">실제 효과 영상 보기</span>
-                  <span data-lang="en">Watch Real Results</span>
-                  <span data-lang="cn">查看实际效果视频</span>
-                </a>
-              </div>
-            </div>
-          </article>
+            <a href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span data-lang="ko">실제 효과 영상 보기</span>
+              <span data-lang="en">Watch Real Results</span>
+              <span data-lang="cn">查看实际效果视频</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1010,7 +1110,7 @@
     <div class="container">
       <div class="footer-card">
         <p data-lang="ko">BitterCare는 반려동물과 가족이 함께 더 편안한 일상을 만들 수 있도록 돕는 BitterINK 기반 행동 관리 솔루션입니다.</p>
-        <p data-lang="en">BitterCare is a BitterINK-based behavior care solution designed to help pets and families enjoy a more comfortable everyday life.</p>
+        <p data-lang="en">BitterCare is a BitterINK-based behavior care solution designed to help pets and families enjoy a more comfortable daily life.</p>
         <p data-lang="cn">BitterCare 是基于 BitterINK 的行为管理解决方案，帮助宠物与家庭拥有更舒适的日常生活。</p>
         <span class="footer-sign">BitterCare</span>
       </div>
@@ -1030,6 +1130,25 @@
         buttons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
       });
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
     });
   </script>
 </body>
