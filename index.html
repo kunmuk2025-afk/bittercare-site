@@ -8,7 +8,7 @@
   <style>
     :root {
       --bg: #f6f2eb;
-      --surface: rgba(255,255,255,0.78);
+      --surface: rgba(255,255,255,0.82);
       --text: #211c17;
       --muted: #6f675d;
       --brand: #3b2a1f;
@@ -16,6 +16,7 @@
       --brand-3: #b88b5a;
       --safe: #eff7f1;
       --warn: #fcf2e7;
+      --soft: #f2ebe1;
       --radius-xl: 32px;
       --radius-lg: 24px;
       --shadow-lg: 0 24px 60px rgba(49, 37, 24, 0.10);
@@ -40,6 +41,11 @@
       overflow-wrap: normal;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     a { color: inherit; text-decoration: none; }
 
     .container {
@@ -52,7 +58,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(18px);
-      background: rgba(252, 250, 246, 0.78);
+      background: rgba(252, 250, 246, 0.82);
       border-bottom: 1px solid rgba(60, 45, 28, 0.06);
     }
 
@@ -72,8 +78,8 @@
     }
 
     .brand-mark {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
       overflow: hidden;
       display: flex;
@@ -89,7 +95,6 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      display: block;
     }
 
     .brand-copy strong {
@@ -131,7 +136,9 @@
       box-shadow: 0 8px 20px rgba(59, 42, 31, 0.16);
     }
 
-    .hero { padding: 36px 0 20px; }
+    .hero {
+      padding: 36px 0 20px;
+    }
 
     .hero-card {
       position: relative;
@@ -171,7 +178,9 @@
       position: relative;
       z-index: 1;
       display: grid;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: center;
     }
 
     .eyebrow {
@@ -213,7 +222,32 @@
       overflow-wrap: normal;
     }
 
+    .hero-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-media-card {
+      width: 100%;
+      max-width: 360px;
+      padding: 18px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+
+    .hero-media-card img {
+      width: 100%;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.88);
+      object-fit: contain;
+    }
+
     .hero-quote {
+      margin-top: 24px;
       border-radius: 24px;
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.12);
@@ -428,10 +462,17 @@
 
     .tip-box.safe { background: var(--safe); }
     .tip-box.warn { background: var(--warn); }
+    .tip-box.soft { background: var(--soft); }
 
     .emphasis {
       font-weight: 800;
       color: var(--brand);
+    }
+
+    .repurchase-strip {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
     }
 
     .cta {
@@ -485,7 +526,7 @@
       color: #fff;
       box-shadow: 0 12px 28px rgba(255, 140, 0, 0.28);
       border-color: rgba(255,255,255,0.08);
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     .btn-secondary {
@@ -536,6 +577,17 @@
       .span-7 { grid-column: span 7; }
     }
 
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media-card {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 720px) {
       .topbar-inner { min-height: 72px; }
       .hero-card { padding: 28px 22px; border-radius: 26px; }
@@ -545,6 +597,8 @@
       .step-num { width: 58px; height: 58px; border-radius: 16px; }
       .footer-card { padding: 20px; }
       .lang-btn { padding: 9px 13px; font-size: 13px; }
+      .button-row { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -611,15 +665,21 @@
               </div>
             </div>
 
-            <aside class="hero-quote">
-              <strong data-lang="ko">사용 전 꼭 읽어주세요</strong>
-              <strong data-lang="en">Please Read Before Use</strong>
-              <strong data-lang="cn">使用前请务必阅读</strong>
-              <p data-lang="ko">이 페이지는 비터케어 구매 후 사용하는 고객 전용 안내 페이지입니다. 처음 사용하시는 경우 아래 사용법과 주의사항을 먼저 확인해 주세요.</p>
-              <p data-lang="en">This page is a post-purchase guide for BitterCare customers. If this is your first time using the product, please review the instructions and precautions below before use.</p>
-              <p data-lang="cn">本页面为购买 BitterCare 后的客户专用说明页面。首次使用时，请先阅读以下使用方法和注意事项。</p>
-            </aside>
+            <div class="hero-media">
+              <div class="hero-media-card">
+                <img src="bittercare-main.png" alt="BitterCare Main Visual" />
+              </div>
+            </div>
           </div>
+
+          <aside class="hero-quote">
+            <strong data-lang="ko">사용 전 꼭 읽어주세요</strong>
+            <strong data-lang="en">Please Read Before Use</strong>
+            <strong data-lang="cn">使用前请务必阅读</strong>
+            <p data-lang="ko">이 페이지는 비터케어 구매 후 사용하는 고객 전용 안내 페이지입니다. 처음 사용하시는 경우 아래 사용법과 주의사항을 먼저 확인해 주세요.</p>
+            <p data-lang="en">This page is a post-purchase guide for BitterCare customers. If this is your first time using the product, please review the instructions and precautions below before use.</p>
+            <p data-lang="cn">本页面为购买 BitterCare 后的客户专用说明页面。首次使用时，请先阅读以下使用方法和注意事项。</p>
+          </aside>
         </div>
       </div>
     </section>
@@ -652,9 +712,9 @@
                   <strong data-lang="ko">세계최초 BitterINK 기반</strong>
                   <strong data-lang="en">World’s First BitterINK-Based</strong>
                   <strong data-lang="cn">全球首创 BitterINK 概念</strong>
-                  <div class="card-text" data-lang="ko">비터케어는 BitterINK를 행동 교정 스티커 형태로 구현한 세계최초 개념으로, 기능성과 차별성을 동시에 갖추고 있습니다.</div>
-                  <div class="card-text" data-lang="en">BitterCare introduces the world’s first concept of BitterINK in a behavior training sticker format, combining distinction with real practicality.</div>
-                  <div class="card-text" data-lang="cn">BitterCare 以行为训练贴纸的形式实现了 BitterINK 概念，在差异化与实用性之间取得平衡。</div>
+                  <div class="card-text" data-lang="ko">비터케어는 BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념으로, 기능성과 브랜드 인지도를 동시에 갖추고 있습니다.</div>
+                  <div class="card-text" data-lang="en">BitterCare introduces a differentiated BitterINK concept in behavior training sticker form, combining functionality with strong brand distinction.</div>
+                  <div class="card-text" data-lang="cn">BitterCare 以行为训练贴纸的形式实现 BitterINK 差异化概念，在功能与品牌辨识度之间取得平衡。</div>
                 </div>
               </li>
               <li>
@@ -663,9 +723,9 @@
                   <strong data-lang="ko">소중한 반려동물을 위한 설계</strong>
                   <strong data-lang="en">Designed with Loving Care</strong>
                   <strong data-lang="cn">为珍贵宠物而设计</strong>
-                  <div class="card-text" data-lang="ko">애견을 자식처럼 아끼는 마음을 담아, 자극만 강조한 제품이 아니라 보다 안심하고 사용할 수 있는 방향으로 설계했습니다.</div>
-                  <div class="card-text" data-lang="en">Created with the care one gives a beloved child, it is designed not as a harsh product, but as a more thoughtful and reassuring solution.</div>
-                  <div class="card-text" data-lang="cn">不是一味强调刺激感，而是以更安心、更细致的方向进行设计，体现对宠物的珍视与照顾。</div>
+                  <div class="card-text" data-lang="ko">자극만 강조한 제품이 아니라, 반려동물과 보호자가 함께 더 편안한 일상을 만들 수 있도록 설계했습니다.</div>
+                  <div class="card-text" data-lang="en">It is not designed as a harsh deterrent, but as a thoughtful solution for a more comfortable daily life with pets.</div>
+                  <div class="card-text" data-lang="cn">不是单纯强调刺激，而是为了让宠物与主人共同拥有更舒适的日常而设计。</div>
                 </div>
               </li>
               <li>
@@ -800,7 +860,7 @@
             <h3 class="card-title" data-lang="en">Tips for Better Results</h3>
             <h3 class="card-title" data-lang="cn">提升效果的小技巧</h3>
             <div class="tip-stack">
-              <div class="tip-box">
+              <div class="tip-box safe">
                 <span data-lang="ko"><span class="emphasis">처음 3~5일</span>은 학습 형성에 중요한 기간입니다.</span>
                 <span data-lang="en">The <span class="emphasis">first 3–5 days</span> are often the most important for behavior learning.</span>
                 <span data-lang="cn"><span class="emphasis">前 3–5 天</span>通常是行为学习最重要的阶段。</span>
@@ -810,10 +870,10 @@
                 <span data-lang="en">Precise placement in the exact problem area is key to effective use.</span>
                 <span data-lang="cn">贴在问题行为最常发生的位置，效果会更好。</span>
               </div>
-              <div class="tip-box safe">
-                <span data-lang="ko">비터케어는 단순 억제가 아니라 <span class="emphasis">학습 유도형 솔루션</span>입니다.</span>
-                <span data-lang="en">BitterCare is not just a deterrent. It is a <span class="emphasis">learning-oriented solution</span>.</span>
-                <span data-lang="cn">BitterCare 不是单纯的阻止工具，而是<span class="emphasis">引导学习的解决方案</span>。</span>
+              <div class="tip-box soft">
+                <span data-lang="ko">효과는 보통 <span class="emphasis">3~5일 내 행동 감소</span>로 나타나기 시작합니다.</span>
+                <span data-lang="en">Behavior change often begins to appear within <span class="emphasis">3–5 days</span>.</span>
+                <span data-lang="cn">通常在 <span class="emphasis">3–5 天内</span>开始出现行为减少的变化。</span>
               </div>
             </div>
           </article>
@@ -903,6 +963,20 @@
             <p class="card-text" data-lang="en">If you need more BitterCare for wider areas or replacements, you can purchase additional units through the official store.</p>
             <p class="card-text" data-lang="cn">如果需要在更大范围使用，或需要替换用贴纸，可通过官方购买渠道追加购买。</p>
 
+            <div class="repurchase-strip">
+              <div class="tip-box soft">
+                <span data-lang="ko">아직도 가구를 물거나, 특정 장소를 계속 물고 있나요?<br />같은 행동이 반복된다면 지금이 다시 사용할 타이밍입니다.</span>
+                <span data-lang="en">Is your pet still chewing furniture or repeatedly targeting the same area?<br />If the behavior is repeating, now is the right time to use it again.</span>
+                <span data-lang="cn">宠物是否仍在啃咬家具，或反复去同一个位置？<br />如果问题行为再次出现，现在就是重新使用的时机。</span>
+              </div>
+
+              <div class="tip-box safe">
+                <span data-lang="ko">효과가 줄어들었다면 <span class="emphasis">교체 시점</span>입니다.<br />지속적인 행동 관리를 위해 정기적으로 교체해 주세요.</span>
+                <span data-lang="en">If the effect feels weaker, it is likely time for <span class="emphasis">replacement</span>.<br />For ongoing behavior management, regular replacement is recommended.</span>
+                <span data-lang="cn">如果感觉效果减弱，通常已到<span class="emphasis">更换时点</span>。<br />为了持续进行行为管理，建议定期更换。</span>
+              </div>
+            </div>
+
             <div class="cta">
               <strong data-lang="ko">필요한 만큼, 필요한 곳에</strong>
               <strong data-lang="en">Use It Where You Need It Most</strong>
@@ -914,15 +988,15 @@
 
               <div class="button-row">
                 <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">
-                  <span data-lang="ko">공식 구매처 바로가기</span>
-                  <span data-lang="en">Go to Official Store</span>
-                  <span data-lang="cn">前往官方购买页面</span>
+                  <span data-lang="ko">지금 바로 재구매하기</span>
+                  <span data-lang="en">Reorder Now</span>
+                  <span data-lang="cn">立即再次购买</span>
                 </a>
 
                 <a class="btn btn-secondary" href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener noreferrer">
-                  <span data-lang="ko">유튜브 공식 채널 가기</span>
-                  <span data-lang="en">Visit Official YouTube Channel</span>
-                  <span data-lang="cn">前往官方 YouTube 频道</span>
+                  <span data-lang="ko">실제 효과 영상 보기</span>
+                  <span data-lang="en">Watch Real Results</span>
+                  <span data-lang="cn">查看实际效果视频</span>
                 </a>
               </div>
             </div>
