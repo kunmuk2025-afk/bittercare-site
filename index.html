@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BitterCare | 다정한 훈육의 시작</title>
-  <meta name="description" content="비터케어 구매 후 고객 전용 안내 페이지. 올바른 사용법과 재구매 안내를 확인해보세요." />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BitterCare | 다정한 훈육의 시작</title>
+<meta content="비터케어 구매 후 고객 전용 안내 페이지. 올바른 사용법과 공식 영상 채널을 확인해보세요." name="description"/>
+<style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     :root {
@@ -147,7 +148,7 @@
     .lang-btn {
       border: none;
       background: none;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 99px;
       font-size: 13px;
       font-weight: 700;
@@ -169,23 +170,31 @@
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: rgba(232, 141, 53, 0.1);
-      color: var(--accent);
+      gap: 10px;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,244,230,0.98) 100%);
+      color: var(--brand);
+      border: 1px solid rgba(232, 141, 53, 0.18);
       border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 22px;
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      box-shadow: 0 14px 30px rgba(232, 141, 53, 0.12);
       animation: fadeUp 0.6s ease-out forwards;
     }
 
     .hero-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
+      content: "❤";
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--accent);
+      background: rgba(232, 141, 53, 0.12);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      line-height: 1;
       animation: pulseSoft 2s infinite;
     }
 
@@ -540,14 +549,15 @@
     }
 
     .highlight-box {
-      background: linear-gradient(135deg, var(--brand) 0%, #6A4A30 100%);
-      color: #fff;
+      background: #F6EFE7;
+      color: var(--text);
       border-radius: var(--radius-lg);
       padding: 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(74, 51, 32, 0.08);
     }
 
     .highlight-box::after {
@@ -557,7 +567,7 @@
       right: -10%;
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(232,141,53,0.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232,141,53,0.10) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -570,13 +580,15 @@
       font-size: 30px;
       margin: 0 0 14px;
       letter-spacing: -0.02em;
+      color: var(--brand);
     }
 
     .highlight-box p {
       font-size: 16px;
-      opacity: 0.92;
+      opacity: 1;
       margin: 0 auto 28px;
       max-width: 640px;
+      color: var(--muted);
     }
 
     .btn-group {
@@ -613,13 +625,13 @@
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(74, 51, 32, 0.06);
+      color: var(--brand);
+      border: 1px solid rgba(74, 51, 32, 0.12);
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.20);
+      background: rgba(74, 51, 32, 0.10);
       transform: translateY(-2px);
     }
 
@@ -655,6 +667,10 @@
     .lang-ko [data-lang]:not([data-lang="ko"]),
     .lang-en [data-lang]:not([data-lang="en"]),
     .lang-cn [data-lang]:not([data-lang="cn"]) {
+      display: none !important;
+    }
+
+    .lang-vi [data-lang]:not([data-lang="vi"]) {
       display: none !important;
     }
 
@@ -734,466 +750,429 @@
 
       .lang-switch {
         margin-left: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .lang-btn {
-        padding: 6px 10px;
-        font-size: 12px;
+        padding: 6px 8px;
+        font-size: 11px;
       }
     }
   </style>
 </head>
 <body class="lang-ko">
-
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-mark">
-          <img src="bittercare-logo.png" alt="BitterCare Logo" />
-        </div>
-        <div class="brand-copy">
-          <strong>BitterCare</strong>
-          <span data-lang="ko">세계최초 BitterINK 기반 행동 교정 스티커</span>
-          <span data-lang="en">The World’s First BitterINK-Based Behavior Training Sticker</span>
-          <span data-lang="cn">全球首创 BitterINK 行为训练贴纸</span>
-        </div>
-      </div>
-
-      <div class="lang-switch">
-        <button class="lang-btn active" data-set-lang="ko">KR</button>
-        <button class="lang-btn" data-set-lang="en">EN</button>
-        <button class="lang-btn" data-set-lang="cn">CN</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-badge">
-          <span data-lang="ko">구매해주셔서 감사합니다</span>
-          <span data-lang="en">Thank you for your purchase</span>
-          <span data-lang="cn">感谢您的购买</span>
-        </div>
-
-        <div class="hero-grid">
-          <div>
-            <h1>
-              <span data-lang="ko">혼내지 말고 다정하게,<br />평화로운 일상의 시작</span>
-              <span data-lang="en">Stop Scolding, Start Guiding.<br />A Peaceful Home Begins.</span>
-              <span data-lang="cn">告别责骂，温和引导。<br />开启平静的日常生活。</span>
-            </h1>
-
-            <p class="hero-copy">
-              <span data-lang="ko"><strong>무해한 콩기름 잉크 기반의 쓴맛</strong>으로 반려동물이 스스로 반복 행동을 줄이도록 돕는 <strong>학습형 솔루션</strong>입니다.</span>
-              <span data-lang="en">Powered by a <strong>harmless soy-ink bitter cue</strong>, it helps pets naturally reduce repetitive behaviors through <strong>learning</strong>.</span>
-              <span data-lang="cn">通过<strong>无害大豆油墨基础的苦味提示</strong>，帮助宠物以<strong>学习方式</strong>自然减少重复行为。</span>
-            </p>
-
-            <div class="hero-points">
-              <div class="hero-point">
-                <div class="hero-point-mark">✓</div>
-                <div>
-                  <span data-lang="ko">처음 <strong>3~5일</strong>이 가장 중요합니다.</span>
-                  <span data-lang="en">The first <strong>3–5 days</strong> matter most.</span>
-                  <span data-lang="cn">前 <strong>3–5 天</strong>最关键。</span>
-                </div>
-              </div>
-              <div class="hero-point">
-                <div class="hero-point-mark">✓</div>
-                <div>
-                  <span data-lang="ko">가구 모서리, 전선 주변, 반복 접촉 표면에 정확히 부착해 주세요.</span>
-                  <span data-lang="en">Apply precisely to furniture edges, cable areas, and repeat-contact surfaces.</span>
-                  <span data-lang="cn">请准确贴在家具边角、线缆周边和反复接触表面。</span>
-                </div>
-              </div>
-              <div class="hero-point">
-                <div class="hero-point-mark">✓</div>
-                <div>
-                  <span data-lang="ko">효과가 줄어들면 새로운 스티커로 교체해 주세요.</span>
-                  <span data-lang="en">If the effect feels weaker, please replace it with a new sticker.</span>
-                  <span data-lang="cn">如果效果减弱，请更换新的贴纸。</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-quote">
-              <strong data-lang="ko">사용 전, 단 3분만 읽어주세요.</strong>
-              <strong data-lang="en">Please read for 3 minutes before use.</strong>
-              <strong data-lang="cn">使用前请花 3 分钟阅读。</strong>
-              <p data-lang="ko">처음 사용하는 고객님을 위해 효과를 높이는 핵심 사용 팁과 주의사항을 정리했습니다.</p>
-              <p data-lang="en">We’ve organized the key usage tips and precautions to help first-time customers get the best results.</p>
-              <p data-lang="cn">我们整理了首次使用时最重要的技巧与注意事项，帮助您获得更好的效果。</p>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <div class="hero-image-wrapper">
-              <img src="bittercare-main.png" alt="BitterCare Main Visual" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <h2 class="section-title" data-lang="ko">마법 같은 변화를 위한 4단계</h2>
-          <h2 class="section-title" data-lang="en">4 Steps to Gentle Change</h2>
-          <h2 class="section-title" data-lang="cn">带来温和改变的 4 个步骤</h2>
-          <p class="section-desc" data-lang="ko">비터케어의 진정한 효과는 올바른 부착과 기다림에서 나옵니다.</p>
-          <p class="section-desc" data-lang="en">The real power of BitterCare comes from proper placement and patience.</p>
-          <p class="section-desc" data-lang="cn">BitterCare 的真正效果来自正确粘贴与耐心等待。</p>
-        </div>
-
-        <div class="steps-container animate-on-scroll">
-          <div class="step-card">
-            <div class="step-num">1</div>
-            <div class="step-icon">✨</div>
-            <h3 data-lang="ko">표면 클렌징</h3>
-            <h3 data-lang="en">Surface Clean</h3>
-            <h3 data-lang="cn">清洁表面</h3>
-            <p data-lang="ko">먼지와 유분기를 닦아내면 접착력이 더욱 안정적으로 유지됩니다.</p>
-            <p data-lang="en">Removing dust and oils helps maintain better adhesion.</p>
-            <p data-lang="cn">去除灰尘和油污后，贴附会更稳定。</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">2</div>
-            <div class="step-icon">✂️</div>
-            <h3 data-lang="ko">맞춤형 재단</h3>
-            <h3 data-lang="en">Custom Cut</h3>
-            <h3 data-lang="cn">定制裁剪</h3>
-            <p data-lang="ko">문제 행동이 반복되는 영역만큼 알맞게 잘라 사용하세요.</p>
-            <p data-lang="en">Cut the sticker to fit the exact area where the behavior repeats.</p>
-            <p data-lang="cn">按问题行为反复出现的范围裁剪使用。</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">3</div>
-            <div class="step-icon">👇</div>
-            <h3 data-lang="ko">빈틈없는 밀착</h3>
-            <h3 data-lang="en">Firm Press</h3>
-            <h3 data-lang="cn">牢固按压</h3>
-            <p data-lang="ko">들뜸이 없도록 표면에 꼼꼼하게 눌러 부착해 주세요.</p>
-            <p data-lang="en">Press firmly so no edge is left lifting.</p>
-            <p data-lang="cn">请仔细按压，避免边缘翘起。</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">4</div>
-            <div class="step-icon">👀</div>
-            <h3 data-lang="ko">다정한 관찰</h3>
-            <h3 data-lang="en">Gentle Watch</h3>
-            <h3 data-lang="cn">温和观察</h3>
-            <p data-lang="ko">첫 3~5일 동안 반려동물이 쓴맛을 학습하는 과정을 지켜봐 주세요.</p>
-            <p data-lang="en">Observe how your pet learns the bitter cue over the first 3–5 days.</p>
-            <p data-lang="cn">请在前 3–5 天观察宠物对苦味提示的学习过程。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="background: #FAF7F2;">
-      <div class="container">
-        <div class="grid">
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">브랜드 핵심 가치</h2>
-            <h2 class="card-title" data-lang="en">Core Brand Values</h2>
-            <h2 class="card-title" data-lang="cn">品牌核心价值</h2>
-            <p class="card-copy" data-lang="ko">비터케어는 단순 차단이 아니라, 감각을 통해 기억을 만들고 행동 변화를 유도하는 학습형 솔루션입니다.</p>
-            <p class="card-copy" data-lang="en">BitterCare is not a simple blocker, but a learning-based solution that creates memory through sensation and encourages behavior change.</p>
-            <p class="card-copy" data-lang="cn">BitterCare 不是单纯阻隔工具，而是通过感官形成记忆、引导行为变化的学习型解决方案。</p>
-
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-check">✓</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">세계최초 BitterINK 기반</strong>
-                  <strong data-lang="en">World’s First BitterINK-Based</strong>
-                  <strong data-lang="cn">全球首创 BitterINK 概念</strong>
-                  <p data-lang="ko">BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념입니다.</p>
-                  <p data-lang="en">A differentiated concept that brings BitterINK into behavior training sticker form.</p>
-                  <p data-lang="cn">将 BitterINK 以行为训练贴纸形式实现的差异化概念。</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-check">✓</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">소중한 반려동물을 위한 설계</strong>
-                  <strong data-lang="en">Designed with Loving Care</strong>
-                  <strong data-lang="cn">为珍贵宠物而设计</strong>
-                  <p data-lang="ko">강한 자극보다 더 편안하고 지속 가능한 방식의 행동 관리를 지향합니다.</p>
-                  <p data-lang="en">Designed for gentler and more sustainable behavior care rather than harsh deterrence.</p>
-                  <p data-lang="cn">比起强刺激，更重视温和且可持续的行为管理方式。</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-check">✓</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">무해한 콩기름 잉크 철학</strong>
-                  <strong data-lang="en">Harmless Soy-Ink Philosophy</strong>
-                  <strong data-lang="cn">无害大豆油墨理念</strong>
-                  <p data-lang="ko">무해한 콩기름 잉크 기반 철학 위에서 출발한 BitterINK의 가치를 담고 있습니다.</p>
-                  <p data-lang="en">Built on the BitterINK philosophy rooted in harmless soy-ink principles.</p>
-                  <p data-lang="cn">承载了以无害大豆油墨理念为基础的 BitterINK 价值观。</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">추천 사용 위치</h2>
-            <h2 class="card-title" data-lang="en">Recommended Areas</h2>
-            <h2 class="card-title" data-lang="cn">推荐使用位置</h2>
-            <p class="card-copy" data-lang="ko">반려동물이 반복적으로 입을 대는 위치에 정확히 적용해 주세요.</p>
-            <p class="card-copy" data-lang="en">Apply precisely where your pet repeatedly chews, licks, or targets.</p>
-            <p class="card-copy" data-lang="cn">请准确贴在宠物反复啃咬、舔舐或接触的位置。</p>
-
-            <div class="use-cases">
-              <div class="use-item">
-                <div class="use-number">01</div>
-                <div class="use-content">
-                  <strong data-lang="ko">가구 모서리</strong>
-                  <strong data-lang="en">Furniture Edges</strong>
-                  <strong data-lang="cn">家具边角</strong>
-                  <span data-lang="ko">소파, 의자 다리, 테이블 가장자리</span>
-                  <span data-lang="en">Sofas, chair legs, table edges</span>
-                  <span data-lang="cn">沙发、椅脚、桌边</span>
-                </div>
-              </div>
-
-              <div class="use-item">
-                <div class="use-number">02</div>
-                <div class="use-content">
-                  <strong data-lang="ko">생활 소품</strong>
-                  <strong data-lang="en">Household Items</strong>
-                  <strong data-lang="cn">日常用品</strong>
-                  <span data-lang="ko">리모컨, 케이블 주변, 자주 건드리는 물건</span>
-                  <span data-lang="en">Remotes, cable areas, frequently targeted items</span>
-                  <span data-lang="cn">遥控器、线缆周边、常被碰触的物品</span>
-                </div>
-              </div>
-
-              <div class="use-item">
-                <div class="use-number">03</div>
-                <div class="use-content">
-                  <strong data-lang="ko">특정 구역</strong>
-                  <strong data-lang="en">Restricted Areas</strong>
-                  <strong data-lang="cn">限制区域</strong>
-                  <span data-lang="ko">문틀, 벽면 일부, 접근을 줄이고 싶은 구역</span>
-                  <span data-lang="en">Door frames, wall areas, restricted zones</span>
-                  <span data-lang="cn">门框、墙面局部、希望减少进入的区域</span>
-                </div>
-              </div>
-
-              <div class="use-item">
-                <div class="use-number">04</div>
-                <div class="use-content">
-                  <strong data-lang="ko">반복 접촉 표면</strong>
-                  <strong data-lang="en">Repeat-Contact Surfaces</strong>
-                  <strong data-lang="cn">重复接触表面</strong>
-                  <span data-lang="ko">자주 물거나 핥는 표면</span>
-                  <span data-lang="en">Surfaces repeatedly chewed or licked</span>
-                  <span data-lang="cn">反复啃咬或舔舐的表面</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="grid">
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">효과를 높이는 사용 팁</h2>
-            <h2 class="card-title" data-lang="en">Tips for Better Results</h2>
-            <h2 class="card-title" data-lang="cn">提升效果的小技巧</h2>
-
-            <div class="tips-stack">
-              <div class="tip-box safe">
-                <span data-lang="ko"><strong>첫 3~5일</strong>은 학습 형성에 가장 중요한 기간입니다.</span>
-                <span data-lang="en"><strong>The first 3–5 days</strong> are the most important for building the learning response.</span>
-                <span data-lang="cn"><strong>前 3–5 天</strong>是形成学习反应最关键的阶段。</span>
-              </div>
-              <div class="tip-box">
-                <span data-lang="ko">행동이 자주 발생하는 위치에 <strong>정확히 부착</strong>하는 것이 중요합니다.</span>
-                <span data-lang="en">Precise placement on the exact problem spot is key.</span>
-                <span data-lang="cn">准确贴在问题行为发生的位置很重要。</span>
-              </div>
-              <div class="tip-box soft">
-                <span data-lang="ko">비터케어는 단순 억제가 아니라 <strong>학습 유도형 솔루션</strong>입니다.</span>
-                <span data-lang="en">BitterCare is not just a deterrent. It is a <strong>learning-oriented solution</strong>.</span>
-                <span data-lang="cn">BitterCare 不是单纯阻止工具，而是<strong>学习引导型解决方案</strong>。</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">꼭 지켜주세요</h2>
-            <h2 class="card-title" data-lang="en">Important Precautions</h2>
-            <h2 class="card-title" data-lang="cn">请务必遵守</h2>
-
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-check warn">✕</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">절대 몸이나 식기에 붙이지 마세요</strong>
-                  <strong data-lang="en">Never apply to fur or food bowls</strong>
-                  <strong data-lang="cn">绝不可贴在身体或食具上</strong>
-                  <p data-lang="ko">피부, 털, 식기류, 직접 섭취하는 물품에는 사용하지 마세요.</p>
-                  <p data-lang="en">Do not use on skin, fur, bowls, or items intended for direct consumption.</p>
-                  <p data-lang="cn">请勿用于皮肤、毛发、餐具或任何直接入口物品。</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-check warn">✕</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">눈·입 등 민감 부위는 피해주세요</strong>
-                  <strong data-lang="en">Avoid sensitive areas</strong>
-                  <strong data-lang="cn">避开敏感部位</strong>
-                  <p data-lang="ko">눈, 입 등 민감한 부위에 직접 닿지 않도록 주의해 주세요.</p>
-                  <p data-lang="en">Avoid direct contact with sensitive areas such as eyes and mouth.</p>
-                  <p data-lang="cn">请避免直接接触眼睛、口腔等敏感部位。</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-check warn">✕</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">잔여물 제거 시 강제로 뜯지 마세요</strong>
-                  <strong data-lang="en">Do not rip off forcefully</strong>
-                  <strong data-lang="cn">请勿强行撕下</strong>
-                  <p data-lang="ko">모서리부터 부드럽게 제거해야 표면 손상을 줄일 수 있습니다.</p>
-                  <p data-lang="en">Peel gently from the edge to reduce the risk of surface damage.</p>
-                  <p data-lang="cn">请从边缘轻柔撕下，以减少表面损伤风险。</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-check warn">✕</div>
-                <div class="feature-text">
-                  <strong data-lang="ko">어린이 손이 닿지 않게 보관하세요</strong>
-                  <strong data-lang="en">Keep out of reach of children</strong>
-                  <strong data-lang="cn">请置于儿童接触不到的地方</strong>
-                  <p data-lang="ko">영유아 및 어린이 손이 닿지 않는 곳에 보관해 주세요.</p>
-                  <p data-lang="en">Store out of reach of infants and children.</p>
-                  <p data-lang="cn">请放在婴幼儿和儿童接触不到的地方。</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="grid">
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">제거 및 보관 방법</h2>
-            <h2 class="card-title" data-lang="en">Removal & Storage</h2>
-            <h2 class="card-title" data-lang="cn">移除与保存方法</h2>
-
-            <div class="tips-stack">
-              <div class="tip-box">
-                <span data-lang="ko">제거 시에는 한쪽 끝에서부터 천천히 떼어내는 방식을 권장합니다.</span>
-                <span data-lang="en">When removing, start from one edge and peel slowly.</span>
-                <span data-lang="cn">移除时建议从一侧边缘开始慢慢撕下。</span>
-              </div>
-              <div class="tip-box">
-                <span data-lang="ko">직사광선과 고온다습한 환경을 피하고 서늘하고 건조한 곳에 보관해 주세요.</span>
-                <span data-lang="en">Store in a cool, dry place away from direct sunlight, heat, and humidity.</span>
-                <span data-lang="cn">请避开阳光直射及高温潮湿环境，存放于阴凉干燥处。</span>
-              </div>
-              <div class="tip-box warn">
-                <span data-lang="ko">표면 상태와 사용 환경에 따라 접착력과 제거감은 달라질 수 있습니다.</span>
-                <span data-lang="en">Adhesion and removal feel may vary depending on the surface and environment.</span>
-                <span data-lang="cn">根据表面状态和使用环境不同，粘附力与移除感可能有所差异。</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card span-6 animate-on-scroll">
-            <h2 class="card-title" data-lang="ko">효과가 떨어졌다면, 교체할 시간입니다</h2>
-            <h2 class="card-title" data-lang="en">If the effect feels weaker, it’s time to replace</h2>
-            <h2 class="card-title" data-lang="cn">如果效果减弱，就是该更换的时候了</h2>
-
-            <div class="tips-stack">
-              <div class="tip-box soft">
-                <span data-lang="ko">아직도 가구를 물거나 같은 장소를 반복적으로 건드리고 있나요?<br />같은 행동이 반복된다면 지금이 다시 사용할 타이밍입니다.</span>
-                <span data-lang="en">Is your pet still chewing furniture or targeting the same area?<br />If the behavior is repeating, now is the right time to use it again.</span>
-                <span data-lang="cn">宠物是否仍在啃咬家具或反复去同一位置？<br />如果问题行为再次出现，现在就是重新使用的时机。</span>
-              </div>
-              <div class="tip-box safe">
-                <span data-lang="ko">효과가 줄어들면 <strong>새로운 스티커로 교체해 주세요</strong>.</span>
-                <span data-lang="en">If the effect feels weaker, please <strong>replace it with a new sticker</strong>.</span>
-                <span data-lang="cn">如果效果减弱，请<strong>更换新的贴纸</strong>。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container animate-on-scroll">
-        <div class="highlight-box">
-          <h3 data-lang="ko">행동 교정은 단거리 경주가 아닌 마라톤입니다</h3>
-          <h3 data-lang="en">Behavior training is a marathon, not a sprint</h3>
-          <h3 data-lang="cn">行为训练是一场马拉松，而不是短跑</h3>
-
-          <p data-lang="ko">
-            꾸준한 관리가 필요하다면 새로운 비터케어로 교체해 주세요.<br />
-            필요한 만큼, 필요한 곳에 다시 시작하시면 됩니다.
+<header class="topbar">
+<div class="container topbar-inner">
+<div class="brand">
+<div class="brand-mark">
+<img alt="BitterCare Logo" src="bittercare-logo.png"/>
+</div>
+<div class="brand-copy">
+<strong>BitterCare</strong>
+<span data-lang="ko">세계최초 BitterINK 기반 행동 교정 스티커</span>
+<span data-lang="en">The World’s First BitterINK-Based Behavior Training Sticker</span><span data-lang="vi">Sticker huấn luyện hành vi ứng dụng BitterINK đầu tiên trên thế giới</span>
+<span data-lang="cn">全球首创 BitterINK 行为训练贴纸</span>
+</div>
+</div>
+<div class="lang-switch">
+<button class="lang-btn active" data-set-lang="ko">KR</button>
+<button class="lang-btn" data-set-lang="en">EN</button>
+<button class="lang-btn" data-set-lang="cn">CN</button>
+<button class="lang-btn" data-set-lang="vi">VN</button></div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div class="hero-badge">
+<span data-lang="ko">비터케어를 선택해 주셔서 감사합니다</span>
+<span data-lang="en">Thank you for choosing BitterCare</span><span data-lang="vi">Cảm ơn quý khách đã lựa chọn BitterCare</span>
+<span data-lang="cn">感谢您选择 BitterCare</span>
+</div>
+<div class="hero-grid">
+<div>
+<h1>
+<span data-lang="ko">혼내지 말고 다정하게,<br/>평화로운 일상의 시작</span>
+<span data-lang="en">Stop Scolding, Start Guiding.<br/>A Peaceful Home Begins.</span><span data-lang="vi">Thay vì la mắng, hãy dịu dàng hướng dẫn. Bắt đầu một nhịp sống yên bình.</span>
+<span data-lang="cn">告别责骂，温和引导。<br/>开启平静的日常生活。</span>
+</h1>
+<p class="hero-copy">
+<span data-lang="ko"><strong>무해한 콩기름 잉크 기반의 쓴맛</strong>으로 반려동물이 스스로 반복 행동을 줄이도록 돕는 <strong>학습형 솔루션</strong>입니다.</span>
+<span data-lang="en">Powered by a <strong>harmless soy-ink bitter cue</strong>, it helps pets naturally reduce repetitive behaviors through <strong>learning</strong>.</span><span data-lang="vi">Với <strong>tín hiệu vị đắng dựa trên mực đậu nành an toàn</strong>, sản phẩm giúp thú cưng tự nhiên giảm các hành vi lặp lại thông qua <strong>quá trình học hỏi</strong>.</span>
+<span data-lang="cn">通过<strong>无害大豆油墨基础的苦味提示</strong>，帮助宠物以<strong>学习方式</strong>自然减少重复行为。</span>
+</p>
+<div class="hero-points">
+<div class="hero-point">
+<div class="hero-point-mark">✓</div>
+<div>
+<span data-lang="ko">처음 <strong>3~5일</strong>이 가장 중요합니다.</span>
+<span data-lang="en">The first <strong>3–5 days</strong> matter most.</span><span data-lang="vi">3–5 ngày đầu tiên là giai đoạn quan trọng nhất.</span>
+<span data-lang="cn">前 <strong>3–5 天</strong>最关键。</span>
+</div>
+</div>
+<div class="hero-point">
+<div class="hero-point-mark">✓</div>
+<div>
+<span data-lang="ko">가구 모서리, 전선 주변, 반복 접촉 표면에 정확히 부착해 주세요.</span>
+<span data-lang="en">Apply precisely to furniture edges, cable areas, and repeat-contact surfaces.</span><span data-lang="vi">Hãy dán chính xác vào mép đồ nội thất, khu vực dây điện và các bề mặt thường xuyên bị tiếp xúc lặp lại.</span>
+<span data-lang="cn">请准确贴在家具边角、线缆周边和反复接触表面。</span>
+</div>
+</div>
+<div class="hero-point">
+<div class="hero-point-mark">✓</div>
+<div>
+<span data-lang="ko">효과가 줄어들면 새로운 스티커로 교체해 주세요.</span>
+<span data-lang="en">If the effect feels weaker, please replace it with a new sticker.</span><span data-lang="vi">Nếu cảm thấy hiệu quả giảm đi, vui lòng thay bằng sticker mới.</span>
+<span data-lang="cn">如果效果减弱，请更换新的贴纸。</span>
+</div>
+</div>
+</div>
+<div class="hero-quote">
+<strong data-lang="ko">사용 전, 단 3분만 읽어주세요.</strong>
+<strong data-lang="en">Please read for 3 minutes before use.</strong><strong data-lang="vi">Vui lòng dành 3 phút đọc trước khi sử dụng.</strong>
+<strong data-lang="cn">使用前请花 3 分钟阅读。</strong>
+<p data-lang="ko">처음 사용하는 고객님을 위해 효과를 높이는 핵심 사용 팁과 주의사항을 정리했습니다.</p>
+<p data-lang="en">We’ve organized the key usage tips and precautions to help first-time customers get the best results.</p><p data-lang="vi">Chúng tôi đã tổng hợp các hướng dẫn sử dụng quan trọng và lưu ý cần biết để khách hàng dùng lần đầu đạt hiệu quả tốt nhất.</p>
+<p data-lang="cn">我们整理了首次使用时最重要的技巧与注意事项，帮助您获得更好的效果。</p>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-image-wrapper">
+<img alt="BitterCare Main Visual" src="bittercare-main.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-header animate-on-scroll">
+<h2 class="section-title" data-lang="ko">마법 같은 변화를 위한 4단계</h2>
+<h2 class="section-title" data-lang="en">4 Steps to Gentle Change</h2><h2 class="section-title" data-lang="vi">4 bước cho sự thay đổi nhẹ nhàng</h2>
+<h2 class="section-title" data-lang="cn">带来温和改变的 4 个步骤</h2>
+<p class="section-desc" data-lang="ko">비터케어의 진정한 효과는 올바른 부착과 기다림에서 나옵니다.</p>
+<p class="section-desc" data-lang="en">The real power of BitterCare comes from proper placement and patience.</p><p class="section-desc" data-lang="vi">Hiệu quả thực sự của BitterCare đến từ việc dán đúng vị trí và kiên nhẫn quan sát.</p>
+<p class="section-desc" data-lang="cn">BitterCare 的真正效果来自正确粘贴与耐心等待。</p>
+</div>
+<div class="steps-container animate-on-scroll">
+<div class="step-card">
+<div class="step-num">1</div>
+<div class="step-icon">✨</div>
+<h3 data-lang="ko">표면 클렌징</h3>
+<h3 data-lang="en">Surface Clean</h3><h3 data-lang="vi">Làm sạch bề mặt</h3>
+<h3 data-lang="cn">清洁表面</h3>
+<p data-lang="ko">먼지와 유분기를 닦아내면 접착력이 더욱 안정적으로 유지됩니다.</p>
+<p data-lang="en">Removing dust and oils helps maintain better adhesion.</p><p data-lang="vi">Lau sạch bụi và dầu sẽ giúp độ bám dính ổn định hơn.</p>
+<p data-lang="cn">去除灰尘和油污后，贴附会更稳定。</p>
+</div>
+<div class="step-card">
+<div class="step-num">2</div>
+<div class="step-icon">✂️</div>
+<h3 data-lang="ko">맞춤형 재단</h3>
+<h3 data-lang="en">Custom Cut</h3><h3 data-lang="vi">Cắt theo vị trí</h3>
+<h3 data-lang="cn">定制裁剪</h3>
+<p data-lang="ko">문제 행동이 반복되는 영역만큼 알맞게 잘라 사용하세요.</p>
+<p data-lang="en">Cut the sticker to fit the exact area where the behavior repeats.</p><p data-lang="vi">Cắt sticker vừa với đúng khu vực mà hành vi lặp lại.</p>
+<p data-lang="cn">按问题行为反复出现的范围裁剪使用。</p>
+</div>
+<div class="step-card">
+<div class="step-num">3</div>
+<div class="step-icon">👇</div>
+<h3 data-lang="ko">빈틈없는 밀착</h3>
+<h3 data-lang="en">Firm Press</h3><h3 data-lang="vi">Ép dán chắc chắn</h3>
+<h3 data-lang="cn">牢固按压</h3>
+<p data-lang="ko">들뜸이 없도록 표면에 꼼꼼하게 눌러 부착해 주세요.</p>
+<p data-lang="en">Press firmly so no edge is left lifting.</p><p data-lang="vi">Ấn chặt để không còn mép nào bị bong lên.</p>
+<p data-lang="cn">请仔细按压，避免边缘翘起。</p>
+</div>
+<div class="step-card">
+<div class="step-num">4</div>
+<div class="step-icon">👀</div>
+<h3 data-lang="ko">다정한 관찰</h3>
+<h3 data-lang="en">Gentle Watch</h3><h3 data-lang="vi">Quan sát nhẹ nhàng</h3>
+<h3 data-lang="cn">温和观察</h3>
+<p data-lang="ko">첫 3~5일 동안 반려동물이 쓴맛을 학습하는 과정을 지켜봐 주세요.</p>
+<p data-lang="en">Observe how your pet learns the bitter cue over the first 3–5 days.</p><p data-lang="vi">Quan sát cách thú cưng làm quen với tín hiệu vị đắng trong 3–5 ngày đầu.</p>
+<p data-lang="cn">请在前 3–5 天观察宠物对苦味提示的学习过程。</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" style="background: #FAF7F2;">
+<div class="container">
+<div class="grid">
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">브랜드 핵심 가치</h2>
+<h2 class="card-title" data-lang="en">Core Brand Values</h2><h2 class="card-title" data-lang="vi">Giá trị cốt lõi của thương hiệu</h2>
+<h2 class="card-title" data-lang="cn">品牌核心价值</h2>
+<p class="card-copy" data-lang="ko">비터케어는 단순 차단이 아니라, 감각을 통해 기억을 만들고 행동 변화를 유도하는 학습형 솔루션입니다.</p>
+<p class="card-copy" data-lang="en">BitterCare is not a simple blocker, but a learning-based solution that creates memory through sensation and encourages behavior change.</p><p class="card-copy" data-lang="vi">BitterCare không chỉ là công cụ ngăn chặn đơn thuần, mà là giải pháp định hướng học tập tạo ghi nhớ qua cảm giác và thúc đẩy thay đổi hành vi.</p>
+<p class="card-copy" data-lang="cn">BitterCare 不是单纯阻隔工具，而是通过感官形成记忆、引导行为变化的学习型解决方案。</p>
+<ul class="feature-list">
+<li class="feature-item">
+<div class="feature-check">✓</div>
+<div class="feature-text">
+<strong data-lang="ko">세계최초 BitterINK 기반</strong>
+<strong data-lang="en">World’s First BitterINK-Based</strong><strong data-lang="vi">Công nghệ BitterINK tiên phong</strong>
+<strong data-lang="cn">全球首创 BitterINK 概念</strong>
+<p data-lang="ko">BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념입니다.</p>
+<p data-lang="en">A differentiated concept that brings BitterINK into behavior training sticker form.</p><p data-lang="vi">Một khái niệm khác biệt đưa BitterINK vào hình thức sticker huấn luyện hành vi.</p>
+<p data-lang="cn">将 BitterINK 以行为训练贴纸形式实现的差异化概念。</p>
+</div>
+</li>
+<li class="feature-item">
+<div class="feature-check">✓</div>
+<div class="feature-text">
+<strong data-lang="ko">소중한 반려동물을 위한 설계</strong>
+<strong data-lang="en">Designed with Loving Care</strong><strong data-lang="vi">Thiết kế với sự quan tâm dịu dàng</strong>
+<strong data-lang="cn">为珍贵宠物而设计</strong>
+<p data-lang="ko">강한 자극보다 더 편안하고 지속 가능한 방식의 행동 관리를 지향합니다.</p>
+<p data-lang="en">Designed for gentler and more sustainable behavior care rather than harsh deterrence.</p><p data-lang="vi">Được thiết kế theo hướng quản lý hành vi nhẹ nhàng và bền vững hơn thay vì răn đe mạnh.</p>
+<p data-lang="cn">比起强刺激，更重视温和且可持续的行为管理方式。</p>
+</div>
+</li>
+<li class="feature-item">
+<div class="feature-check">✓</div>
+<div class="feature-text">
+<strong data-lang="ko">무해한 콩기름 잉크 철학</strong>
+<strong data-lang="en">Harmless Soy-Ink Philosophy</strong><strong data-lang="vi">Triết lý mực đậu nành an toàn</strong>
+<strong data-lang="cn">无害大豆油墨理念</strong>
+<p data-lang="ko">무해한 콩기름 잉크 기반 철학 위에서 출발한 BitterINK의 가치를 담고 있습니다.</p>
+<p data-lang="en">Built on the BitterINK philosophy rooted in harmless soy-ink principles.</p><p data-lang="vi">Được xây dựng trên triết lý BitterINK bắt nguồn từ nguyên tắc mực đậu nành an toàn.</p>
+<p data-lang="cn">承载了以无害大豆油墨理念为基础的 BitterINK 价值观。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">추천 사용 위치</h2>
+<h2 class="card-title" data-lang="en">Recommended Areas</h2><h2 class="card-title" data-lang="vi">Vị trí nên sử dụng</h2>
+<h2 class="card-title" data-lang="cn">推荐使用位置</h2>
+<p class="card-copy" data-lang="ko">반려동물이 반복적으로 입을 대는 위치에 정확히 적용해 주세요.</p>
+<p class="card-copy" data-lang="en">Apply precisely where your pet repeatedly chews, licks, or targets.</p><p class="card-copy" data-lang="vi">Hãy dán chính xác tại nơi thú cưng thường xuyên cắn, liếm hoặc tiếp cận lặp lại.</p>
+<p class="card-copy" data-lang="cn">请准确贴在宠物反复啃咬、舔舐或接触的位置。</p>
+<div class="use-cases">
+<div class="use-item">
+<div class="use-number">01</div>
+<div class="use-content">
+<strong data-lang="ko">가구 모서리</strong>
+<strong data-lang="en">Furniture Edges</strong><strong data-lang="vi">Mép đồ nội thất</strong>
+<strong data-lang="cn">家具边角</strong>
+<span data-lang="ko">소파, 의자 다리, 테이블 가장자리</span>
+<span data-lang="en">Sofas, chair legs, table edges</span><span data-lang="vi">Ghế sofa, chân ghế, mép bàn</span>
+<span data-lang="cn">沙发、椅脚、桌边</span>
+</div>
+</div>
+<div class="use-item">
+<div class="use-number">02</div>
+<div class="use-content">
+<strong data-lang="ko">생활 소품</strong>
+<strong data-lang="en">Household Items</strong><strong data-lang="vi">Đồ vật trong nhà</strong>
+<strong data-lang="cn">日常用品</strong>
+<span data-lang="ko">리모컨, 케이블 주변, 자주 건드리는 물건</span>
+<span data-lang="en">Remotes, cable areas, frequently targeted items</span><span data-lang="vi">Điều khiển, khu vực dây điện, các vật dụng thường bị nhắm tới</span>
+<span data-lang="cn">遥控器、线缆周边、常被碰触的物品</span>
+</div>
+</div>
+<div class="use-item">
+<div class="use-number">03</div>
+<div class="use-content">
+<strong data-lang="ko">특정 구역</strong>
+<strong data-lang="en">Restricted Areas</strong><strong data-lang="vi">Khu vực cần hạn chế</strong>
+<strong data-lang="cn">限制区域</strong>
+<span data-lang="ko">문틀, 벽면 일부, 접근을 줄이고 싶은 구역</span>
+<span data-lang="en">Door frames, wall areas, restricted zones</span><span data-lang="vi">Khung cửa, khu vực tường, vùng cần hạn chế tiếp cận</span>
+<span data-lang="cn">门框、墙面局部、希望减少进入的区域</span>
+</div>
+</div>
+<div class="use-item">
+<div class="use-number">04</div>
+<div class="use-content">
+<strong data-lang="ko">반복 접촉 표면</strong>
+<strong data-lang="en">Repeat-Contact Surfaces</strong><strong data-lang="vi">Bề mặt tiếp xúc lặp lại</strong>
+<strong data-lang="cn">重复接触表面</strong>
+<span data-lang="ko">자주 물거나 핥는 표면</span>
+<span data-lang="en">Surfaces repeatedly chewed or licked</span><span data-lang="vi">Các bề mặt thường xuyên bị cắn hoặc liếm</span>
+<span data-lang="cn">反复啃咬或舔舐的表面</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="grid">
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">효과를 높이는 사용 팁</h2>
+<h2 class="card-title" data-lang="en">Tips for Better Results</h2><h2 class="card-title" data-lang="vi">Mẹo để đạt hiệu quả tốt hơn</h2>
+<h2 class="card-title" data-lang="cn">提升效果的小技巧</h2>
+<div class="tips-stack">
+<div class="tip-box safe">
+<span data-lang="ko"><strong>첫 3~5일</strong>은 학습 형성에 가장 중요한 기간입니다.</span>
+<span data-lang="en"><strong>The first 3–5 days</strong> are the most important for building the learning response.</span><span data-lang="vi"><strong>3–5 ngày đầu</strong> là giai đoạn quan trọng nhất để hình thành phản xạ học tập.</span>
+<span data-lang="cn"><strong>前 3–5 天</strong>是形成学习反应最关键的阶段。</span>
+</div>
+<div class="tip-box">
+<span data-lang="ko">행동이 자주 발생하는 위치에 <strong>정확히 부착</strong>하는 것이 중요합니다.</span>
+<span data-lang="en">Precise placement on the exact problem spot is key.</span><span data-lang="vi">Dán đúng vào chính xác vị trí gây vấn đề là yếu tố then chốt.</span>
+<span data-lang="cn">准确贴在问题行为发生的位置很重要。</span>
+</div>
+<div class="tip-box soft">
+<span data-lang="ko">비터케어는 단순 억제가 아니라 <strong>학습 유도형 솔루션</strong>입니다.</span>
+<span data-lang="en">BitterCare is not just a deterrent. It is a <strong>learning-oriented solution</strong>.</span><span data-lang="vi">BitterCare không chỉ là biện pháp ngăn chặn. Đây là <strong>giải pháp định hướng học tập</strong>.</span>
+<span data-lang="cn">BitterCare 不是单纯阻止工具，而是<strong>学习引导型解决方案</strong>。</span>
+</div>
+</div>
+</div>
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">꼭 지켜주세요</h2>
+<h2 class="card-title" data-lang="en">Important Precautions</h2><h2 class="card-title" data-lang="vi">Lưu ý quan trọng</h2>
+<h2 class="card-title" data-lang="cn">请务必遵守</h2>
+<ul class="feature-list">
+<li class="feature-item">
+<div class="feature-check warn">✕</div>
+<div class="feature-text">
+<strong data-lang="ko">절대 몸이나 식기에 붙이지 마세요</strong>
+<strong data-lang="en">Never apply to fur or food bowls</strong><strong data-lang="vi">Tuyệt đối không dán lên lông hoặc bát ăn</strong>
+<strong data-lang="cn">绝不可贴在身体或食具上</strong>
+<p data-lang="ko">피부, 털, 식기류, 직접 섭취하는 물품에는 사용하지 마세요.</p>
+<p data-lang="en">Do not use on skin, fur, bowls, or items intended for direct consumption.</p><p data-lang="vi">Không sử dụng trên da, lông, bát ăn hoặc các vật dụng dùng để tiếp xúc trực tiếp với đồ ăn thức uống.</p>
+<p data-lang="cn">请勿用于皮肤、毛发、餐具或任何直接入口物品。</p>
+</div>
+</li>
+<li class="feature-item">
+<div class="feature-check warn">✕</div>
+<div class="feature-text">
+<strong data-lang="ko">눈·입 등 민감 부위는 피해주세요</strong>
+<strong data-lang="en">Avoid sensitive areas</strong><strong data-lang="vi">Tránh các vùng nhạy cảm</strong>
+<strong data-lang="cn">避开敏感部位</strong>
+<p data-lang="ko">눈, 입 등 민감한 부위에 직접 닿지 않도록 주의해 주세요.</p>
+<p data-lang="en">Avoid direct contact with sensitive areas such as eyes and mouth.</p><p data-lang="vi">Tránh tiếp xúc trực tiếp với các vùng nhạy cảm như mắt và miệng.</p>
+<p data-lang="cn">请避免直接接触眼睛、口腔等敏感部位。</p>
+</div>
+</li>
+<li class="feature-item">
+<div class="feature-check warn">✕</div>
+<div class="feature-text">
+<strong data-lang="ko">잔여물 제거 시 강제로 뜯지 마세요</strong>
+<strong data-lang="en">Do not rip off forcefully</strong><strong data-lang="vi">Không bóc mạnh tay</strong>
+<strong data-lang="cn">请勿强行撕下</strong>
+<p data-lang="ko">모서리부터 부드럽게 제거해야 표면 손상을 줄일 수 있습니다.</p>
+<p data-lang="en">Peel gently from the edge to reduce the risk of surface damage.</p><p data-lang="vi">Bóc nhẹ từ mép để giảm nguy cơ làm hỏng bề mặt.</p>
+<p data-lang="cn">请从边缘轻柔撕下，以减少表面损伤风险。</p>
+</div>
+</li>
+<li class="feature-item">
+<div class="feature-check warn">✕</div>
+<div class="feature-text">
+<strong data-lang="ko">어린이 손이 닿지 않게 보관하세요</strong>
+<strong data-lang="en">Keep out of reach of children</strong><strong data-lang="vi">Để xa tầm tay trẻ em</strong>
+<strong data-lang="cn">请置于儿童接触不到的地方</strong>
+<p data-lang="ko">영유아 및 어린이 손이 닿지 않는 곳에 보관해 주세요.</p>
+<p data-lang="en">Store out of reach of infants and children.</p><p data-lang="vi">Bảo quản ngoài tầm với của trẻ nhỏ và trẻ em.</p>
+<p data-lang="cn">请放在婴幼儿和儿童接触不到的地方。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section" style="padding-top: 0;">
+<div class="container">
+<div class="grid">
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">제거 및 보관 방법</h2>
+<h2 class="card-title" data-lang="en">Removal &amp; Storage</h2><h2 class="card-title" data-lang="vi">Cách tháo gỡ và bảo quản</h2>
+<h2 class="card-title" data-lang="cn">移除与保存方法</h2>
+<div class="tips-stack">
+<div class="tip-box">
+<span data-lang="ko">제거 시에는 한쪽 끝에서부터 천천히 떼어내는 방식을 권장합니다.</span>
+<span data-lang="en">When removing, start from one edge and peel slowly.</span><span data-lang="vi">Khi tháo, hãy bắt đầu từ một mép và bóc chậm rãi.</span>
+<span data-lang="cn">移除时建议从一侧边缘开始慢慢撕下。</span>
+</div>
+<div class="tip-box">
+<span data-lang="ko">직사광선과 고온다습한 환경을 피하고 서늘하고 건조한 곳에 보관해 주세요.</span>
+<span data-lang="en">Store in a cool, dry place away from direct sunlight, heat, and humidity.</span><span data-lang="vi">Bảo quản ở nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp, nhiệt độ cao và độ ẩm.</span>
+<span data-lang="cn">请避开阳光直射及高温潮湿环境，存放于阴凉干燥处。</span>
+</div>
+<div class="tip-box warn">
+<span data-lang="ko">표면 상태와 사용 환경에 따라 접착력과 제거감은 달라질 수 있습니다.</span>
+<span data-lang="en">Adhesion and removal feel may vary depending on the surface and environment.</span><span data-lang="vi">Độ bám dính và cảm giác khi tháo có thể khác nhau tùy theo bề mặt và môi trường sử dụng.</span>
+<span data-lang="cn">根据表面状态和使用环境不同，粘附力与移除感可能有所差异。</span>
+</div>
+</div>
+</div>
+<div class="card span-6 animate-on-scroll">
+<h2 class="card-title" data-lang="ko">효과가 떨어졌다면, 교체할 시간입니다</h2>
+<h2 class="card-title" data-lang="en">If the effect feels weaker, it’s time to replace</h2><h2 class="card-title" data-lang="vi">Nếu cảm thấy hiệu quả giảm, đã đến lúc thay mới</h2>
+<h2 class="card-title" data-lang="cn">如果效果减弱，就是该更换的时候了</h2>
+<div class="tips-stack">
+<div class="tip-box soft">
+<span data-lang="ko">아직도 가구를 물거나 같은 장소를 반복적으로 건드리고 있나요?<br/>같은 행동이 반복된다면 지금이 다시 사용할 타이밍입니다.</span>
+<span data-lang="en">Is your pet still chewing furniture or targeting the same area?<br/>If the behavior is repeating, now is the right time to use it again.</span><span data-lang="vi">Thú cưng vẫn tiếp tục cắn đồ nội thất hoặc quay lại đúng vị trí đó? Nếu hành vi lặp lại, đây là thời điểm phù hợp để sử dụng lại.</span>
+<span data-lang="cn">宠物是否仍在啃咬家具或反复去同一位置？<br/>如果问题行为再次出现，现在就是重新使用的时机。</span>
+</div>
+<div class="tip-box safe">
+<span data-lang="ko">효과가 줄어들면 <strong>새로운 스티커로 교체해 주세요</strong>.</span>
+<span data-lang="en">If the effect feels weaker, please <strong>replace it with a new sticker</strong>.</span><span data-lang="vi">Nếu cảm thấy hiệu quả giảm đi, vui lòng <strong>thay bằng sticker mới</strong>.</span>
+<span data-lang="cn">如果效果减弱，请<strong>更换新的贴纸</strong>。</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container animate-on-scroll">
+<div class="highlight-box">
+<h3 data-lang="ko">행동 변화는 단거리 경주가 아닌 마라톤입니다</h3>
+<h3 data-lang="en">Behavior training is a marathon, not a sprint</h3><h3 data-lang="vi">Điều chỉnh hành vi là một hành trình dài, không phải cuộc chạy nước rút</h3>
+<h3 data-lang="cn">行为训练是一场马拉松，而不是短跑</h3>
+<p data-lang="ko">
+            좋은 습관은 한 번이 아닌, 꾸준함으로 완성됩니다.<br/>
+            비터케어가 그 여정을 함께합니다.
           </p>
-          <p data-lang="en">
-            If continued support is needed, refresh with new BitterCare stickers.<br />
+<p data-lang="en">
+            If continued support is needed, refresh with new BitterCare stickers.<br/>
             Use it again where and when you need it most.
-          </p>
-          <p data-lang="cn">
-            如果需要持续管理，请更换新的 BitterCare 贴纸。<br />
+          </p><p data-lang="vi">Nếu cần hỗ trợ liên tục, hãy thay bằng sticker BitterCare mới. Sử dụng lại đúng nơi và đúng lúc cần thiết nhất.</p>
+<p data-lang="cn">
+            如果需要持续管理，请更换新的 BitterCare 贴纸。<br/>
             在需要的时候，贴在需要的位置，重新开始即可。
           </p>
-
-          <div class="btn-group">
-            <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              <span data-lang="ko">지금 바로 재구매하기</span>
-              <span data-lang="en">Reorder Now</span>
-              <span data-lang="cn">立即再次购买</span>
-            </a>
-
-            <a href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span data-lang="ko">실제 효과 영상 보기</span>
-              <span data-lang="en">Watch Real Results</span>
-              <span data-lang="cn">查看实际效果视频</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-card">
-        <p data-lang="ko">BitterCare는 반려동물과 가족이 함께 더 편안한 일상을 만들 수 있도록 돕는 BitterINK 기반 행동 관리 솔루션입니다.</p>
-        <p data-lang="en">BitterCare is a BitterINK-based behavior care solution designed to help pets and families enjoy a more comfortable daily life.</p>
-        <p data-lang="cn">BitterCare 是基于 BitterINK 的行为管理解决方案，帮助宠物与家庭拥有更舒适的日常生活。</p>
-        <span class="footer-sign">BitterCare</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
+<div class="btn-group">
+<a class="btn btn-secondary" href="https://www.youtube.com/@BitterCareOfficial" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">공식 YouTube 채널 바로가기</span>
+<span data-lang="en">Visit the Official YouTube Channel</span><span data-lang="vi">Truy cập kênh YouTube chính thức</span>
+<span data-lang="cn">前往官方 YouTube 频道</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-card">
+<p data-lang="ko">BitterCare는 반려동물과 가족이 함께 더 편안한 일상을 만들 수 있도록 돕는 BitterINK 기반 행동 관리 솔루션입니다.</p>
+<p data-lang="en">BitterCare is a BitterINK-based behavior care solution designed to help pets and families enjoy a more comfortable daily life.</p><p data-lang="vi">BitterCare là giải pháp quản lý hành vi dựa trên BitterINK, được thiết kế để giúp thú cưng và gia đình có cuộc sống thường ngày dễ chịu hơn.</p>
+<p data-lang="cn">BitterCare 是基于 BitterINK 的行为管理解决方案，帮助宠物与家庭拥有更舒适的日常生活。</p>
+<span class="footer-sign">BitterCare</span>
+</div>
+</div>
+</footer>
+<script>
     const body = document.body;
     const buttons = document.querySelectorAll("[data-set-lang]");
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         const nextLang = button.getAttribute("data-set-lang");
-        body.classList.remove("lang-ko", "lang-en", "lang-cn");
+        body.classList.remove("lang-ko", "lang-en", "lang-cn", "lang-vi");
         body.classList.add(`lang-${nextLang}`);
 
         buttons.forEach((btn) => btn.classList.remove("active"));
