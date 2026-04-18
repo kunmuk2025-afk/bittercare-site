@@ -192,43 +192,142 @@
       font-weight: 600;
     }
 
-    .lang-switch {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(74, 51, 32, 0.10);
-      border-radius: 99px;
-      padding: 5px;
-      flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(74, 51, 32, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
-      backdrop-filter: blur(12px);
+    /* ── Globe Language Dropdown ── */
+    .lang-wrapper {
       position: relative;
-      gap: 2px;
+      flex-shrink: 0;
     }
 
-    .lang-btn {
+    .lang-globe-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px 8px 10px;
+      border: 1px solid rgba(74, 51, 32, 0.12);
+      border-radius: 99px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(74,51,32,0.08);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+      transition: all 0.22s ease;
+      white-space: nowrap;
+    }
+
+    .lang-globe-btn:hover {
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(74,51,32,0.12);
+      border-color: rgba(232,141,53,0.3);
+    }
+
+    .lang-globe-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .lang-globe-btn .lang-caret {
+      width: 12px;
+      height: 12px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .lang-wrapper.open .lang-caret {
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #fff;
+      border: 1px solid rgba(74,51,32,0.10);
+      border-radius: 18px;
+      box-shadow: 0 16px 48px rgba(74,51,32,0.14), 0 2px 8px rgba(74,51,32,0.06);
+      padding: 6px;
+      min-width: 160px;
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.96);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      transform-origin: top right;
+    }
+
+    .lang-wrapper.open .lang-dropdown {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .lang-opt {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
       border: none;
       background: none;
-      padding: 7px 14px;
-      border-radius: 99px;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--muted);
+      width: 100%;
+      text-align: left;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      letter-spacing: 0.04em;
-      position: relative;
-      z-index: 1;
+      transition: background 0.15s ease;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
     }
 
-    .lang-btn:hover:not(.active) {
-      color: var(--brand-2);
+    .lang-opt:hover {
+      background: var(--soft);
     }
 
-    .lang-btn.active {
-      background: linear-gradient(135deg, var(--accent) 0%, #d97a22 100%);
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(232, 141, 53, 0.35);
-      transform: scale(1.05);
+    .lang-opt.active {
+      background: linear-gradient(135deg, rgba(232,141,53,0.12) 0%, rgba(232,141,53,0.06) 100%);
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .lang-opt .lang-flag {
+      font-size: 20px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .lang-opt .lang-label {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .lang-opt .lang-native {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .lang-opt .lang-eng {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .lang-opt.active .lang-check {
+      margin-left: auto;
+      color: var(--accent);
+      font-size: 14px;
     }
 
     .hero {
@@ -575,90 +674,109 @@
       font-size: 15px;
     }
 
-    .use-cases {
+    /* ── Recommended Areas — Full Wide 4-column ── */
+    .use-section-inner {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .use-item {
-      padding: 22px 18px 18px !important;
-      border-radius: 20px !important;
-      background: rgba(255,255,255,0.85) !important;
-      border: 1px solid rgba(74, 51, 32, 0.07) !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 0 !important;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      background: #fff;
+      border-radius: 24px;
+      padding: 36px 28px 32px;
+      border: 1px solid rgba(74,51,32,0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       position: relative;
       overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .use-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #f5b060);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .use-item::after {
       content: '';
       position: absolute;
-      bottom: 0; right: 0;
-      width: 80px; height: 80px;
-      background: radial-gradient(circle at bottom right, rgba(232,141,53,0.07), transparent 70%);
+      bottom: -20px; right: -20px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(232,141,53,0.06) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
 
     .use-item:hover {
-      background: rgba(255,255,255,0.98) !important;
-      border-color: rgba(232, 141, 53, 0.25) !important;
-      transform: translateY(-5px) scale(1.02) !important;
-      box-shadow: var(--shadow-md) !important;
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(232,141,53,0.2);
+    }
+
+    .use-item:hover::before {
+      opacity: 1;
     }
 
     .use-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #fff8f0 0%, var(--soft) 100%);
-      border: 1px solid rgba(232,141,53,0.15);
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff8f0 0%, #fdecd8 100%);
+      border: 1.5px solid rgba(232,141,53,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 10px rgba(232,141,53,0.10);
+      margin-bottom: 22px;
+      box-shadow: 0 6px 18px rgba(232,141,53,0.13);
       flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .use-item:hover .use-icon-wrap {
+      transform: scale(1.08) rotate(-3deg);
     }
 
     .use-icon-wrap svg {
-      width: 26px;
-      height: 26px;
+      width: 38px;
+      height: 38px;
       stroke: var(--accent);
       fill: none;
-      stroke-width: 1.8;
+      stroke-width: 1.6;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
     .use-number {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--accent);
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
-      opacity: 0.7;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      opacity: 0.65;
     }
 
     .use-content strong {
       display: block;
-      margin-bottom: 5px;
-      font-size: 15px;
+      margin-bottom: 8px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--brand);
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
     }
 
     .use-content span {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.65;
     }
 
     .tips-stack {
@@ -690,7 +808,7 @@
       color: var(--brand);
     }
 
-    /* use-item styles moved to use-cases block */
+
 
     .highlight-box {
       background: #F6EFE7;
@@ -827,11 +945,9 @@
 
     .lang-ko [data-lang]:not([data-lang="ko"]),
     .lang-en [data-lang]:not([data-lang="en"]),
-    .lang-cn [data-lang]:not([data-lang="cn"]) {
-      display: none !important;
-    }
-
-    .lang-vi [data-lang]:not([data-lang="vi"]) {
+    .lang-cn [data-lang]:not([data-lang="cn"]),
+    .lang-vi [data-lang]:not([data-lang="vi"]),
+    .lang-ja [data-lang]:not([data-lang="ja"]) {
       display: none !important;
     }
 
@@ -909,15 +1025,14 @@
         font-weight: 600;
       }
 
-      .lang-switch {
-        margin-left: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
+      .lang-globe-btn {
+        padding: 7px 10px 7px 8px;
+        font-size: 12px;
+        gap: 5px;
       }
-
-      .lang-btn {
-        padding: 6px 8px;
-        font-size: 11px;
+      .lang-dropdown {
+        right: 0;
+        min-width: 150px;
       }
     }
 
@@ -1091,14 +1206,61 @@
 <strong>BitterCare</strong>
 <span data-lang="ko">세계최초 BitterINK 기반 행동 교정 스티커</span>
 <span data-lang="en">The World’s First BitterINK-Based Behavior Training Sticker</span><span data-lang="vi">Sticker huấn luyện hành vi ứng dụng BitterINK đầu tiên trên thế giới</span>
+<span data-lang="ja">世界初 BitterINK 行動矯正シール</span>
 <span data-lang="cn">全球首创 BitterINK 行为训练贴纸</span>
 </div>
 </div>
-<div class="lang-switch">
-<button class="lang-btn active" data-set-lang="ko">KR</button>
-<button class="lang-btn" data-set-lang="en">EN</button>
-<button class="lang-btn" data-set-lang="cn">CN</button>
-<button class="lang-btn" data-set-lang="vi">VN</button></div>
+<div class="lang-wrapper" id="langWrapper">
+  <button class="lang-globe-btn" id="langGlobeBtn" aria-haspopup="listbox" aria-expanded="false">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+    <span id="langCurrentLabel">한국어</span>
+    <svg class="lang-caret" viewBox="0 0 12 12">
+      <path d="M2 4l4 4 4-4"/>
+    </svg>
+  </button>
+  <div class="lang-dropdown" role="listbox" id="langDropdown">
+    <button class="lang-opt active" data-set-lang="ko" role="option">
+      <span class="lang-flag">🇰🇷</span>
+      <span class="lang-label">
+        <span class="lang-native">한국어</span>
+        <span class="lang-eng">Korean</span>
+      </span>
+      <span class="lang-check">✓</span>
+    </button>
+    <button class="lang-opt" data-set-lang="en" role="option">
+      <span class="lang-flag">🇺🇸</span>
+      <span class="lang-label">
+        <span class="lang-native">English</span>
+        <span class="lang-eng">English</span>
+      </span>
+    </button>
+    <button class="lang-opt" data-set-lang="ja" role="option">
+      <span class="lang-flag">🇯🇵</span>
+      <span class="lang-label">
+        <span class="lang-native">日本語</span>
+        <span class="lang-eng">Japanese</span>
+      </span>
+    </button>
+    <button class="lang-opt" data-set-lang="cn" role="option">
+      <span class="lang-flag">🇨🇳</span>
+      <span class="lang-label">
+        <span class="lang-native">中文</span>
+        <span class="lang-eng">Chinese</span>
+      </span>
+    </button>
+    <button class="lang-opt" data-set-lang="vi" role="option">
+      <span class="lang-flag">🇻🇳</span>
+      <span class="lang-label">
+        <span class="lang-native">Tiếng Việt</span>
+        <span class="lang-eng">Vietnamese</span>
+      </span>
+    </button>
+  </div>
+</div>
 </div>
 </header>
 <main>
@@ -1107,6 +1269,7 @@
 <div class="hero-badge">
 <span data-lang="ko">비터케어를 선택해 주셔서 감사합니다</span>
 <span data-lang="en">Thank you for choosing BitterCare</span><span data-lang="vi">Cảm ơn quý khách đã lựa chọn BitterCare</span>
+<span data-lang="ja">BitterCareをお選びいただきありがとうございます</span>
 <span data-lang="cn">感谢您选择 BitterCare</span>
 </div>
 <div class="hero-grid">
@@ -1114,11 +1277,13 @@
 <h1>
 <span data-lang="ko">혼내지 말고 다정하게,<br/>평화로운 일상의 시작</span>
 <span data-lang="en">Stop Scolding, Start Guiding.<br/>A Peaceful Home Begins.</span><span data-lang="vi">Thay vì la mắng, hãy dịu dàng hướng dẫn. Bắt đầu một nhịp sống yên bình.</span>
+<span data-lang="ja">叱らなくていい。<br/>穏やかな毎日の始まり。</span>
 <span data-lang="cn">告别责骂，温和引导。<br/>开启平静的日常生活。</span>
 </h1>
 <p class="hero-copy">
 <span data-lang="ko"><strong>무해한 콩기름 잉크 기반의 쓴맛</strong>으로 반려동물이 스스로 반복 행동을 줄이도록 돕는 <strong>학습형 솔루션</strong>입니다.</span>
 <span data-lang="en">Powered by a <strong>harmless soy-ink bitter cue</strong>, it helps pets naturally reduce repetitive behaviors through <strong>learning</strong>.</span><span data-lang="vi">Với <strong>tín hiệu vị đắng dựa trên mực đậu nành an toàn</strong>, sản phẩm giúp thú cưng tự nhiên giảm các hành vi lặp lại thông qua <strong>quá trình học hỏi</strong>.</span>
+<span data-lang="ja"><strong>無害な大豆インクベースの苦味</strong>により、ペットが自ら繰り返し行動を<strong>学習して減らす</strong>ソリューションです。</span>
 <span data-lang="cn">通过<strong>无害大豆油墨基础的苦味提示</strong>，帮助宠物以<strong>学习方式</strong>自然减少重复行为。</span>
 </p>
 <div class="hero-points">
@@ -1127,6 +1292,7 @@
 <div>
 <span data-lang="ko">처음 <strong>3~5일</strong>이 가장 중요합니다.</span>
 <span data-lang="en">The first <strong>3–5 days</strong> matter most.</span><span data-lang="vi">3–5 ngày đầu tiên là giai đoạn quan trọng nhất.</span>
+<span data-lang="ja">最初の<strong>3〜5日間</strong>が最も重要です。</span>
 <span data-lang="cn">前 <strong>3–5 天</strong>最关键。</span>
 </div>
 </div>
@@ -1135,6 +1301,7 @@
 <div>
 <span data-lang="ko">가구 모서리, 전선 주변, 반복 접촉 표면에 정확히 부착해 주세요.</span>
 <span data-lang="en">Apply precisely to furniture edges, cable areas, and repeat-contact surfaces.</span><span data-lang="vi">Hãy dán chính xác vào mép đồ nội thất, khu vực dây điện và các bề mặt thường xuyên bị tiếp xúc lặp lại.</span>
+<span data-lang="ja">家具の角、コード周辺、繰り返し触れる場所に正確に貼ってください。</span>
 <span data-lang="cn">请准确贴在家具边角、线缆周边和反复接触表面。</span>
 </div>
 </div>
@@ -1143,6 +1310,7 @@
 <div>
 <span data-lang="ko">효과가 줄어들면 새로운 스티커로 교체해 주세요.</span>
 <span data-lang="en">If the effect feels weaker, please replace it with a new sticker.</span><span data-lang="vi">Nếu cảm thấy hiệu quả giảm đi, vui lòng thay bằng sticker mới.</span>
+<span data-lang="ja">効果が薄れてきたら、新しいシールに交換してください。</span>
 <span data-lang="cn">如果效果减弱，请更换新的贴纸。</span>
 </div>
 </div>
@@ -1150,9 +1318,11 @@
 <div class="hero-quote">
 <strong data-lang="ko">사용 전, 단 3분만 읽어주세요.</strong>
 <strong data-lang="en">Please read for 3 minutes before use.</strong><strong data-lang="vi">Vui lòng dành 3 phút đọc trước khi sử dụng.</strong>
+<strong data-lang="ja">ご使用前に3分だけお読みください。</strong>
 <strong data-lang="cn">使用前请花 3 分钟阅读。</strong>
 <p data-lang="ko">처음 사용하는 고객님을 위해 효과를 높이는 핵심 사용 팁과 주의사항을 정리했습니다.</p>
 <p data-lang="en">We’ve organized the key usage tips and precautions to help first-time customers get the best results.</p><p data-lang="vi">Chúng tôi đã tổng hợp các hướng dẫn sử dụng quan trọng và lưu ý cần biết để khách hàng dùng lần đầu đạt hiệu quả tốt nhất.</p>
+<p data-lang="ja">初めてご使用の方のために、効果を高める使い方のポイントと注意事項をまとめました。</p>
 <p data-lang="cn">我们整理了首次使用时最重要的技巧与注意事项，帮助您获得更好的效果。</p>
 </div>
 </div>
@@ -1175,10 +1345,12 @@
           <strong data-lang="ko">특허 출원</strong>
           <strong data-lang="en">Patent Pending</strong>
           <strong data-lang="vi">Đang chờ cấp bằng sáng chế</strong>
+          <strong data-lang="ja">特許出願中</strong>
           <strong data-lang="cn">专利申请中</strong>
           <span data-lang="ko">출원번호 10-2023-0162992</span>
           <span data-lang="en">App. No. 10-2023-0162992</span>
           <span data-lang="vi">Số đơn 10-2023-0162992</span>
+          <span data-lang="ja">出願番号 10-2023-0162992</span>
           <span data-lang="cn">申请号 10-2023-0162992</span>
         </div>
       </div>
@@ -1188,10 +1360,12 @@
           <strong data-lang="ko">무해한 콩기름 잉크</strong>
           <strong data-lang="en">Harmless Soy-Ink</strong>
           <strong data-lang="vi">Mực đậu nành an toàn</strong>
+          <strong data-lang="ja">無害な大豆インク</strong>
           <strong data-lang="cn">无害大豆油墨</strong>
           <span data-lang="ko">반려동물에게 안전한 성분</span>
           <span data-lang="en">Safe ingredients for pets</span>
           <span data-lang="vi">Thành phần an toàn cho thú cưng</span>
+          <span data-lang="ja">ペットに安全な成分</span>
           <span data-lang="cn">对宠物安全的成分</span>
         </div>
       </div>
@@ -1201,10 +1375,12 @@
           <strong data-lang="ko">세계 최초</strong>
           <strong data-lang="en">World's First</strong>
           <strong data-lang="vi">Đầu tiên trên thế giới</strong>
+          <strong data-lang="ja">世界初</strong>
           <strong data-lang="cn">全球首创</strong>
           <span data-lang="ko">BitterINK 행동 교정 스티커</span>
           <span data-lang="en">BitterINK behavior sticker</span>
           <span data-lang="vi">Sticker BitterINK huấn luyện hành vi</span>
+          <span data-lang="ja">BitterINK 行動矯正シール</span>
           <span data-lang="cn">BitterINK 行为训练贴纸</span>
         </div>
       </div>
@@ -1214,10 +1390,12 @@
           <strong data-lang="ko">훈육 NO, 학습 YES</strong>
           <strong data-lang="en">No Scolding, Just Learning</strong>
           <strong data-lang="vi">Không la mắng, chỉ học tập</strong>
+          <strong data-lang="ja">叱らない、学ぶだけ</strong>
           <strong data-lang="cn">无需责骂，自然学习</strong>
           <span data-lang="ko">스트레스 없는 행동 교정</span>
           <span data-lang="en">Stress-free behavior training</span>
           <span data-lang="vi">Điều chỉnh hành vi không căng thẳng</span>
+          <span data-lang="ja">ストレスのない行動矯正</span>
           <span data-lang="cn">无压力行为矫正</span>
         </div>
       </div>
@@ -1237,16 +1415,19 @@
       <div class="story-eyebrow" data-lang="ko">브랜드 스토리</div>
       <div class="story-eyebrow" data-lang="en">Brand Story</div>
       <div class="story-eyebrow" data-lang="vi">Câu chuyện thương hiệu</div>
+      <div class="story-eyebrow" data-lang="ja">ブランドストーリー</div>
       <div class="story-eyebrow" data-lang="cn">品牌故事</div>
       <h2 class="story-heading">
         <span data-lang="ko">혼내지 않아도<br/><em>괜찮습니다.</em></span>
         <span data-lang="en">You don't need<br/><em>to scold anymore.</em></span>
         <span data-lang="vi">Bạn không cần<br/><em>la mắng nữa.</em></span>
+        <span data-lang="ja">叱らなくても<br/><em>大丈夫です。</em></span>
         <span data-lang="cn">不需要责骂，<br/><em>也没关系。</em></span>
       </h2>
       <p class="story-body" data-lang="ko">BitterCare는 반려동물을 혼내야 한다는 죄책감에서 출발했습니다. 큰소리, 물총, 강한 냄새 — 기존 방법들은 모두 반려동물에게 스트레스를 줬어요.<br/><br/>저희는 반대로 생각했습니다. <strong>반려동물이 스스로 배울 수 있다면 어떨까?</strong><br/><br/>특허 기술 BitterINK의 쓴맛은 자연스럽게 행동을 교정합니다. 혼내지 않고, 스트레스 없이, 그리고 무해하게.</p>
       <p class="story-body" data-lang="en">BitterCare was born from the guilt of scolding pets. Loud voices, water sprays, strong scents — existing methods all caused stress.<br/><br/>We thought differently. <strong>What if pets could learn on their own?</strong><br/><br/>The bitter cue of patented BitterINK naturally shapes behavior. No scolding, no stress, and completely harmless.</p>
       <p class="story-body" data-lang="vi">BitterCare ra đời từ cảm giác tội lỗi khi phải la mắng thú cưng. Tiếng ồn, bình xịt nước, mùi hăng — các phương pháp cũ đều gây căng thẳng.<br/><br/>Chúng tôi nghĩ khác đi. <strong>Nếu thú cưng có thể tự học thì sao?</strong><br/><br/>Vị đắng từ công nghệ BitterINK được cấp bằng sáng chế điều chỉnh hành vi một cách tự nhiên. Không la mắng, không căng thẳng, và hoàn toàn vô hại.</p>
+      <p class="story-body" data-lang="ja">BitterCareは、ペットを叱らなければならないという罪悪感から生まれました。大声、水鉄砲、強い匂い――既存の方法はすべてペットにストレスを与えていました。<br/><br/>私たちは逆に考えました。<strong>ペットが自分で学べるとしたら？</strong><br/><br/>特許技術BitterINKの苦味が、自然に行動を矯正します。叱らず、ストレスなく、そして無害に。</p>
       <p class="story-body" data-lang="cn">BitterCare源于对责骂宠物的愧疚感。大声呵斥、水枪、强烈气味——现有方法都会给宠物带来压力。<br/><br/>我们换了一种思路。<strong>如果宠物能自己学习呢？</strong><br/><br/>专利技术BitterINK的苦味自然地矫正行为。无需责骂，无压力，完全无害。</p>
       <div class="story-values">
         <div class="story-value">
@@ -1254,6 +1435,7 @@
           <span data-lang="ko">무해한 성분</span>
           <span data-lang="en">Safe Ingredients</span>
           <span data-lang="vi">Thành phần an toàn</span>
+          <span data-lang="ja">無害な成分</span>
           <span data-lang="cn">无害成分</span>
         </div>
         <div class="story-value">
@@ -1261,6 +1443,7 @@
           <span data-lang="ko">학습 기반 교정</span>
           <span data-lang="en">Learning-Based</span>
           <span data-lang="vi">Dựa trên học tập</span>
+          <span data-lang="ja">学習型矯正</span>
           <span data-lang="cn">学习型矫正</span>
         </div>
         <div class="story-value">
@@ -1268,6 +1451,7 @@
           <span data-lang="ko">특허 기술</span>
           <span data-lang="en">Patented Tech</span>
           <span data-lang="vi">Công nghệ có bằng sáng chế</span>
+          <span data-lang="ja">特許技術</span>
           <span data-lang="cn">专利技术</span>
         </div>
       </div>
@@ -1285,9 +1469,11 @@
 <div class="section-header animate-on-scroll">
 <h2 class="section-title" data-lang="ko">마법 같은 변화를 위한 4단계</h2>
 <h2 class="section-title" data-lang="en">4 Steps to Gentle Change</h2><h2 class="section-title" data-lang="vi">4 bước cho sự thay đổi nhẹ nhàng</h2>
+<h2 class="section-title" data-lang="ja">やさしい変化のための4ステップ</h2>
 <h2 class="section-title" data-lang="cn">带来温和改变的 4 个步骤</h2>
 <p class="section-desc" data-lang="ko">비터케어의 진정한 효과는 올바른 부착과 기다림에서 나옵니다.</p>
 <p class="section-desc" data-lang="en">The real power of BitterCare comes from proper placement and patience.</p><p class="section-desc" data-lang="vi">Hiệu quả thực sự của BitterCare đến từ việc dán đúng vị trí và kiên nhẫn quan sát.</p>
+<p class="section-desc" data-lang="ja">BitterCareの本当の効果は、正しい貼り方と根気強い観察から生まれます。</p>
 <p class="section-desc" data-lang="cn">BitterCare 的真正效果来自正确粘贴与耐心等待。</p>
 </div>
 <div class="steps-container animate-on-scroll animate-stagger">
@@ -1296,9 +1482,11 @@
 <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 3C12 3 12 8 7 9C12 10 12 15 12 15C12 15 12 10 17 9C12 8 12 3 12 3Z"/><path d="M5 17C5 17 5 19.5 3 20C5 20.5 5 23 5 23C5 23 5 20.5 7 20C5 19.5 5 17 5 17Z"/></svg></div>
 <h3 data-lang="ko">표면 클렌징</h3>
 <h3 data-lang="en">Surface Clean</h3><h3 data-lang="vi">Làm sạch bề mặt</h3>
+<h3 data-lang="ja">表面をきれいに</h3>
 <h3 data-lang="cn">清洁表面</h3>
 <p data-lang="ko">먼지와 유분기를 닦아내면 접착력이 더욱 안정적으로 유지됩니다.</p>
 <p data-lang="en">Removing dust and oils helps maintain better adhesion.</p><p data-lang="vi">Lau sạch bụi và dầu sẽ giúp độ bám dính ổn định hơn.</p>
+<p data-lang="ja">ほこりや油分を拭き取ると、粘着力が安定します。</p>
 <p data-lang="cn">去除灰尘和油污后，贴附会更稳定。</p>
 </div>
 <div class="step-card">
@@ -1306,9 +1494,11 @@
 <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88"/><path d="M14.47 14.48L20 20"/><path d="M8.12 8.12L12 12"/></svg></div>
 <h3 data-lang="ko">맞춤형 재단</h3>
 <h3 data-lang="en">Custom Cut</h3><h3 data-lang="vi">Cắt theo vị trí</h3>
+<h3 data-lang="ja">カスタムカット</h3>
 <h3 data-lang="cn">定制裁剪</h3>
 <p data-lang="ko">문제 행동이 반복되는 영역만큼 알맞게 잘라 사용하세요.</p>
 <p data-lang="en">Cut the sticker to fit the exact area where the behavior repeats.</p><p data-lang="vi">Cắt sticker vừa với đúng khu vực mà hành vi lặp lại.</p>
+<p data-lang="ja">問題行動が繰り返されるエリアに合わせてカットしてください。</p>
 <p data-lang="cn">按问题行为反复出现的范围裁剪使用。</p>
 </div>
 <div class="step-card">
@@ -1316,9 +1506,11 @@
 <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M8 6l4 4 4-4"/><path d="M8 13h-.5A2.5 2.5 0 0 0 5 15.5v3A3.5 3.5 0 0 0 8.5 22h7a3.5 3.5 0 0 0 3.5-3.5v-3A2.5 2.5 0 0 0 16.5 13H16"/></svg></div>
 <h3 data-lang="ko">빈틈없는 밀착</h3>
 <h3 data-lang="en">Firm Press</h3><h3 data-lang="vi">Ép dán chắc chắn</h3>
+<h3 data-lang="ja">しっかり密着</h3>
 <h3 data-lang="cn">牢固按压</h3>
 <p data-lang="ko">들뜸이 없도록 표면에 꼼꼼하게 눌러 부착해 주세요.</p>
 <p data-lang="en">Press firmly so no edge is left lifting.</p><p data-lang="vi">Ấn chặt để không còn mép nào bị bong lên.</p>
+<p data-lang="ja">浮きがないように表面にしっかり押し付けて貼ってください。</p>
 <p data-lang="cn">请仔细按压，避免边缘翘起。</p>
 </div>
 <div class="step-card">
@@ -1326,9 +1518,11 @@
 <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
 <h3 data-lang="ko">다정한 관찰</h3>
 <h3 data-lang="en">Gentle Watch</h3><h3 data-lang="vi">Quan sát nhẹ nhàng</h3>
+<h3 data-lang="ja">やさしく見守る</h3>
 <h3 data-lang="cn">温和观察</h3>
 <p data-lang="ko">첫 3~5일 동안 반려동물이 쓴맛을 학습하는 과정을 지켜봐 주세요.</p>
 <p data-lang="en">Observe how your pet learns the bitter cue over the first 3–5 days.</p><p data-lang="vi">Quan sát cách thú cưng làm quen với tín hiệu vị đắng trong 3–5 ngày đầu.</p>
+<p data-lang="ja">最初の3〜5日間、ペットが苦味を学習する過程を見守ってください。</p>
 <p data-lang="cn">请在前 3–5 天观察宠物对苦味提示的学习过程。</p>
 </div>
 </div>
@@ -1337,22 +1531,26 @@
 <section class="section" style="background: #FAF7F2;">
 <div class="container">
 <div class="grid">
-<div class="card span-6 animate-on-scroll">
+<div class="card span-12 animate-on-scroll">
 <h2 class="card-title" data-lang="ko">브랜드 핵심 가치</h2>
 <h2 class="card-title" data-lang="en">Core Brand Values</h2><h2 class="card-title" data-lang="vi">Giá trị cốt lõi của thương hiệu</h2>
+<h2 class="card-title" data-lang="ja">ブランドの核心価値</h2>
 <h2 class="card-title" data-lang="cn">品牌核心价值</h2>
 <p class="card-copy" data-lang="ko">비터케어는 단순 차단이 아니라, 감각을 통해 기억을 만들고 행동 변화를 유도하는 학습형 솔루션입니다.</p>
 <p class="card-copy" data-lang="en">BitterCare is not a simple blocker, but a learning-based solution that creates memory through sensation and encourages behavior change.</p><p class="card-copy" data-lang="vi">BitterCare không chỉ là công cụ ngăn chặn đơn thuần, mà là giải pháp định hướng học tập tạo ghi nhớ qua cảm giác và thúc đẩy thay đổi hành vi.</p>
+<p class="card-copy" data-lang="ja">BitterCareは単なる遮断ではなく、感覚を通じて記憶を作り、行動変容を促す学習型ソリューションです。</p>
 <p class="card-copy" data-lang="cn">BitterCare 不是单纯阻隔工具，而是通过感官形成记忆、引导行为变化的学习型解决方案。</p>
-<ul class="feature-list">
+<ul class="feature-list feature-list-h">
 <li class="feature-item">
 <div class="feature-check">✓</div>
 <div class="feature-text">
 <strong data-lang="ko">세계최초 BitterINK 기반</strong>
-<strong data-lang="en">World’s First BitterINK-Based</strong><strong data-lang="vi">Công nghệ BitterINK tiên phong</strong>
+<strong data-lang="en">World's First BitterINK-Based</strong><strong data-lang="vi">Công nghệ BitterINK tiên phong</strong>
+<strong data-lang="ja">世界初BitterINKベース</strong>
 <strong data-lang="cn">全球首创 BitterINK 概念</strong>
 <p data-lang="ko">BitterINK를 행동 교정 스티커 형태로 구현한 차별화된 개념입니다.</p>
 <p data-lang="en">A differentiated concept that brings BitterINK into behavior training sticker form.</p><p data-lang="vi">Một khái niệm khác biệt đưa BitterINK vào hình thức sticker huấn luyện hành vi.</p>
+<p data-lang="ja">BitterINKを行動矯正シール形態で実現した差別化されたコンセプトです。</p>
 <p data-lang="cn">将 BitterINK 以行为训练贴纸形式实现的差异化概念。</p>
 </div>
 </li>
@@ -1361,9 +1559,11 @@
 <div class="feature-text">
 <strong data-lang="ko">소중한 반려동물을 위한 설계</strong>
 <strong data-lang="en">Designed with Loving Care</strong><strong data-lang="vi">Thiết kế với sự quan tâm dịu dàng</strong>
+<strong data-lang="ja">大切なペットのための設計</strong>
 <strong data-lang="cn">为珍贵宠物而设计</strong>
 <p data-lang="ko">강한 자극보다 더 편안하고 지속 가능한 방식의 행동 관리를 지향합니다.</p>
 <p data-lang="en">Designed for gentler and more sustainable behavior care rather than harsh deterrence.</p><p data-lang="vi">Được thiết kế theo hướng quản lý hành vi nhẹ nhàng và bền vững hơn thay vì răn đe mạnh.</p>
+<p data-lang="ja">強い刺激より、より快適で持続可能な行動管理を目指しています。</p>
 <p data-lang="cn">比起强刺激，更重视温和且可持续的行为管理方式。</p>
 </div>
 </li>
@@ -1372,26 +1572,39 @@
 <div class="feature-text">
 <strong data-lang="ko">무해한 콩기름 잉크 철학</strong>
 <strong data-lang="en">Harmless Soy-Ink Philosophy</strong><strong data-lang="vi">Triết lý mực đậu nành an toàn</strong>
+<strong data-lang="ja">無害な大豆インクの哲学</strong>
 <strong data-lang="cn">无害大豆油墨理念</strong>
 <p data-lang="ko">무해한 콩기름 잉크 기반 철학 위에서 출발한 BitterINK의 가치를 담고 있습니다.</p>
 <p data-lang="en">Built on the BitterINK philosophy rooted in harmless soy-ink principles.</p><p data-lang="vi">Được xây dựng trên triết lý BitterINK bắt nguồn từ nguyên tắc mực đậu nành an toàn.</p>
+<p data-lang="ja">無害な大豆インクを基盤とするBitterINKの哲学から生まれた価値を担っています。</p>
 <p data-lang="cn">承载了以无害大豆油墨理念为基础的 BitterINK 价值观。</p>
 </div>
 </li>
 </ul>
 </div>
-<div class="card span-6 animate-on-scroll">
-<h2 class="card-title" data-lang="ko">추천 사용 위치</h2>
-<h2 class="card-title" data-lang="en">Recommended Areas</h2><h2 class="card-title" data-lang="vi">Vị trí nên sử dụng</h2>
-<h2 class="card-title" data-lang="cn">推荐使用位置</h2>
-<p class="card-copy" data-lang="ko">반려동물이 반복적으로 입을 대는 위치에 정확히 적용해 주세요.</p>
-<p class="card-copy" data-lang="en">Apply precisely where your pet repeatedly chews, licks, or targets.</p><p class="card-copy" data-lang="vi">Hãy dán chính xác tại nơi thú cưng thường xuyên cắn, liếm hoặc tiếp cận lặp lại.</p>
-<p class="card-copy" data-lang="cn">请准确贴在宠物反复啃咬、舔舐或接触的位置。</p>
-<div class="use-cases">
+</div>
+</div>
+</section>
+
+<!-- ── Recommended Areas — Full Wide ── -->
+<section class="section use-section">
+<div class="container">
+<div class="section-header animate-on-scroll">
+<h2 class="section-title" data-lang="ko">추천 사용 위치</h2>
+<h2 class="section-title" data-lang="en">Recommended Areas</h2>
+<h2 class="section-title" data-lang="vi">Vị trí nên sử dụng</h2>
+<h2 class="section-title" data-lang="ja">おすすめの使用場所</h2>
+<h2 class="section-title" data-lang="cn">推荐使用位置</h2>
+<p class="section-desc" data-lang="ko">반려동물이 반복적으로 입을 대는 위치에 정확히 적용해 주세요.</p>
+<p class="section-desc" data-lang="en">Apply precisely where your pet repeatedly chews, licks, or targets.</p>
+<p class="section-desc" data-lang="vi">Hãy dán chính xác tại nơi thú cưng thường xuyên cắn, liếm hoặc tiếp cận lặp lại.</p>
+<p class="section-desc" data-lang="ja">ペットが繰り返し口をつける場所に正確に貼ってください。</p>
+<p class="section-desc" data-lang="cn">请准确贴在宠物反复啃咬、舔舐或接触的位置。</p>
+</div>
+<div class="use-section-inner animate-on-scroll animate-stagger">
 <div class="use-item">
 <div class="use-icon-wrap">
   <svg viewBox="0 0 24 24">
-    <!-- sofa icon -->
     <path d="M2 9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/>
     <path d="M4 11v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/>
     <path d="M6 16v2M18 16v2"/>
@@ -1402,16 +1615,17 @@
 <div class="use-content">
 <strong data-lang="ko">가구 모서리</strong>
 <strong data-lang="en">Furniture Edges</strong><strong data-lang="vi">Mép đồ nội thất</strong>
+<strong data-lang="ja">家具の角</strong>
 <strong data-lang="cn">家具边角</strong>
 <span data-lang="ko">소파, 의자 다리, 테이블 가장자리</span>
 <span data-lang="en">Sofas, chair legs, table edges</span><span data-lang="vi">Ghế sofa, chân ghế, mép bàn</span>
+<span data-lang="ja">ソファ、椅子の脚、テーブルの端</span>
 <span data-lang="cn">沙发、椅脚、桌边</span>
 </div>
 </div>
 <div class="use-item">
 <div class="use-icon-wrap">
   <svg viewBox="0 0 24 24">
-    <!-- plug/cable icon -->
     <path d="M14 2v4"/>
     <path d="M10 2v4"/>
     <path d="M8 6h8a2 2 0 0 1 2 2v2a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a2 2 0 0 1 2-2z"/>
@@ -1422,16 +1636,17 @@
 <div class="use-content">
 <strong data-lang="ko">생활 소품</strong>
 <strong data-lang="en">Household Items</strong><strong data-lang="vi">Đồ vật trong nhà</strong>
-<strong data-lang="cn">日常用품</strong>
+<strong data-lang="ja">日用品</strong>
+<strong data-lang="cn">日常用品</strong>
 <span data-lang="ko">리모컨, 케이블 주변, 자주 건드리는 물건</span>
 <span data-lang="en">Remotes, cable areas, frequently targeted items</span><span data-lang="vi">Điều khiển, khu vực dây điện, các vật dụng thường bị nhắm tới</span>
+<span data-lang="ja">リモコン、コード周辺、よく触られる物</span>
 <span data-lang="cn">遥控器、线缆周边、常被碰触的物品</span>
 </div>
 </div>
 <div class="use-item">
 <div class="use-icon-wrap">
   <svg viewBox="0 0 24 24">
-    <!-- door icon -->
     <rect x="3" y="2" width="18" height="20" rx="1"/>
     <path d="M7 2v20"/>
     <circle cx="6" cy="12" r="0.8" fill="currentColor" stroke="none"/>
@@ -1442,16 +1657,17 @@
 <div class="use-content">
 <strong data-lang="ko">특정 구역</strong>
 <strong data-lang="en">Restricted Areas</strong><strong data-lang="vi">Khu vực cần hạn chế</strong>
+<strong data-lang="ja">立入制限区域</strong>
 <strong data-lang="cn">限制区域</strong>
 <span data-lang="ko">문틀, 벽면 일부, 접근을 줄이고 싶은 구역</span>
 <span data-lang="en">Door frames, wall areas, restricted zones</span><span data-lang="vi">Khung cửa, khu vực tường, vùng cần hạn chế tiếp cận</span>
+<span data-lang="ja">ドア枠、壁面の一部、立入りを減らしたい場所</span>
 <span data-lang="cn">门框、墙面局部、希望减少进入的区域</span>
 </div>
 </div>
 <div class="use-item">
 <div class="use-icon-wrap">
   <svg viewBox="0 0 24 24">
-    <!-- paw icon -->
     <circle cx="7" cy="7" r="1.8"/>
     <circle cx="12" cy="5" r="1.8"/>
     <circle cx="17" cy="7" r="1.8"/>
@@ -1463,12 +1679,12 @@
 <div class="use-content">
 <strong data-lang="ko">반복 접촉 표면</strong>
 <strong data-lang="en">Repeat-Contact Surfaces</strong><strong data-lang="vi">Bề mặt tiếp xúc lặp lại</strong>
+<strong data-lang="ja">繰り返し接触する表面</strong>
 <strong data-lang="cn">重复接触表面</strong>
 <span data-lang="ko">자주 물거나 핥는 표면</span>
 <span data-lang="en">Surfaces repeatedly chewed or licked</span><span data-lang="vi">Các bề mặt thường xuyên bị cắn hoặc liếm</span>
+<span data-lang="ja">よく噛んだり舐めたりする表面</span>
 <span data-lang="cn">反复啃咬或舔舐的表面</span>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1603,6 +1819,7 @@
 <div class="highlight-box">
 <h3 data-lang="ko">행동 변화는 단거리 경주가 아닌 마라톤입니다</h3>
 <h3 data-lang="en">Behavior training is a marathon, not a sprint</h3><h3 data-lang="vi">Điều chỉnh hành vi là một hành trình dài, không phải cuộc chạy nước rút</h3>
+<h3 data-lang="ja">行動改善はマラソンであり、短距離走ではありません</h3>
 <h3 data-lang="cn">行为训练是一场马拉松，而不是短跑</h3>
 <p data-lang="ko">
             좋은 습관은 한 번이 아닌, 꾸준함으로 완성됩니다.<br/>
@@ -1612,6 +1829,7 @@
             If continued support is needed, refresh with new BitterCare stickers.<br/>
             Use it again where and when you need it most.
           </p><p data-lang="vi">Nếu cần hỗ trợ liên tục, hãy thay bằng sticker BitterCare mới. Sử dụng lại đúng nơi và đúng lúc cần thiết nhất.</p>
+<p data-lang="ja">良い習慣は一度ではなく、継続によって完成します。BitterCareがその旅を共にします。</p>
 <p data-lang="cn">
             如果需要持续管理，请更换新的 BitterCare 贴纸。<br/>
             在需要的时候，贴在需要的位置，重新开始即可。
@@ -1620,6 +1838,7 @@
 <a class="btn btn-secondary" href="https://www.youtube.com/@BitterCareOfficial" rel="noopener noreferrer" target="_blank">
 <span data-lang="ko">공식 YouTube 채널 바로가기</span>
 <span data-lang="en">Visit the Official YouTube Channel</span><span data-lang="vi">Truy cập kênh YouTube chính thức</span>
+<span data-lang="ja">📺 公式YouTubeチャンネルへ</span>
 <span data-lang="cn">前往官方 YouTube 频道</span>
 </a>
 </div>
@@ -1632,48 +1851,84 @@
 <div class="footer-card">
 <p data-lang="ko">BitterCare는 반려동물과 가족이 함께 더 편안한 일상을 만들 수 있도록 돕는 BitterINK 기반 행동 관리 솔루션입니다.</p>
 <p data-lang="en">BitterCare is a BitterINK-based behavior care solution designed to help pets and families enjoy a more comfortable daily life.</p><p data-lang="vi">BitterCare là giải pháp quản lý hành vi dựa trên BitterINK, được thiết kế để giúp thú cưng và gia đình có cuộc sống thường ngày dễ chịu hơn.</p>
+<p data-lang="ja">BitterCareは、BitterINKベースの行動管理ソリューションです。ペットと家族がより快適な日常を過ごせるよう支援します。</p>
 <p data-lang="cn">BitterCare 是基于 BitterINK 的行为管理解决方案，帮助宠物与家庭拥有更舒适的日常生活。</p>
 <span class="footer-sign">BitterCare</span>
 </div>
 </div>
 </footer>
 <script>
-    /* ── Language Switch ── */
+    /* ── Language Switch (Globe Dropdown) ── */
     const body = document.body;
-    const buttons = document.querySelectorAll("[data-set-lang]");
+    const langWrapper = document.getElementById('langWrapper');
+    const langGlobeBtn = document.getElementById('langGlobeBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    const langCurrentLabel = document.getElementById('langCurrentLabel');
+    const langOpts = document.querySelectorAll('.lang-opt');
+
+    const langMeta = {
+      ko: { label: '한국어', flag: '🇰🇷' },
+      en: { label: 'English', flag: '🇺🇸' },
+      ja: { label: '日本語', flag: '🇯🇵' },
+      cn: { label: '中文',   flag: '🇨🇳' },
+      vi: { label: 'Tiếng Việt', flag: '🇻🇳' },
+    };
 
     function setLang(nextLang) {
-      // Fade out visible lang elements
-      const currentLangEls = document.querySelectorAll(`[data-lang]`);
-      body.classList.remove("lang-ko", "lang-en", "lang-cn", "lang-vi");
+      body.classList.remove('lang-ko','lang-en','lang-cn','lang-vi','lang-ja');
+      requestAnimationFrame(() => body.classList.add('lang-' + nextLang));
 
-      // Short delay for fade effect
-      requestAnimationFrame(() => {
-        body.classList.add(`lang-${nextLang}`);
-      });
+      // Update globe button label
+      if (langMeta[nextLang]) {
+        langCurrentLabel.textContent = langMeta[nextLang].label;
+      }
 
-      buttons.forEach((btn) => {
-        btn.classList.remove("active");
-        if (btn.getAttribute("data-set-lang") === nextLang) {
-          btn.classList.add("active");
+      // Update dropdown active state + checkmark
+      langOpts.forEach(opt => {
+        const isActive = opt.getAttribute('data-set-lang') === nextLang;
+        opt.classList.toggle('active', isActive);
+        // Add/remove checkmark
+        let check = opt.querySelector('.lang-check');
+        if (isActive && !check) {
+          check = document.createElement('span');
+          check.className = 'lang-check';
+          check.textContent = '✓';
+          opt.appendChild(check);
+        } else if (!isActive && check) {
+          check.remove();
         }
       });
 
-      // Save preference
       try { localStorage.setItem('bc_lang', nextLang); } catch(e) {}
     }
 
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const nextLang = button.getAttribute("data-set-lang");
-        setLang(nextLang);
+    // Toggle dropdown open/close
+    langGlobeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = langWrapper.classList.toggle('open');
+      langGlobeBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on outside click
+    document.addEventListener('click', () => {
+      langWrapper.classList.remove('open');
+      langGlobeBtn.setAttribute('aria-expanded', 'false');
+    });
+
+    // Option click
+    langOpts.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setLang(opt.getAttribute('data-set-lang'));
+        langWrapper.classList.remove('open');
+        langGlobeBtn.setAttribute('aria-expanded', 'false');
       });
     });
 
     // Restore saved language
     try {
       const saved = localStorage.getItem('bc_lang');
-      if (saved && ['ko','en','cn','vi'].includes(saved)) setLang(saved);
+      if (saved && langMeta[saved]) setLang(saved); else setLang('ko');
     } catch(e) {}
 
     /* ── Scroll Animations ── */
