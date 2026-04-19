@@ -679,7 +679,7 @@
     /* ── Recommended Areas — Full Wide 4-column ── */
     .use-section-inner {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -1226,7 +1226,7 @@
 
     .trust-row {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       background: #fff;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
@@ -1369,7 +1369,6 @@
       .trust-icon { font-size: 26px; }
       .trust-text strong { font-size: 13px; }
       .trust-text span { font-size: 12px; }
-      .visit-count-num { font-size: 16px !important; }
     }
 
 
@@ -1447,29 +1446,7 @@
       .use-content strong { font-size: 17px; }
       .use-content span { font-size: 14px; }
     }
-
-
-    /* ── Visit Counter ── */
-    .visit-count-num {
-      display: block;
-      font-size: 18px !important;
-      font-weight: 900 !important;
-      color: var(--accent) !important;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .trust-badge-counter {
-      background: linear-gradient(135deg, rgba(232,141,53,0.03) 0%, rgba(255,255,255,0) 100%);
-    }
-
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(6px); }
       to   { opacity: 1; transform: translateY(0);   }
-    }
-
-    .visit-count-num.loaded {
-      animation: countUp 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
     }
   
     
@@ -1779,6 +1756,59 @@
         max-width: none;
       }
     }
+    /* ── 추천 사용 위치 — 한국어 단어 단위 줄바꿈 ── */
+    .lang-ko .use-content strong,
+    .lang-ko .use-content span {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* ── 브랜드 핵심 가치 — PC 3분할 가로 레이아웃 ── */
+    .feature-list-h {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 28px;
+      border-top: 1px solid rgba(74,51,32,0.08);
+      padding-top: 28px;
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .feature-list-h .feature-item {
+      padding-right: 32px;
+      margin-right: 32px;
+      border-right: 1px solid rgba(74,51,32,0.08);
+      align-items: flex-start;
+    }
+
+    .feature-list-h .feature-item:last-child {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: none;
+    }
+
+    @media (max-width: 768px) {
+      .feature-list-h {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .feature-list-h .feature-item {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(74,51,32,0.08);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .feature-list-h .feature-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+
 </style>
 </head>
 <body class="lang-ko">
@@ -1983,17 +2013,6 @@
 <span data-lang="vi">Điều chỉnh hành vi không căng thẳng</span>
 <span data-lang="ja">ストレスのない行動矯正</span>
 <span data-lang="cn">无压力行为矫正</span>
-</div>
-</div>
-<div class="trust-badge trust-badge-counter">
-<div class="trust-icon">👁️</div>
-<div class="trust-text">
-<strong data-lang="ko">누적 방문</strong>
-<strong data-lang="en">Total Visits</strong>
-<strong data-lang="vi">Lượt truy cập</strong>
-<strong data-lang="ja">累計訪問</strong>
-<strong data-lang="cn">累计访问</strong>
-<span class="visit-count-num" id="visit-count">-</span>
 </div>
 </div>
 </div>
@@ -2642,30 +2661,6 @@
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       progressBar.style.width = pct + '%';
     }, { passive: true });
-
-
-    /* ── Visit Counter (CountAPI) ── */
-    (function() {
-      const el = document.getElementById('visit-count');
-      if (!el) return;
-
-      // namespace: 도메인, key: 페이지 구분자
-      const namespace = 'bittercare';
-      const key = 'pageview';
-
-      fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-        .then(res => res.json())
-        .then(data => {
-          const count = data.value;
-          // 천 단위 콤마 포맷
-          el.textContent = count.toLocaleString() + '회';
-          el.classList.add('loaded');
-        })
-        .catch(() => {
-          // API 실패 시 조용히 숨김
-          el.closest('.trust-badge').style.display = 'none';
-        });
-    })();
 
   
     </script>
