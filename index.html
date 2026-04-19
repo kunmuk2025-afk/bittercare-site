@@ -146,8 +146,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      overflow: hidden;
+      gap: 12px;
     }
 
     .brand {
@@ -174,12 +173,7 @@
     .brand-copy {
       min-width: 0;
       overflow: hidden;
-    }
-
-    .brand-copy span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .brand-copy strong {
@@ -1015,7 +1009,6 @@
         gap: 8px;
         min-width: 0;
         flex: 1;
-        overflow: hidden;
       }
 
       .brand-mark {
@@ -1044,6 +1037,18 @@
         gap: 5px;
         flex-shrink: 0;
         white-space: nowrap;
+        max-width: 120px;
+      }
+      /* 모바일: 언어 텍스트 숨기고 지구본 아이콘만 표시 → 어떤 언어도 밀림 없음 */
+      #langCurrentLabel {
+        display: none;
+      }
+      .lang-globe-btn .lang-caret {
+        display: none;
+      }
+      .lang-globe-btn {
+        padding: 8px 10px;
+        max-width: none;
       }
       .lang-dropdown {
         right: 0;
