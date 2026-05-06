@@ -189,11 +189,11 @@
       min-height: 560px; flex-shrink: 0;
       border-radius: 28px;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(28,48,80,0.08), rgba(28,48,80,0.26)), url('./bittercare-main.png') center/cover no-repeat, linear-gradient(145deg, #E8D8B8, #F5EAD5);
+      background: url('./bittercare-main.png') center/cover no-repeat, linear-gradient(145deg, #F5F2EC, #EDEAE4);
     }
     .visual-frame::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.65), rgba(255,255,255,0) 35%); }
-    .floating-label { position: absolute; z-index: 2; left: 22px; bottom: 22px; right: 22px; padding: 18px; border-radius: 22px; background: rgba(250,244,232,0.94); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.72); box-shadow: 0 18px 50px rgba(28, 48, 80, 0.18); }
-    .floating-label .mini { color: var(--brown-700); font-size: 13px; font-weight: 900; margin-bottom: 8px; }
+    .floating-label { position: absolute; z-index: 2; left: 22px; bottom: 22px; right: 22px; padding: 13px 16px; border-radius: 18px; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 12px 36px rgba(28, 48, 80, 0.14); }
+    .floating-label .mini { color: var(--brown-700); font-size: 11px; font-weight: 900; margin-bottom: 5px; letter-spacing: 0.01em; }
     .floating-label h3 { margin: 0; font-size: 25px; line-height: 1.25; letter-spacing: -0.05em; color: var(--ink); }
 
     .section { padding: 88px 0; }
@@ -389,7 +389,7 @@
     <header class="top-bar">
       <div class="container nav">
         <a href="#top" class="brand" aria-label="BitterCare Home">
-          <img src="bittercare-logo.png" alt="BitterCare" style="height:40px;width:auto;display:block;object-fit:contain;">
+          <img src="bittercare-logo.png" alt="BitterCare" style="height:52px;width:52px;display:block;object-fit:cover;border-radius:50%;border:1.5px solid rgba(28,48,80,0.1);background:#fff;">
           <span data-i18n="brandSub" style="font-size:11px;font-weight:600;color:var(--muted);letter-spacing:-0.01em;line-height:1.2;">세계최초 BitterINK 기반 행동 교정 스티커</span>
         </a>
         <nav class="nav-links" aria-label="주요 메뉴">
