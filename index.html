@@ -100,6 +100,16 @@
       cursor: pointer;
       box-shadow: 0 10px 30px rgba(28, 48, 80, 0.08);
     }
+    .lang-hint {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(28,48,80,0.07);
+      white-space: nowrap;
+    }
     .globe { font-size: 19px; line-height: 1; }
     .language-menu {
       position: absolute;
@@ -404,8 +414,9 @@
           <a href="https://www.coupang.com/vp/products/9543205295?itemId=28468059663&vendorItemId=95418381543&q=bittercare&searchId=48e9fd18569057&sourceType=search&itemsCount=59&searchRank=1&rank=1&traceId=mp41sin3" target="_blank" rel="noopener" data-i18n="navBuy">구매</a>
         </nav>
         <div class="language-switcher" id="languageSwitcher">
-          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"><span class="globe">🌐</span><span class="label" id="currentLanguage">한국어</span></button>
+          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"><span class="globe">🌐</span><span class="label" id="currentLanguage">한국어</span><span class="lang-hint">Language</span></button>
           <div class="language-menu" role="menu" aria-label="Language selector">
+            <div style="padding:10px 16px 8px;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:0.04em;border-bottom:1px solid rgba(28,48,80,0.07);margin-bottom:4px;">🌐 Select Language</div>
             <button type="button" data-lang="ko" class="active">한국어 <span class="lang-code">KO</span></button>
             <button type="button" data-lang="en">English <span class="lang-code">EN</span></button>
             <button type="button" data-lang="zh">中文 <span class="lang-code">ZH</span></button>
