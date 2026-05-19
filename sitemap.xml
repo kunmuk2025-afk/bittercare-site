@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.bittercare.com/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <!-- 다국어 대체 페이지 -->
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.bittercare.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bittercare.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bittercare.com/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.bittercare.com/?lang=ja" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.bittercare.com/?lang=vi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bittercare.com/" />
+  </url>
+
+</urlset>
