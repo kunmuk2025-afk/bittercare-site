@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>비터케어 사용방법 | BitterCare 사용 가이드</title>
+  <meta name="description" content="비터케어 올바른 사용방법. 4단계 부착 가이드, 위치별 사용 팁, 효과를 높이는 방법을 안내합니다." />
+  <meta name="keywords" content="비터케어 사용방법, 비터케어 붙이는 법, 강아지 물어뜯기 스티커 사용법, BitterCare how to use" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bittercare.com/usage-guide.html" />
+  <meta name="naver-site-verification" content="4c1023bc29ebc36ede2de01c05bd50ab68bfd4eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="비터케어 사용방법 가이드 | BitterCare" />
+  <meta property="og:description" content="비터케어 4단계 사용법과 위치별 부착 팁. 올바르게 사용해야 효과가 납니다." />
+  <meta property="og:image" content="https://www.bittercare.com/bittercare-main.png" />
+  <meta property="og:url" content="https://www.bittercare.com/usage-guide.html" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    :root {
+      --brown-950: #1C3050;
+      --brown-900: #172844;
+      --brown-800: #2D5A3A;
+      --cream-50:  #F5EDE0;
+      --cream-100: #EDE2CC;
+      --gold: #C89030;
+      --ink: #1A1C24;
+      --muted: #8A7C68;
+      --shadow: 0 24px 70px rgba(28,48,80,0.10);
+      --radius-xl: 24px;
+      --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Pretendard, sans-serif; background: var(--cream-50); color: var(--ink); line-height: 1.75; }
+
+    .top-bar { position: sticky; top: 0; z-index: 50; background: rgba(245,237,224,0.94); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(28,48,80,0.1); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(28,48,80,0.1); }
+    .brand-sub { font-size: 11px; font-weight: 600; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { padding: 7px 13px; border-radius: 999px; font-size: 14px; font-weight: 750; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+    .nav-links a:hover { background: rgba(28,48,80,0.07); }
+    .nav-links a.active { color: var(--brown-950); font-weight: 900; }
+    .nav-buy-btn { background: var(--brown-950) !important; color: #fff !important; font-weight: 900 !important; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ── 페이지 헤더 ── */
+    .page-hero { padding: 72px 0 56px; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; background: rgba(200,144,48,0.12); color: var(--gold); font-size: 12px; font-weight: 900; margin-bottom: 18px; }
+    .page-hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 1000; letter-spacing: -0.065em; line-height: 1.1; margin-bottom: 14px; }
+    .page-hero p { font-size: 17px; color: var(--muted); font-weight: 700; }
+
+    /* ── 4단계 스텝 ── */
+    .steps-section { padding: 64px 0; }
+    .steps-section h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 1000; letter-spacing: -0.055em; text-align: center; margin-bottom: 48px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; position: relative; }
+    .steps-grid::before { content: ""; position: absolute; top: 52px; left: calc(12.5% + 16px); right: calc(12.5% + 16px); height: 1px; background: repeating-linear-gradient(to right, rgba(28,48,80,0.25) 0, rgba(28,48,80,0.25) 6px, transparent 6px, transparent 12px); }
+    .step-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 8px; position: relative; z-index: 1; }
+    .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--brown-950); color: #fff; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 10px 28px rgba(28,48,80,0.22); }
+    .step-icon { width: 100%; aspect-ratio: 1; max-width: 140px; border-radius: 20px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 16px; box-shadow: 0 10px 28px rgba(28,48,80,0.07); }
+    .step-card h3 { font-size: 16px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .step-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 650; }
+
+    /* ── 위치별 가이드 ── */
+    .location-section { padding: 64px 0; background: var(--cream-100); }
+    .location-section h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 1000; letter-spacing: -0.055em; text-align: center; margin-bottom: 12px; }
+    .location-section .sub { text-align: center; color: var(--muted); font-size: 16px; font-weight: 700; margin-bottom: 40px; }
+    .location-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .loc-card { padding: 24px; border-radius: 20px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); }
+    .loc-card .loc-icon { font-size: 28px; margin-bottom: 12px; }
+    .loc-card h4 { font-size: 16px; font-weight: 900; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .loc-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 650; }
+
+    /* ── 팁 섹션 ── */
+    .tips-section { padding: 64px 0; }
+    .tips-section h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 1000; letter-spacing: -0.055em; text-align: center; margin-bottom: 40px; }
+    .tips-list { display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 0 auto; }
+    .tip-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 22px; border-radius: 18px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); }
+    .tip-badge { flex: 0 0 36px; height: 36px; border-radius: 12px; background: var(--brown-950); color: #fff; font-size: 13px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .tip-text h4 { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+    .tip-text p { font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 650; }
+
+    /* ── 주의사항 ── */
+    .caution-section { padding: 48px 0 64px; }
+    .caution-box { max-width: 720px; margin: 0 auto; padding: 28px 32px; border-radius: var(--radius-xl); background: rgba(176,58,46,0.06); border: 1.5px solid rgba(176,58,46,0.18); }
+    .caution-box h3 { font-size: 17px; font-weight: 900; color: #B03A2E; margin-bottom: 14px; }
+    .caution-list { display: flex; flex-direction: column; gap: 8px; }
+    .caution-list li { font-size: 14.5px; color: var(--ink); list-style: none; padding-left: 20px; position: relative; font-weight: 650; line-height: 1.6; }
+    .caution-list li::before { content: "✕"; position: absolute; left: 0; color: #B03A2E; font-size: 12px; font-weight: 900; top: 2px; }
+
+    /* ── 개체차 안내 ── */
+    .notice-box { margin: 48px auto; max-width: 720px; padding: 22px 26px; border-radius: var(--radius-xl); background: rgba(200,144,48,0.08); border: 1.5px solid rgba(200,144,48,0.25); }
+    .notice-box h3 { font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+    .notice-box p { font-size: 14.5px; color: var(--muted); line-height: 1.75; margin: 0; font-weight: 650; }
+
+    /* ── CTA ── */
+    .page-cta { padding: 64px 0; text-align: center; }
+    .page-cta h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 1000; letter-spacing: -0.055em; margin-bottom: 10px; }
+    .page-cta p { color: var(--muted); font-size: 16px; margin-bottom: 24px; font-weight: 700; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 999px; background: var(--brown-950); color: #fff; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 14px 36px rgba(28,48,80,0.22); transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── 관련 ── */
+    .related { padding: 0 0 64px; }
+    .related h3 { font-size: 16px; font-weight: 900; color: var(--muted); margin-bottom: 14px; text-align: center; }
+    .related-links { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; max-width: 720px; margin: 0 auto; }
+    .related-link { padding: 16px 18px; border-radius: 16px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 800; }
+    .related-link span { display: block; font-size: 11px; color: var(--muted); font-weight: 650; margin-top: 3px; }
+
+    footer { padding: 52px 0 0; background: var(--ink); color: rgba(255,255,255,0.55); font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { display: flex; flex-direction: column; gap: 10px; }
+    .footer-brand b { font-size: 18px; color: #fff; }
+    .footer-brand span { font-size: 12.5px; color: rgba(255,255,255,0.45); }
+    .footer-links { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col p { margin: 0 0 4px; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+    .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13.5px; }
+    .footer-bottom { padding: 20px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: repeat(2,1fr); }
+      .steps-grid::before { display: none; }
+      .location-grid { grid-template-columns: repeat(2,1fr); }
+      .related-links { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-links { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="bittercare-logo.png" alt="BitterCare" />
+        <span class="brand-sub">세계최초 BitterINK 기반 행동 교정 스티커</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">홈</a></li>
+          <li><a href="usage-guide.html" class="active">사용방법</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="dog-chewing.html">강아지 물어뜯기</a></li>
+          <li><a href="safety.html">안전성</a></li>
+          <li><a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener" class="nav-buy-btn">구매하기</a></li>
+        </ul>
+      </nav>
+        <div class="language-switcher" id="languageSwitcher" style="position:relative;flex:0 0 auto;">
+          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"
+            style="display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(28,48,80,0.12);background:rgba(250,244,232,0.9);color:#3D3830;font-weight:900;cursor:pointer;font-size:13px;font-family:inherit;">
+            <span style="font-size:17px;">🌐</span>
+            <span id="currentLanguage">한국어</span>
+            <span style="font-size:10px;font-weight:700;color:#8A7C68;padding:2px 6px;border-radius:999px;background:rgba(28,48,80,0.07);">Language</span>
+          </button>
+          <div id="languageMenu" role="menu" style="display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:160px;border-radius:18px;background:#FAF4E8;border:1px solid rgba(28,48,80,0.1);box-shadow:0 20px 60px rgba(28,48,80,0.12);overflow:hidden;z-index:100;">
+            <div style="padding:10px 16px 8px;font-size:11px;font-weight:800;color:#8A7C68;letter-spacing:0.04em;border-bottom:1px solid rgba(28,48,80,0.07);margin-bottom:4px;">🌐 Select Language</div>
+            <button type="button" data-lang="ko" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇰🇷 한국어</button>
+            <button type="button" data-lang="en" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇺🇸 English</button>
+            <button type="button" data-lang="zh" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇨🇳 中文</button>
+            <button type="button" data-lang="ja" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇯🇵 日本語</button>
+            <button type="button" data-lang="vi" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇻🇳 Tiếng Việt</button>
+          </div>
+        </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">📋 사용 가이드</div>
+        <h1 data-i18n="pageTitle">비터케어, 이렇게 사용하세요</h1>
+        <p data-i18n="pageDesc">올바른 위치에 정확히 붙이는 것이 가장 중요합니다.</p>
+      </div>
+    </section>
+
+    <!-- 4단계 -->
+    <section class="steps-section">
+      <div class="container">
+        <h2 data-i18n="h2_steps">4단계 사용 방법</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon">🧹</div>
+            <h3 data-i18n="step1title">표면 청소</h3>
+            <p data-i18n="step1p">먼지와 이물질을 제거하고 완전히 건조시킵니다. 유분이 있으면 접착력이 떨어집니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon">✂️</div>
+            <h3 data-i18n="step2title">적당히 재단</h3>
+            <p data-i18n="step2p">가위로 필요한 길이만큼 잘라 준비합니다. 무는 위치보다 조금 넓게 자르는 게 좋습니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon">🖐️</div>
+            <h3 data-i18n="step3title">정확한 위치 부착</h3>
+            <p data-i18n="step3p">이형지를 제거하고 실제로 무는 위치에 정확히 부착합니다. 위치가 핵심입니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-icon">👀</div>
+            <h3 data-i18n="step4title">반응 관찰 & 반복</h3>
+            <p data-i18n="step4p">3~5일간 반응을 관찰합니다. 효과가 약하면 위치를 보완하거나 새 스티커로 교체하세요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 위치별 가이드 -->
+    <section class="location-section">
+      <div class="container">
+        <h2 data-i18n="h2_loc">위치별 부착 가이드</h2>
+        <p class="sub" data-i18n="locSub">강아지가 실제로 입을 대는 위치에 정확히 부착해야 합니다.</p>
+        <div class="location-grid">
+          <div class="loc-card">
+            <div class="loc-icon">🪑</div>
+            <h4 data-i18n="loc1t">가구 모서리</h4>
+            <p data-i18n="loc1p">소파, 테이블, 의자 모서리에 부착. 모서리 전체를 감싸듯 붙이면 더 효과적입니다.</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">🚪</div>
+            <h4 data-i18n="loc2t">문틀 · 문 모서리</h4>
+            <p data-i18n="loc2p">강아지 입 높이 기준으로 부착. 위아래 30cm 범위를 커버하는 것을 권장합니다.</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">⚡</div>
+            <h4 data-i18n="loc3t">전선 보호 부위</h4>
+            <p data-i18n="loc3p">전선을 감싸거나 전선 주변 벽면에 부착. 안전을 위해 전선에 직접 부착은 권장하지 않습니다.</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">🪵</div>
+            <h4 data-i18n="loc4t">테이블 · 의자 다리</h4>
+            <p data-i18n="loc4p">아랫부분부터 강아지 입 높이까지 감싸듯 부착. 롤 타입이라 길이 조절이 자유롭습니다.</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">👟</div>
+            <h4 data-i18n="loc5t">신발 · 생활 소품</h4>
+            <p data-i18n="loc5p">자주 무는 물건에 직접 부착. 소품의 경우 먼저 작은 면에 테스트하세요.</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">🚧</div>
+            <h4 data-i18n="loc6t">접근 제한 구역</h4>
+            <p data-i18n="loc6p">강아지가 접근하면 안 되는 구역 경계에 부착. 쓴맛 경험으로 자연스럽게 기피하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 효과를 높이는 팁 -->
+    <section class="tips-section">
+      <div class="container">
+        <h2 data-i18n="h2_tips">효과를 높이는 팁</h2>
+        <div class="tips-list">
+          <div class="tip-item">
+            <div class="tip-badge">01</div>
+            <div class="tip-text">
+              <h4 data-i18n="tip1t">실제로 무는 위치에 정확히 붙이세요</h4>
+              <p data-i18n="tip1p">비터케어는 접촉해야 쓴맛 경험이 생깁니다. 강아지가 입을 대는 정확한 위치에 부착하는 것이 가장 중요합니다.</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-badge">02</div>
+            <div class="tip-text">
+              <h4 data-i18n="tip2t">처음 3~5일은 꾸준히 유지하세요</h4>
+              <p data-i18n="tip2p">쓴맛 경험이 기억으로 형성되는 초기 기간입니다. 이 기간에 스티커가 벗겨지지 않도록 관리해 주세요.</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-badge">03</div>
+            <div class="tip-text">
+              <h4 data-i18n="tip3t">반응이 약하면 위치를 넓혀 보세요</h4>
+              <p data-i18n="tip3p">강아지가 스티커 주변을 무는 경우, 부착 범위를 넓혀서 모든 접촉 가능 위치를 커버해 주세요.</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-badge">04</div>
+            <div class="tip-text">
+              <h4 data-i18n="tip4t">민감한 소재는 먼저 테스트하세요</h4>
+              <p data-i18n="tip4p">도장면, 가죽, 원목 등 민감한 소재는 작은 부위에 먼저 부착해 접착 상태와 표면 변화를 확인해 주세요.</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-badge">05</div>
+            <div class="tip-text">
+              <h4 data-i18n="tip5t">교체 시기를 놓치지 마세요</h4>
+              <p data-i18n="tip5p">쓴맛이 약해지거나 접착력이 떨어지면 즉시 교체해 주세요. 5M은 1~2개월, 10M은 2~3개월이 기준입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 주의사항 -->
+    <section class="caution-section">
+      <div class="container">
+        <div class="caution-box">
+          <h3 data-i18n="h3_caution">✕ 이런 곳에는 사용하지 마세요</h3>
+          <ul class="caution-list">
+            <li data-i18n="caut1">피부, 털, 발바닥 등 신체 부위</li>
+            <li data-i18n="caut2">식기류, 음수대 등 직접 섭취하는 물품</li>
+            <li data-i18n="caut3">뜨거운 표면이나 직사광선에 장시간 노출되는 곳</li>
+            <li>어린이가 손을 자주 대는 낮은 위치</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 개체차 안내 -->
+    <div class="notice-box container">
+      <h3>⚠ 강아지마다 반응이 다를 수 있습니다</h3>
+      <p>강아지의 쓴맛 민감도, 물어뜯는 습관의 강도, 실제 접촉 위치, 반복 사용 기간에 따라 반응은 달라질 수 있습니다. 비터케어는 <strong>물어뜯는 행동 감소에 도움을 주는 행동 교정 보조 스티커</strong>입니다.</p>
+    </div>
+
+    <!-- CTA -->
+    <section class="page-cta">
+      <div class="container">
+        <h2 data-i18n="ctaTitle">지금 시작해 보세요</h2>
+        <p data-i18n="ctaDesc">올바른 위치에 붙이는 것, 그게 전부입니다.</p>
+        <a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener" class="btn-primary"><span data-i18n="buyBtn">비터케어 구매하기 →</span></a>
+      </div>
+    </section>
+
+    <!-- 관련 -->
+    <section class="related">
+      <div class="container">
+        <h3 data-i18n="relTitle">함께 읽으면 좋은 글</h3>
+        <div class="related-links">
+          <a href="faq.html" class="related-link">💬 자주 묻는 질문<span><span data-i18n="rel1sub">효과·안전성 Q&A</span></a>
+          <a href="dog-chewing.html" class="related-link">🐾 강아지 물어뜯기 원인<span><span data-i18n="rel2sub">왜 생기고 어떻게 해결?</span></a>
+          <a href="safety.html" class="related-link">🛡 안전성 안내<span><span data-i18n="rel3sub">원료 및 인증 정보</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <b>BitterCare</b>
+          <span>BitterINK 기반 행동 교정 스티커 · 감각이 행동을 바꿉니다.</span>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <p>제품 안내</p>
+            <a href="usage-guide.html"><span data-i18n="footerLink1">사용방법</span></a>
+            <a href="safety.html"><span data-i18n="footerLink2">안전성 안내</span></a>
+            <a href="faq.html"><span data-i18n="footerLink3">자주 묻는 질문</span></a>
+          </div>
+          <div class="footer-col">
+            <p>정보</p>
+            <a href="dog-chewing.html"><span data-i18n="footerLink4">강아지 물어뜯기</span></a>
+            <a href="https://www.instagram.com/bittercare.official/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="footer-col">
+            <p>구매</p>
+            <a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener"><span data-i18n="footerBuy">비터케어 구매하기</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footerCopyright">© 2025 BitterCare · (주)건묵</span>
+        <span data-i18n="footerNotice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+  ko: {noticeTitle: "⚠ 강아지마다 반응이 다를 수 있습니다", noticeText: "강아지의 쓴맛 민감도에 따라 반응은 달라질 수 있습니다. 비터케어는 <strong>물어뜯는 행동 감소에 도움을 주는 행동 교정 보조 스티커</strong>입니다.", relTitle: "함께 읽으면 좋은 글", pageTitle: "비터케어, 이렇게 사용하세요", pageDesc: "올바른 위치에 정확히 붙이는 것이 가장 중요합니다.", h2_steps: "4단계 사용 방법", step1num: "1", step1title: "표면 청소", step1p: "먼지와 이물질을 제거하고 완전히 건조시킵니다.", step2num: "2", step2title: "적당히 재단", step2p: "가위로 필요한 길이만큼 잘라 준비합니다.", step3num: "3", step3title: "정확한 위치 부착", step3p: "이형지를 제거하고 실제로 무는 위치에 정확히 부착합니다.", step4num: "4", step4title: "반응 관찰 & 반복", step4p: "3~5일간 반응을 관찰합니다. 효과가 약하면 위치를 보완하거나 새 스티커로 교체하세요.", h2_loc: "위치별 부착 가이드", locSub: "강아지가 실제로 입을 대는 위치에 정확히 부착해야 합니다.", loc1t: "가구 모서리", loc1p: "소파, 테이블, 의자 모서리에 부착.", loc2t: "문틀 · 문 모서리", loc2p: "강아지 입 높이 기준으로 부착.", loc3t: "전선 보호 부위", loc3p: "전선을 감싸거나 전선 주변 벽면에 부착.", loc4t: "테이블 · 의자 다리", loc4p: "아랫부분부터 강아지 입 높이까지 감싸듯 부착.", loc5t: "신발 · 생활 소품", loc5p: "자주 무는 물건에 직접 부착.", loc6t: "접근 제한 구역", loc6p: "강아지가 접근하면 안 되는 구역 경계에 부착.", h2_tips: "효과를 높이는 팁", tip1t: "실제로 무는 위치에 정확히 붙이세요", tip1p: "비터케어는 접촉해야 쓴맛 경험이 생깁니다.", tip2t: "처음 3~5일은 꾸준히 유지하세요", tip2p: "쓴맛 경험이 기억으로 형성되는 초기 기간입니다.", tip3t: "반응이 약하면 위치를 넓혀 보세요", tip3p: "부착 범위를 넓혀서 모든 접촉 가능 위치를 커버해 주세요.", tip4t: "민감한 소재는 먼저 테스트하세요", tip4p: "도장면, 가죽 등은 작은 부위에 먼저 부착해 확인하세요.", tip5t: "교체 시기를 놓치지 마세요", tip5p: "쓴맛이 약해지면 즉시 교체. 5M은 1~2개월, 10M은 2~3개월 기준.", h3_caution: "✕ 이런 곳에는 사용하지 마세요", caut1: "피부, 털, 발바닥 등 신체 부위", caut2: "식기류, 음수대 등 직접 섭취하는 물품", caut3: "뜨거운 표면이나 직사광선에 장시간 노출되는 곳", caut4: "어린이 손이 자주 닿는 낮은 위치", noticeTitle: "⚠ 강아지마다 반응이 다를 수 있습니다", noticeText: "강아지의 쓴맛 민감도에 따라 반응은 달라질 수 있습니다. 비터케어는 <strong>물어뜯는 행동 감소에 도움을 주는 행동 교정 보조 스티커</strong>입니다.", ctaTitle: "지금 시작해 보세요", ctaDesc: "올바른 위치에 붙이는 것, 그게 전부입니다.", buyBtn: "비터케어 구매하기 →", rel1: "💬 자주 묻는 질문", rel1sub: "효과·안전성 Q&A", rel2: "🐾 강아지 물어뜯기 원인", rel2sub: "왜 생기고 어떻게 해결?", rel3: "🛡 안전성 안내", rel3sub: "원료 및 인증 정보", navHome: "홈", navUsage: "사용방법", navFaq: "FAQ", navDog: "강아지 물어뜯기", navSafety: "안전성", navBuy: "구매하기", footerCol1: "제품 안내", footerCol2: "정보", footerCol3: "구매", footerLink1: "사용방법", footerLink2: "안전성 안내", footerLink3: "자주 묻는 질문", footerLink4: "강아지 물어뜯기", footerBuy: "비터케어 구매하기", footerCopyright: "© 2025 BitterCare · (주)건묵", footerNotice: "이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."},
+  en: {noticeTitle: "⚠ Dogs may react differently", noticeText: "Reactions vary by bitter taste sensitivity. BitterCare is a <strong>behavior correction aid that helps reduce chewing behavior</strong>.", relTitle: "Related Reading", pageTitle: "How to Use BitterCare", pageDesc: "Applying it precisely to the right spot is the most important step.", h2_steps: "4-Step Usage Guide", step1num: "1", step1title: "Clean the Surface", step1p: "Remove dust and residue, then dry completely.", step2num: "2", step2title: "Cut to Length", step2p: "Cut with scissors to the length you need.", step3num: "3", step3title: "Apply to Target Spot", step3p: "Remove the backing and press firmly onto the exact chewing location.", step4num: "4", step4title: "Observe & Repeat", step4p: "Watch for 3–5 days. If weak response, adjust placement or replace with a new piece.", h2_loc: "Placement Guide by Location", locSub: "Apply precisely where your pet actually puts their mouth.", loc1t: "Furniture edges", loc1p: "Corners of sofas, tables, chairs.", loc2t: "Door frames", loc2p: "At your dog's mouth height.", loc3t: "Cable protection", loc3p: "Wrap around cables or apply to nearby wall.", loc4t: "Table & chair legs", loc4p: "Wrap from bottom up to mouth height.", loc5t: "Shoes & household items", loc5p: "Apply directly on frequently chewed items.", loc6t: "Restricted zones", loc6p: "Apply at the border of areas dogs shouldn't access.", h2_tips: "Tips to Maximize Effect", tip1t: "Apply precisely where they bite", tip1p: "BitterCare only works when contacted. Placement is everything.", tip2t: "Maintain consistently for the first 3–5 days", tip2p: "This is the critical window for forming bitter taste memory.", tip3t: "If response is weak, widen coverage", tip3p: "Expand the sticker area to cover all possible contact points.", tip4t: "Test sensitive surfaces first", tip4p: "For painted, leather, or wood surfaces, test a small area first.", tip5t: "Don't miss replacement time", tip5p: "Replace when bitter effect weakens. 5M: ~1–2 months, 10M: ~2–3 months.", h3_caution: "✕ Do NOT use on these surfaces", caut1: "Skin, fur, paws, or any body part", caut2: "Food bowls, water dispensers, or ingested items", caut3: "Hot surfaces or areas with prolonged direct sunlight", caut4: "Low areas frequently touched by children", noticeTitle: "⚠ Dogs may react differently", noticeText: "Reactions vary by bitter taste sensitivity. BitterCare is a <strong>behavior correction aid that helps reduce chewing behavior</strong>.", ctaTitle: "Start today", ctaDesc: "Apply it to the right spot. That's all it takes.", buyBtn: "Buy BitterCare →", rel1: "💬 FAQ", rel1sub: "Effects & safety Q&A", rel2: "🐾 Dog Chewing Causes", rel2sub: "Why it happens & how to fix it", rel3: "🛡 Safety Info", rel3sub: "Ingredients & certifications", navHome: "Home", navUsage: "How to Use", navFaq: "FAQ", navDog: "Dog Chewing", navSafety: "Safety", navBuy: "Buy Now", footerCol1: "Product", footerCol2: "Info", footerCol3: "Purchase", footerLink1: "How to Use", footerLink2: "Safety Info", footerLink3: "FAQ", footerLink4: "Dog Chewing", footerBuy: "Buy BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "This page is part of the Coupang Partners program and may earn a commission."},
+  zh: {noticeTitle: "⚠ 每只狗的反应可能不同", noticeText: "反应因苦味敏感度而异。BitterCare 是<strong>帮助减少咬物行为的行为矫正辅助贴</strong>。", relTitle: "相关文章", pageTitle: "BitterCare 使用方法", pageDesc: "准确贴在正确位置是最重要的一步。", h2_steps: "4步使用方法", step1num: "1", step1title: "清洁表面", step1p: "去除灰尘和油分，完全干燥后使用。", step2num: "2", step2title: "适当裁剪", step2p: "用剪刀剪取所需长度。", step3num: "3", step3title: "准确粘贴", step3p: "撕去离型纸，精确贴在实际咬的位置。", step4num: "4", step4title: "观察反应 & 重复", step4p: "观察3~5天。效果不明显时调整位置或更换新贴纸。", h2_loc: "各位置粘贴指南", locSub: "请精确贴在宠物实际用嘴接触的位置。", loc1t: "家具角落", loc1p: "沙发、桌子、椅子角落。", loc2t: "门框 · 门角", loc2p: "按狗狗嘴巴高度粘贴。", loc3t: "电线保护区域", loc3p: "缠绕电线或贴在周围墙面。", loc4t: "桌腿 · 椅腿", loc4p: "从底部到狗狗嘴巴高度包裹粘贴。", loc5t: "鞋子 · 生活用品", loc5p: "直接贴在经常被咬的物品上。", loc6t: "限制进入区域", loc6p: "贴在不希望狗狗进入的区域边界。", h2_tips: "提高效果的技巧", tip1t: "准确贴在实际咬的位置", tip1p: "BitterCare 接触才会产生苦味体验。位置是关键。", tip2t: "最初3~5天坚持保持", tip2p: "这是形成苦味记忆的关键初期。", tip3t: "效果弱时扩大覆盖范围", tip3p: "扩大粘贴范围，覆盖所有可能接触的位置。", tip4t: "敏感材质先测试", tip4p: "烤漆面、皮革等先在小处测试再使用。", tip5t: "不要错过更换时机", tip5p: "苦味减弱时立即更换。5M约1~2个月，10M约2~3个月。", h3_caution: "✕ 请勿在以下位置使用", caut1: "皮肤、毛发、脚掌等身体部位", caut2: "餐具、饮水器等直接入口物品", caut3: "高温表面或长期阳光直射的地方", caut4: "孩子经常接触的低处位置", noticeTitle: "⚠ 每只狗的反应可能不同", noticeText: "反应因苦味敏感度而异。BitterCare 是<strong>帮助减少咬物行为的行为矫正辅助贴</strong>。", ctaTitle: "现在就开始吧", ctaDesc: "贴在正确位置，就这么简单。", buyBtn: "购买 BitterCare →", rel1: "💬 常见问题", rel1sub: "效果·安全性Q&A", rel2: "🐾 狗咬问题原因", rel2sub: "为什么会咬以及如何解决", rel3: "🛡 安全性说明", rel3sub: "原料及认证信息", navHome: "首页", navUsage: "使用方法", navFaq: "常见问题", navDog: "狗咬问题", navSafety: "安全性", navBuy: "立即购买", footerCol1: "产品", footerCol2: "信息", footerCol3: "购买", footerLink1: "使用方法", footerLink2: "安全性说明", footerLink3: "常见问题", footerLink4: "狗咬问题", footerBuy: "购买 BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "本页面为Coupang合作伙伴活动的一部分，可能获得一定佣金。"},
+  ja: {noticeTitle: "⚠ 犬によって反応が異なる場合があります", noticeText: "苦味への感受性によって反応は異なります。BitterCareは<strong>噛む行動の減少を助ける行動矯正補助ステッカー</strong>です。", relTitle: "関連記事", pageTitle: "BitterCareの使い方", pageDesc: "正しい位置に正確に貼ることが最も重要です。", h2_steps: "4ステップ使用方法", step1num: "1", step1title: "表面を清潔に", step1p: "ほこりや油分を取り除き、完全に乾燥させます。", step2num: "2", step2title: "適切にカット", step2p: "必要な長さにハサミでカットします。", step3num: "3", step3title: "正確な位置に貼る", step3p: "剥離紙を外して実際に噛む位置に正確に貼ります。", step4num: "4", step4title: "反応観察 & 繰り返し", step4p: "3〜5日間反応を観察。効果が弱ければ位置を調整するか新しいシールに交換。", h2_loc: "場所別貼り付けガイド", locSub: "ペットが実際に口をつける位置に正確に貼ってください。", loc1t: "家具の角", loc1p: "ソファ、テーブル、椅子の角。", loc2t: "ドア枠・角", loc2p: "犬の口の高さを基準に。", loc3t: "ケーブル保護エリア", loc3p: "ケーブルを覆うか周囲の壁面に貼る。", loc4t: "テーブル・椅子の脚", loc4p: "下部から犬の口の高さまで包むように貼る。", loc5t: "靴・生活用品", loc5p: "よく噛まれる物に直接貼る。", loc6t: "立入禁止エリア", loc6p: "犬に入ってほしくないエリアの境界に貼る。", h2_tips: "効果を高めるコツ", tip1t: "実際に噛む位置に正確に貼る", tip1p: "BitterCareは接触することで苦味体験が生まれます。", tip2t: "最初の3〜5日は継続的に維持する", tip2p: "苦味記憶が形成される重要な初期期間です。", tip3t: "反応が弱ければ範囲を広げる", tip3p: "すべての接触可能な位置をカバーするよう範囲を広げてください。", tip4t: "敏感な素材は先にテストする", tip4p: "塗装面や革など敏感な素材は小さな部分で先にテストしてください。", tip5t: "交換時期を見逃さない", tip5p: "苦味が弱まったら即交換。5Mは1〜2ヶ月、10Mは2〜3ヶ月が目安。", h3_caution: "✕ これらの場所には使用しないでください", caut1: "皮膚、毛、肉球などの身体部位", caut2: "食器、給水器など直接口に入る物", caut3: "高温の表面や長時間直射日光が当たる場所", caut4: "子どもの手がよく触れる低い位置", noticeTitle: "⚠ 犬によって反応が異なる場合があります", noticeText: "苦味への感受性によって反応は異なります。BitterCareは<strong>噛む行動の減少を助ける行動矯正補助ステッカー</strong>です。", ctaTitle: "今すぐ始めてみましょう", ctaDesc: "正しい位置に貼るだけ。それだけです。", buyBtn: "BitterCare を購入 →", rel1: "💬 よくある質問", rel1sub: "効果・安全性Q&A", rel2: "🐾 犬が噛む原因", rel2sub: "なぜ噛む？どう解決？", rel3: "🛡 安全性案内", rel3sub: "原料・認証情報", navHome: "ホーム", navUsage: "使い方", navFaq: "よくある質問", navDog: "噛み癖", navSafety: "安全性", navBuy: "購入する", footerCol1: "製品案内", footerCol2: "情報", footerCol3: "購入", footerLink1: "使い方", footerLink2: "安全性案内", footerLink3: "よくある質問", footerLink4: "犬の噛み癖", footerBuy: "BitterCare を購入", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "このページはCoupangパートナーズ活動の一環として、手数料を受け取る場合があります。"},
+  vi: {noticeTitle: "⚠ Mỗi chú chó có thể phản ứng khác nhau", noticeText: "Phản ứng khác nhau tùy độ nhạy với vị đắng. BitterCare là <strong>nhãn dán hỗ trợ điều chỉnh hành vi giúp giảm thói quen cắn gặm</strong>.", relTitle: "Bài Đọc Liên Quan", pageTitle: "Cách Sử Dụng BitterCare", pageDesc: "Dán chính xác vào đúng vị trí là bước quan trọng nhất.", h2_steps: "Hướng Dẫn 4 Bước", step1num: "1", step1title: "Làm sạch bề mặt", step1p: "Lau sạch bụi và dầu, để khô hoàn toàn.", step2num: "2", step2title: "Cắt theo độ dài cần thiết", step2p: "Dùng kéo cắt đúng độ dài cần dùng.", step3num: "3", step3title: "Dán vào đúng vị trí", step3p: "Bóc lớp bảo vệ và dán chính xác vào nơi chó cắn.", step4num: "4", step4title: "Quan sát & lặp lại", step4p: "Quan sát 3~5 ngày. Nếu phản ứng yếu, điều chỉnh vị trí hoặc thay miếng mới.", h2_loc: "Hướng Dẫn Dán Theo Vị Trí", locSub: "Dán chính xác vào nơi thú cưng thực sự dùng miệng tiếp xúc.", loc1t: "Góc nội thất", loc1p: "Góc sofa, bàn, ghế.", loc2t: "Khung cửa", loc2p: "Theo chiều cao miệng chó.", loc3t: "Khu vực dây điện", loc3p: "Quấn quanh dây hoặc dán lên tường gần đó.", loc4t: "Chân bàn · chân ghế", loc4p: "Dán từ dưới lên tới chiều cao miệng chó.", loc5t: "Giày · đồ dùng sinh hoạt", loc5p: "Dán trực tiếp lên vật thường bị cắn.", loc6t: "Khu vực hạn chế", loc6p: "Dán tại ranh giới khu vực không muốn chó vào.", h2_tips: "Mẹo Tăng Hiệu Quả", tip1t: "Dán chính xác vào nơi chó cắn", tip1p: "BitterCare chỉ tác dụng khi tiếp xúc. Vị trí là yếu tố then chốt.", tip2t: "Duy trì liên tục trong 3~5 ngày đầu", tip2p: "Đây là giai đoạn then chốt hình thành ký ức vị đắng.", tip3t: "Phản ứng yếu thì mở rộng diện tích dán", tip3p: "Mở rộng vùng dán để bao phủ mọi điểm tiếp xúc có thể.", tip4t: "Kiểm tra vật liệu nhạy cảm trước", tip4p: "Với bề mặt sơn, da, gỗ nguyên — thử vùng nhỏ trước.", tip5t: "Đừng bỏ lỡ thời điểm thay", tip5p: "Thay ngay khi vị đắng giảm. 5M: ~1~2 tháng, 10M: ~2~3 tháng.", h3_caution: "✕ Không sử dụng ở những nơi này", caut1: "Da, lông, móng vuốt hoặc bất kỳ bộ phận cơ thể nào", caut2: "Bát ăn, máng nước hoặc vật cho vào miệng trực tiếp", caut3: "Bề mặt nóng hoặc nơi tiếp xúc ánh nắng trực tiếp lâu", caut4: "Vị trí thấp mà trẻ em thường chạm vào", noticeTitle: "⚠ Mỗi chú chó có thể phản ứng khác nhau", noticeText: "Phản ứng khác nhau tùy độ nhạy với vị đắng. BitterCare là <strong>nhãn dán hỗ trợ điều chỉnh hành vi giúp giảm thói quen cắn gặm</strong>.", ctaTitle: "Bắt đầu ngay hôm nay", ctaDesc: "Chỉ cần dán đúng chỗ. Đơn giản vậy thôi.", buyBtn: "Mua BitterCare →", rel1: "💬 FAQ", rel1sub: "Q&A hiệu quả·an toàn", rel2: "🐾 Nguyên nhân chó cắn", rel2sub: "Tại sao và cách khắc phục", rel3: "🛡 Thông tin an toàn", rel3sub: "Thành phần và chứng nhận", navHome: "Trang chủ", navUsage: "Hướng dẫn", navFaq: "FAQ", navDog: "Chó cắn đồ", navSafety: "An toàn", navBuy: "Mua ngay", footerCol1: "Sản phẩm", footerCol2: "Thông tin", footerCol3: "Mua hàng", footerLink1: "Hướng dẫn sử dụng", footerLink2: "An toàn", footerLink3: "FAQ", footerLink4: "Chó cắn đồ", footerBuy: "Mua BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "Trang này tham gia chương trình Coupang Partners và có thể nhận hoa hồng."}
+};
+
+    function setLanguage(lang) {
+      const dict = translations[lang] || translations['ko'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+      const labels = {'ko':'한국어','en':'English','zh':'中文','ja':'日本語','vi':'Tiếng Việt'};
+      document.getElementById('currentLanguage').textContent = labels[lang] || '한국어';
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      localStorage.setItem('bc_lang', lang);
+    }
+
+    // 언어 스위처
+    const btn = document.getElementById('languageButton');
+    const menu = document.getElementById('languageMenu');
+    btn.addEventListener('click', () => {
+      const open = menu.style.display === 'block';
+      menu.style.display = open ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', !open);
+    });
+    document.querySelectorAll('[data-lang]').forEach(b => {
+      b.addEventListener('click', () => {
+        setLanguage(b.getAttribute('data-lang'));
+        menu.style.display = 'none';
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) menu.style.display = 'none';
+    });
+
+    // 초기 언어 적용
+    const saved = localStorage.getItem('bc_lang') || 'ko';
+    setLanguage(saved);
+  </script>
+</body>
+</html>

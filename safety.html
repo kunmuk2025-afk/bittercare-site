@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>비터케어 안전성 안내 | BitterCare 원료 및 인증</title>
+  <meta name="description" content="비터케어는 영국 Macfarlan Smith(Veranova) FDA 기준 쓴맛 원료를 사용합니다. BitterINK 기반 반려동물 행동 교정 스티커의 안전성 정보를 확인하세요." />
+  <meta name="keywords" content="비터케어 안전성, BitterCare 성분, BitterINK 원료, Denatonium Benzoate 안전, 반려동물 무독성 스티커" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bittercare.com/safety.html" />
+  <meta name="naver-site-verification" content="4c1023bc29ebc36ede2de01c05bd50ab68bfd4eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="비터케어 안전성 안내 | BitterCare" />
+  <meta property="og:description" content="FDA 기준 원료, 영국 Veranova 프리미엄 쓴맛 성분. BitterCare 안전성 정보." />
+  <meta property="og:image" content="https://www.bittercare.com/bittercare-main.png" />
+  <meta property="og:url" content="https://www.bittercare.com/safety.html" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    :root {
+      --brown-950: #1C3050;
+      --brown-900: #172844;
+      --brown-800: #2D5A3A;
+      --cream-50:  #F5EDE0;
+      --cream-100: #EDE2CC;
+      --gold: #C89030;
+      --ink: #1A1C24;
+      --muted: #8A7C68;
+      --radius-xl: 24px;
+      --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Pretendard, sans-serif; background: var(--cream-50); color: var(--ink); line-height: 1.75; }
+
+    .top-bar { position: sticky; top: 0; z-index: 50; background: rgba(245,237,224,0.94); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(28,48,80,0.1); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(28,48,80,0.1); }
+    .brand-sub { font-size: 11px; font-weight: 600; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { padding: 7px 13px; border-radius: 999px; font-size: 14px; font-weight: 750; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+    .nav-links a:hover { background: rgba(28,48,80,0.07); }
+    .nav-links a.active { color: var(--brown-950); font-weight: 900; }
+    .nav-buy-btn { background: var(--brown-950) !important; color: #fff !important; font-weight: 900 !important; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ── 히어로 ── */
+    .page-hero { padding: 72px 0 56px; text-align: center; background: linear-gradient(160deg, var(--brown-950) 0%, var(--brown-900) 100%); color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; background: rgba(200,144,48,0.2); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 900; margin-bottom: 18px; }
+    .page-hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 1000; letter-spacing: -0.065em; line-height: 1.1; margin-bottom: 14px; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 700; max-width: 560px; margin: 0 auto; }
+
+    /* ── 원료 카드 ── */
+    .ingredient-section { padding: 72px 0; }
+    .ingredient-section h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 1000; letter-spacing: -0.055em; text-align: center; margin-bottom: 12px; }
+    .ingredient-section .sub { text-align: center; color: var(--muted); font-size: 16px; font-weight: 700; margin-bottom: 40px; }
+    .ingredient-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-bottom: 40px; }
+    .ingredient-card { padding: 32px; border-radius: 22px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); }
+    .ingredient-card .since { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 10px; }
+    .ingredient-card h3 { font-size: 20px; font-weight: 1000; letter-spacing: -0.04em; margin-bottom: 8px; }
+    .ingredient-card .desc { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 650; margin-bottom: 16px; }
+    .ingredient-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 5px 12px; border-radius: 999px; background: rgba(28,48,80,0.07); font-size: 12px; font-weight: 800; color: var(--brown-950); }
+
+    /* ── 핵심 성분 ── */
+    .compound-section { padding: 64px 0; background: var(--cream-100); }
+    .compound-section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 1000; letter-spacing: -0.05em; text-align: center; margin-bottom: 40px; }
+    .compound-card { max-width: 680px; margin: 0 auto; padding: 36px 40px; border-radius: 24px; background: var(--brown-950); color: #fff; }
+    .compound-card .name { font-size: 13px; font-weight: 900; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+    .compound-card h3 { font-size: 28px; font-weight: 1000; letter-spacing: -0.04em; margin-bottom: 16px; }
+    .compound-card p { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 650; margin-bottom: 20px; }
+    .compound-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .fact { padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); }
+    .fact .label { font-size: 10px; font-weight: 900; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .fact .value { font-size: 14px; font-weight: 800; color: #fff; }
+
+    /* ── 인증/특허 배지 ── */
+    .cert-section { padding: 64px 0; }
+    .cert-section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 1000; letter-spacing: -0.05em; text-align: center; margin-bottom: 40px; }
+    .cert-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .cert-card { padding: 28px 22px; border-radius: 20px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); text-align: center; }
+    .cert-icon { font-size: 36px; margin-bottom: 12px; }
+    .cert-card h4 { font-size: 16px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .cert-card p { font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 650; }
+
+    /* ── 주의사항 ── */
+    .safety-notes { padding: 48px 0 64px; }
+    .notes-box { max-width: 720px; margin: 0 auto; }
+    .notes-box h3 { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .note-list { display: flex; flex-direction: column; gap: 12px; }
+    .note-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 20px; border-radius: 16px; background: #FAF4E8; border: 1px solid rgba(28,48,80,0.09); }
+    .note-item .ico { font-size: 20px; flex: 0 0 28px; }
+    .note-item p { font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 650; }
+    .note-item strong { color: var(--ink); }
+
+    /* ── CTA ── */
+    .page-cta { padding: 64px 0; text-align: center; }
+    .page-cta h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 1000; letter-spacing: -0.055em; margin-bottom: 10px; }
+    .page-cta p { color: var(--muted); font-size: 16px; margin-bottom: 24px; font-weight: 700; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 999px; background: var(--brown-950); color: #fff; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 14px 36px rgba(28,48,80,0.22); transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.88; }
+
+    footer { padding: 52px 0 0; background: var(--ink); color: rgba(255,255,255,0.55); font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { display: flex; flex-direction: column; gap: 10px; }
+    .footer-brand b { font-size: 18px; color: #fff; }
+    .footer-brand span { font-size: 12.5px; color: rgba(255,255,255,0.45); }
+    .footer-links { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col p { margin: 0 0 4px; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+    .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13.5px; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { padding: 20px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 768px) {
+      .ingredient-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: repeat(2,1fr); }
+      .compound-facts { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-links { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="bittercare-logo.png" alt="BitterCare" />
+        <span class="brand-sub">세계최초 BitterINK 기반 행동 교정 스티커</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">홈</a></li>
+          <li><a href="usage-guide.html">사용방법</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="dog-chewing.html">강아지 물어뜯기</a></li>
+          <li><a href="safety.html" class="active">안전성</a></li>
+          <li><a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener" class="nav-buy-btn">구매하기</a></li>
+        </ul>
+      </nav>
+        <div class="language-switcher" id="languageSwitcher" style="position:relative;flex:0 0 auto;">
+          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"
+            style="display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(28,48,80,0.12);background:rgba(250,244,232,0.9);color:#3D3830;font-weight:900;cursor:pointer;font-size:13px;font-family:inherit;">
+            <span style="font-size:17px;">🌐</span>
+            <span id="currentLanguage">한국어</span>
+            <span style="font-size:10px;font-weight:700;color:#8A7C68;padding:2px 6px;border-radius:999px;background:rgba(28,48,80,0.07);">Language</span>
+          </button>
+          <div id="languageMenu" role="menu" style="display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:160px;border-radius:18px;background:#FAF4E8;border:1px solid rgba(28,48,80,0.1);box-shadow:0 20px 60px rgba(28,48,80,0.12);overflow:hidden;z-index:100;">
+            <div style="padding:10px 16px 8px;font-size:11px;font-weight:800;color:#8A7C68;letter-spacing:0.04em;border-bottom:1px solid rgba(28,48,80,0.07);margin-bottom:4px;">🌐 Select Language</div>
+            <button type="button" data-lang="ko" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇰🇷 한국어</button>
+            <button type="button" data-lang="en" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇺🇸 English</button>
+            <button type="button" data-lang="zh" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇨🇳 中文</button>
+            <button type="button" data-lang="ja" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇯🇵 日本語</button>
+            <button type="button" data-lang="vi" role="menuitem" style="width:100%;padding:10px 16px;background:none;border:none;text-align:left;font-size:14px;font-weight:750;cursor:pointer;font-family:inherit;color:#1A1C24;">🇻🇳 Tiếng Việt</button>
+          </div>
+        </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">🛡 안전성 안내</div>
+        <h1 data-i18n="pageTitle">믿을 수 있는 원료,<br />검증된 안전성</h1>
+        <p data-i18n="pageDesc">비터케어는 1827년부터 이어온 영국 프리미엄 원료 기술을 기반으로 만들어집니다.</p>
+      </div>
+    </section>
+
+    <!-- 원료 카드 -->
+    <section class="ingredient-section">
+      <div class="container">
+        <h2 data-i18n="h2_ing">프리미엄 원료 공급사</h2>
+        <p class="sub" data-i18n="ingDesc">세계에서 가장 신뢰받는 쓴맛 원료를 사용합니다.</p>
+        <div class="ingredient-grid">
+          <div class="ingredient-card">
+            <div class="since">SINCE 1827</div>
+            <h3 data-i18n="card1title">Macfarlan Smith</h3>
+            <p class="desc" data-i18n="card1desc">1827년 설립된 영국의 특수 화학 기업. 전 세계 의약품·식품용 특수 성분 공급 분야에서 200년 가까운 역사를 가진 글로벌 리더입니다. 현재는 Veranova 브랜드로 운영됩니다.</p>
+            <div class="tags">
+              <span class="tag" data-i18n="tag1_1">200년 역사</span>
+              <span class="tag" data-i18n="tag1_2">글로벌 공급사</span>
+              <span class="tag" data-i18n="tag1_3">의약품 등급</span>
+            </div>
+          </div>
+          <div class="ingredient-card">
+            <div class="since">VERANOVA UK</div>
+            <h3 data-i18n="card2title">프리미엄 쓴맛 원료</h3>
+            <p class="desc" data-i18n="card2desc">Macfarlan Smith의 현재 브랜드인 Veranova는 Denatonium Benzoate를 포함한 특수 쓴맛 원료를 세계 각국에 공급합니다. 비터케어는 이 원료를 기반으로 BitterINK 기술을 구현합니다.</p>
+            <div class="tags">
+              <span class="tag">Veranova UK</span>
+              <span class="tag" data-i18n="tag2_2">BitterINK 기반</span>
+              <span class="tag" data-i18n="tag2_3">프리미엄 등급</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 핵심 성분 -->
+    <section class="compound-section">
+      <div class="container">
+        <h2 data-i18n="h2_comp">핵심 쓴맛 성분</h2>
+        <div class="compound-card">
+          <div class="name" data-i18n="compName">ACTIVE INGREDIENT</div>
+          <h3 data-i18n="compTitle">Denatonium Benzoate</h3>
+          <p data-i18n="compDesc">세계에서 가장 쓴 물질로 알려진 성분으로, FDA 기준을 충족하는 안전한 쓴맛 원료입니다. 극소량으로도 강한 쓴맛을 내며, 독성이 없어 반려동물 행동 교정 제품에 널리 활용됩니다.</p>
+          <div class="compound-facts">
+            <div class="fact">
+              <div class="label" data-i18n="fact1label">분류</div>
+              <div class="value" data-i18n="fact1val">변성제</div>
+            </div>
+            <div class="fact">
+              <div class="label" data-i18n="fact2label">기준</div>
+              <div class="value" data-i18n="fact2val">FDA 충족</div>
+            </div>
+            <div class="fact">
+              <div class="label" data-i18n="fact3label">독성</div>
+              <div class="value" data-i18n="fact3val">무독성</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 인증/특허 -->
+    <section class="cert-section">
+      <div class="container">
+        <h2 data-i18n="h2_cert">인증 및 기술력</h2>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon">🛡</div>
+            <h4 data-i18n="cert1title">FDA 기준 원료</h4>
+            <p data-i18n="cert1p">미국 FDA 기준을 충족한 Denatonium Benzoate 사용. 안전성이 검증된 성분입니다.</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">📋</div>
+            <h4 data-i18n="cert2title">BitterINK 특허</h4>
+            <p data-i18n="cert2p">쓴맛 원료를 잉크에 결합하는 BitterINK 기술은 특허 등록된 독자 기술입니다.</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🌱</div>
+            <h4 data-i18n="cert3title">친환경 콩기름 기반</h4>
+            <p data-i18n="cert3p">잉크 베이스로 대두유(콩기름)를 사용하여 친환경성을 높였습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 안전 주의사항 -->
+    <section class="safety-notes">
+      <div class="container">
+        <div class="notes-box">
+          <h3 data-i18n="h3_notes">안전한 사용을 위한 안내</h3>
+          <div class="note-list">
+            <div class="note-item">
+              <div class="ico">✅</div>
+              <p data-i18n="note1"><strong>생활 표면에만 사용하세요.</strong> 가구, 전선, 문틀 등 반려동물이 반복적으로 무는 표면에만 부착해 주세요.</p>
+            </div>
+            <div class="note-item">
+              <div class="ico">⚠️</div>
+              <p data-i18n="note2"><strong>신체에 직접 사용하지 마세요.</strong> 피부, 털, 발바닥에는 절대 부착하지 마세요. 쓴맛 성분이 불쾌감을 줄 수 있습니다.</p>
+            </div>
+            <div class="note-item">
+              <div class="ico">🚫</div>
+              <p data-i18n="note3"><strong>섭취 시 주의하세요.</strong> 쓴맛 성분이 포함되어 있으므로 직접 섭취하지 않도록 주의하세요. 다량 섭취 시 즉시 의사와 상담하세요.</p>
+            </div>
+            <div class="note-item">
+              <div class="ico">👶</div>
+              <p data-i18n="note4"><strong>어린이 손이 닿지 않는 곳에 보관하세요.</strong> 어린이가 자주 접촉하는 낮은 위치에는 사용에 주의가 필요합니다.</p>
+            </div>
+            <div class="note-item">
+              <div class="ico">🔍</div>
+              <p data-i18n="note5"><strong>민감한 소재는 먼저 테스트하세요.</strong> 도장면, 가죽, 원목 등 민감한 표면에는 작은 부위에 먼저 테스트 후 사용해 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="page-cta">
+      <div class="container">
+        <h2 data-i18n="ctaTitle">믿을 수 있는 성분,<br />비터케어로 시작하세요</h2>
+        <p data-i18n="ctaDesc">200년 역사의 영국 원료 기술이 담긴 행동 교정 스티커</p>
+        <a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener" class="btn-primary"><span data-i18n="buyBtn">비터케어 구매하기 →</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <b>BitterCare</b>
+          <span>BitterINK 기반 행동 교정 스티커 · 감각이 행동을 바꿉니다.</span>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <p>제품 안내</p>
+            <a href="usage-guide.html"><span data-i18n="footerLink1">사용방법</span></a>
+            <a href="safety.html"><span data-i18n="footerLink2">안전성 안내</span></a>
+            <a href="faq.html"><span data-i18n="footerLink3">자주 묻는 질문</span></a>
+          </div>
+          <div class="footer-col">
+            <p>정보</p>
+            <a href="dog-chewing.html"><span data-i18n="footerLink4">강아지 물어뜯기</span></a>
+            <a href="https://www.instagram.com/bittercare.official/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@BitterCareOfficial" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="footer-col">
+            <p>구매</p>
+            <a href="https://link.coupang.com/a/dYs2Hs7djE" target="_blank" rel="noopener"><span data-i18n="footerBuy">비터케어 구매하기</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footerCopyright">© 2025 BitterCare · (주)건묵</span>
+        <span data-i18n="footerNotice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+  ko: {card1desc: "1827년 설립된 영국의 특수 화학 기업. 전 세계 의약품·식품용 특수 성분 공급 분야에서 200년 가까운 역사를 가진 글로벌 리더입니다. 현재는 Veranova 브랜드로 운영됩니다.", card2desc: "Macfarlan Smith의 현재 브랜드인 Veranova는 Denatonium Benzoate를 포함한 특수 쓴맛 원료를 세계 각국에 공급합니다. 비터케어는 이 원료를 기반으로 BitterINK 기술을 구현합니다.", compDesc: "세계에서 가장 쓴 물질로 알려진 성분으로, FDA 기준을 충족하는 안전한 쓴맛 원료입니다. 극소량으로도 강한 쓴맛을 내며, 독성이 없어 반려동물 행동 교정 제품에 널리 활용됩니다.", cert1p: "미국 FDA 기준을 충족한 Denatonium Benzoate 사용. 안전성이 검증된 성분입니다.", cert2p: "쓴맛 원료를 잉크에 결합하는 BitterINK 기술은 특허 등록된 독자 기술입니다.", cert3p: "잉크 베이스로 대두유(콩기름)를 사용하여 친환경성을 높였습니다.", note1: "<strong>생활 표면에만 사용하세요.</strong> 가구, 전선, 문틀 등 반려동물이 반복적으로 무는 표면에만 부착해 주세요.", note2: "<strong>신체에 직접 사용하지 마세요.</strong> 피부, 털, 발바닥에는 절대 부착하지 마세요. 쓴맛 성분이 불쾌감을 줄 수 있습니다.", note3: "<strong>섭취 시 주의하세요.</strong> 쓴맛 성분이 포함되어 있으므로 직접 섭취하지 않도록 주의하세요. 다량 섭취 시 즉시 의사와 상담하세요.", note4: "<strong>어린이 손이 닿지 않는 곳에 보관하세요.</strong> 어린이가 자주 접촉하는 낮은 위치에는 사용에 주의가 필요합니다.", note5: "<strong>민감한 소재는 먼저 테스트하세요.</strong> 도장면, 가죽, 원목 등 민감한 표면에는 작은 부위에 먼저 테스트 후 사용해 주세요.", tag1_1: "200년 역사", tag1_2: "글로벌 공급사", tag1_3: "의약품 등급", tag2_2: "BitterINK 기반", tag2_3: "프리미엄 등급", pageTitle: "믿을 수 있는 원료,<br />검증된 안전성", pageDesc: "비터케어는 1827년부터 이어온 영국 프리미엄 원료 기술을 기반으로 만들어집니다.", h2_ing: "프리미엄 원료 공급사", ingDesc: "세계에서 가장 신뢰받는 쓴맛 원료를 사용합니다.", since1: "SINCE 1827", card1title: "Macfarlan Smith", card1desc: "1827년 설립된 영국의 특수 화학 기업. 전 세계 의약품·식품용 특수 성분 공급 분야에서 200년 가까운 역사를 가진 글로벌 리더입니다. 현재는 Veranova 브랜드로 운영됩니다.", tag1_1: "200년 역사", tag1_2: "글로벌 공급사", tag1_3: "의약품 등급", since2: "VERANOVA UK", card2title: "프리미엄 쓴맛 원료", card2desc: "Macfarlan Smith의 현재 브랜드인 Veranova는 Denatonium Benzoate를 포함한 특수 쓴맛 원료를 세계 각국에 공급합니다. 비터케어는 이 원료를 기반으로 BitterINK 기술을 구현합니다.", tag2_1: "Veranova UK", tag2_2: "BitterINK 기반", tag2_3: "프리미엄 등급", h2_comp: "핵심 쓴맛 성분", compName: "ACTIVE INGREDIENT", compTitle: "Denatonium Benzoate", compDesc: "세계에서 가장 쓴 물질로 알려진 성분으로, FDA 기준을 충족하는 안전한 쓴맛 원료입니다. 극소량으로도 강한 쓴맛을 내며, 독성이 없어 반려동물 행동 교정 제품에 널리 활용됩니다.", fact1label: "분류", fact1val: "변성제", fact2label: "기준", fact2val: "FDA 충족", fact3label: "독성", fact3val: "무독성", h2_cert: "인증 및 기술력", cert1title: "FDA 기준 원료", cert1p: "미국 FDA 기준을 충족한 Denatonium Benzoate 사용. 안전성이 검증된 성분입니다.", cert2title: "BitterINK 특허", cert2p: "쓴맛 원료를 잉크에 결합하는 BitterINK 기술은 특허 등록된 독자 기술입니다.", cert3title: "친환경 콩기름 기반", cert3p: "잉크 베이스로 대두유(콩기름)를 사용하여 친환경성을 높였습니다.", h3_notes: "안전한 사용을 위한 안내", note1: "<strong>생활 표면에만 사용하세요.</strong> 반려동물이 반복적으로 무는 표면에만 부착해 주세요.", note2: "<strong>신체에 직접 사용하지 마세요.</strong> 피부, 털, 발바닥에는 절대 부착하지 마세요.", note3: "<strong>섭취 시 주의하세요.</strong> 다량 섭취 시 즉시 의사와 상담하세요.", note4: "<strong>어린이 손이 닿지 않는 곳에 보관하세요.</strong> 어린이가 자주 접촉하는 위치에는 주의가 필요합니다.", note5: "<strong>민감한 소재는 먼저 테스트하세요.</strong> 도장면, 가죽 등은 작은 부위에 먼저 테스트 후 사용해 주세요.", ctaTitle: "믿을 수 있는 성분,<br />비터케어로 시작하세요", ctaDesc: "200년 역사의 영국 원료 기술이 담긴 행동 교정 스티커", buyBtn: "비터케어 구매하기 →", navHome: "홈", navUsage: "사용방법", navFaq: "FAQ", navDog: "강아지 물어뜯기", navSafety: "안전성", navBuy: "구매하기", footerCol1: "제품 안내", footerCol2: "정보", footerCol3: "구매", footerLink1: "사용방법", footerLink2: "안전성 안내", footerLink3: "자주 묻는 질문", footerLink4: "강아지 물어뜯기", footerBuy: "비터케어 구매하기", footerCopyright: "© 2025 BitterCare · (주)건묵", footerNotice: "이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."},
+  en: {card1desc: "A British specialty chemical company founded in 1827, a global leader in supplying specialty ingredients for pharmaceuticals and food for nearly 200 years. Now operating as Veranova.", card2desc: "Veranova, the current brand of Macfarlan Smith, supplies specialty bitter ingredients including Denatonium Benzoate worldwide. BitterCare implements BitterINK technology based on these ingredients.", compDesc: "Known as the world's bitterest substance, it's a safe bitter agent meeting FDA standards. Even in trace amounts it produces intense bitterness with no toxicity.", cert1p: "Uses Denatonium Benzoate meeting U.S. FDA standards — a safety-verified component.", cert2p: "The BitterINK technology combining bitter agents with ink is a patented proprietary technology.", cert3p: "Uses soybean oil as the ink base for enhanced environmental friendliness.", note1: "<strong>Use only on living surfaces.</strong> Apply only to surfaces pets repeatedly chew on.", note2: "<strong>Do not apply directly to the body.</strong> Never apply to skin, fur, or paws.", note3: "<strong>Caution if ingested.</strong> Consult a doctor immediately if consumed in large quantities.", note4: "<strong>Keep out of children's reach.</strong> Use caution around surfaces children frequently touch.", note5: "<strong>Test sensitive surfaces first.</strong> Test a small area first on painted, leather, or similar surfaces.", tag1_1: "200-year history", tag1_2: "Global supplier", tag1_3: "Pharmaceutical grade", tag2_2: "BitterINK based", tag2_3: "Premium grade", pageTitle: "Trusted Ingredients,<br />Verified Safety", pageDesc: "BitterCare is built on British premium ingredient technology dating back to 1827.", h2_ing: "Premium Ingredient Suppliers", ingDesc: "We use the world's most trusted bitter taste ingredients.", since1: "SINCE 1827", card1title: "Macfarlan Smith", card1desc: "A British specialty chemical company founded in 1827, a global leader in supplying specialty ingredients for pharmaceuticals and food for nearly 200 years. Now operating as Veranova.", tag1_1: "200-year history", tag1_2: "Global supplier", tag1_3: "Pharmaceutical grade", since2: "VERANOVA UK", card2title: "Premium Bitter Ingredients", card2desc: "Veranova, the current brand of Macfarlan Smith, supplies specialty bitter ingredients including Denatonium Benzoate worldwide. BitterCare implements BitterINK technology based on these ingredients.", tag2_1: "Veranova UK", tag2_2: "BitterINK based", tag2_3: "Premium grade", h2_comp: "Core Bitter Compound", compName: "ACTIVE INGREDIENT", compTitle: "Denatonium Benzoate", compDesc: "Known as the world's bitterest substance, it's a safe bitter agent meeting FDA standards. Even in trace amounts it produces intense bitterness with no toxicity — widely used in pet behavior correction products.", fact1label: "Type", fact1val: "Denaturant", fact2label: "Standard", fact2val: "FDA compliant", fact3label: "Toxicity", fact3val: "Non-toxic", h2_cert: "Certifications & Technology", cert1title: "FDA-Standard Ingredient", cert1p: "Uses Denatonium Benzoate meeting U.S. FDA standards — a safety-verified component.", cert2title: "BitterINK Patent", cert2p: "The BitterINK technology combining bitter agents with ink is a patented proprietary technology.", cert3title: "Eco-Friendly Soy-Oil Base", cert3p: "Uses soybean oil as the ink base for enhanced environmental friendliness.", h3_notes: "Safety Usage Guidelines", note1: "<strong>Use only on living surfaces.</strong> Apply only to surfaces pets repeatedly chew on.", note2: "<strong>Do not apply directly to the body.</strong> Never apply to skin, fur, or paws.", note3: "<strong>Caution if ingested.</strong> Consult a doctor immediately if consumed in large quantities.", note4: "<strong>Keep out of children's reach.</strong> Use caution around surfaces children frequently touch.", note5: "<strong>Test sensitive surfaces first.</strong> Test a small area first on painted, leather, or similar surfaces.", ctaTitle: "Trusted ingredients,<br />Start with BitterCare", ctaDesc: "A behavior correction sticker backed by 200 years of British ingredient expertise.", buyBtn: "Buy BitterCare →", navHome: "Home", navUsage: "How to Use", navFaq: "FAQ", navDog: "Dog Chewing", navSafety: "Safety", navBuy: "Buy Now", footerCol1: "Product", footerCol2: "Info", footerCol3: "Purchase", footerLink1: "How to Use", footerLink2: "Safety Info", footerLink3: "FAQ", footerLink4: "Dog Chewing", footerBuy: "Buy BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "This page is part of the Coupang Partners program and may earn a commission."},
+  zh: {card1desc: "1827年成立的英国特种化学品公司，近200年来全球医药食品特种成分供应领域的领导者。现以Veranova品牌运营。", card2desc: "Veranova向世界各地提供包括Denatonium Benzoate在内的特种苦味原料。BitterCare基于这些原料实现BitterINK技术。", compDesc: "被称为世界上最苦的物质，是符合FDA标准的安全苦味原料。极微量即可产生强烈苦味，且无毒性。", cert1p: "使用符合美国FDA标准的Denatonium Benzoate，经安全验证的成分。", cert2p: "将苦味原料与油墨结合的BitterINK技术是已获专利的独家技术。", cert3p: "以大豆油为墨水基础，提高了环保性。", note1: "<strong>仅在生活表面使用。</strong>仅贴在宠物反复咬的表面。", note2: "<strong>不要直接用于身体。</strong>绝不贴在皮肤、毛发或脚掌上。", note3: "<strong>注意摄入。</strong>大量摄入时请立即咨询医生。", note4: "<strong>请放在儿童触不到的地方。</strong>儿童经常接触的低位需要注意。", note5: "<strong>敏感材质先测试。</strong>烤漆面、皮革等请先在小处测试再使用。", tag1_1: "200年历史", tag1_2: "全球供应商", tag1_3: "医药级", tag2_2: "BitterINK基础", tag2_3: "优质等级", pageTitle: "值得信赖的原料，<br />经过验证的安全性", pageDesc: "BitterCare 基于1827年以来的英国优质原料技术制造。", h2_ing: "优质原料供应商", ingDesc: "使用全球最值得信赖的苦味原料。", since1: "SINCE 1827", card1title: "Macfarlan Smith", card1desc: "1827年成立的英国特种化学品公司，近200年来一直是全球医药、食品特种成分供应领域的领导者。现以Veranova品牌运营。", tag1_1: "200年历史", tag1_2: "全球供应商", tag1_3: "医药级", since2: "VERANOVA UK", card2title: "优质苦味原料", card2desc: "Veranova是Macfarlan Smith的现有品牌，向世界各地提供包括Denatonium Benzoate在内的特种苦味原料。BitterCare基于这些原料实现BitterINK技术。", tag2_1: "Veranova UK", tag2_2: "BitterINK基础", tag2_3: "优质等级", h2_comp: "核心苦味成分", compName: "活性成分", compTitle: "Denatonium Benzoate", compDesc: "被称为世界上最苦的物质，是符合FDA标准的安全苦味原料。极微量即可产生强烈苦味，且无毒性，广泛应用于宠物行为矫正产品。", fact1label: "分类", fact1val: "变性剂", fact2label: "标准", fact2val: "符合FDA", fact3label: "毒性", fact3val: "无毒", h2_cert: "认证及技术", cert1title: "FDA标准原料", cert1p: "使用符合美国FDA标准的Denatonium Benzoate，经安全验证的成分。", cert2title: "BitterINK专利", cert2p: "将苦味原料与油墨结合的BitterINK技术是已获专利的独家技术。", cert3title: "环保大豆油基", cert3p: "以大豆油为墨水基础，提高了环保性。", h3_notes: "安全使用指南", note1: "<strong>仅在生活表面使用。</strong>仅贴在宠物反复咬的表面。", note2: "<strong>不要直接用于身体。</strong>绝不贴在皮肤、毛发或脚掌上。", note3: "<strong>注意摄入。</strong>大量摄入时请立即咨询医生。", note4: "<strong>请放在儿童触不到的地方。</strong>儿童经常接触的低位需要注意。", note5: "<strong>敏感材质先测试。</strong>烤漆面、皮革等请先在小处测试再使用。", ctaTitle: "值得信赖的成分，<br />从BitterCare开始", ctaDesc: "凝聚200年英国原料技术的行为矫正贴", buyBtn: "购买 BitterCare →", navHome: "首页", navUsage: "使用方法", navFaq: "常见问题", navDog: "狗咬问题", navSafety: "安全性", navBuy: "立即购买", footerCol1: "产品", footerCol2: "信息", footerCol3: "购买", footerLink1: "使用方法", footerLink2: "安全性说明", footerLink3: "常见问题", footerLink4: "狗咬问题", footerBuy: "购买 BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "本页面为Coupang合作伙伴活动的一部分，可能获得一定佣金。"},
+  ja: {card1desc: "1827年創業の英国特殊化学品企業。医薬品・食品用特殊成分供給分野で200年近い歴史を持つグローバルリーダー。現在はVeranovaブランドで運営。", card2desc: "Veranovaは世界各国にDenatonium Benzoateを含む特殊苦味原料を供給。BitterCareはこれらを基にBitterINK技術を実現。", compDesc: "世界で最も苦い物質として知られ、FDA基準を満たす安全な苦味原料。極微量でも強い苦味を生み、毒性なし。", cert1p: "米国FDA基準を満たすDenatonium Benzoateを使用。安全性が検証された成分。", cert2p: "苦味原料をインクに結合するBitterINK技術は特許登録された独自技術。", cert3p: "インクのベースに大豆油を使用し、環境への配慮を高めています。", note1: "<strong>生活表面にのみ使用してください。</strong>ペットが繰り返し噛む表面にのみ貼ってください。", note2: "<strong>身体に直接使用しないでください。</strong>皮膚、毛、肉球には絶対に貼らないでください。", note3: "<strong>摂取には注意してください。</strong>多量摂取の場合はすぐに医師にご相談ください。", note4: "<strong>子どもの手の届かない場所に保管してください。</strong>子どもがよく触れる低い位置には注意が必要です。", note5: "<strong>敏感な素材は先にテストしてください。</strong>塗装面や革などはまず小さな部分でテストしてから使用してください。", tag1_1: "200年の歴史", tag1_2: "グローバルサプライヤー", tag1_3: "医薬品グレード", tag2_2: "BitterINKベース", tag2_3: "プレミアムグレード", pageTitle: "信頼できる原料、<br />検証された安全性", pageDesc: "BitterCareは1827年から続く英国プレミアム原料技術を基に作られています。", h2_ing: "プレミアム原料サプライヤー", ingDesc: "世界で最も信頼されている苦味原料を使用しています。", since1: "SINCE 1827", card1title: "Macfarlan Smith", card1desc: "1827年創業の英国特殊化学品企業。医薬品・食品用特殊成分の供給分野で200年近い歴史を持つグローバルリーダーです。現在はVeranovaブランドで運営されています。", tag1_1: "200年の歴史", tag1_2: "グローバルサプライヤー", tag1_3: "医薬品グレード", since2: "VERANOVA UK", card2title: "プレミアム苦味原料", card2desc: "Veranovaは世界各国にDenatonium Benzoateを含む特殊苦味原料を供給しています。BitterCareはこれらの原料を基にBitterINK技術を実現しています。", tag2_1: "Veranova UK", tag2_2: "BitterINKベース", tag2_3: "プレミアムグレード", h2_comp: "主要苦味成分", compName: "有効成分", compTitle: "Denatonium Benzoate", compDesc: "世界で最も苦い物質として知られ、FDA基準を満たす安全な苦味原料です。極微量でも強い苦味を生み、毒性がなくペット行動矯正製品に広く活用されます。", fact1label: "分類", fact1val: "変性剤", fact2label: "基準", fact2val: "FDA適合", fact3label: "毒性", fact3val: "無毒", h2_cert: "認証と技術力", cert1title: "FDA基準原料", cert1p: "米国FDA基準を満たすDenatonium Benzoateを使用。安全性が検証された成分です。", cert2title: "BitterINK特許", cert2p: "苦味原料をインクに結合するBitterINK技術は特許登録された独自技術です。", cert3title: "環境に優しい大豆油ベース", cert3p: "インクのベースに大豆油を使用し、環境への配慮を高めています。", h3_notes: "安全な使用のためのご案内", note1: "<strong>生活表面にのみ使用してください。</strong>ペットが繰り返し噛む表面にのみ貼ってください。", note2: "<strong>身体に直接使用しないでください。</strong>皮膚、毛、肉球には絶対に貼らないでください。", note3: "<strong>摂取には注意してください。</strong>多量摂取の場合はすぐに医師にご相談ください。", note4: "<strong>子どもの手の届かない場所に保管してください。</strong>子どもがよく触れる低い位置には注意が必要です。", note5: "<strong>敏感な素材は先にテストしてください。</strong>塗装面や革などはまず小さな部分でテストしてから使用してください。", ctaTitle: "信頼できる成分で、<br />BitterCareを始めてみましょう", ctaDesc: "200年の英国原料技術が詰まった行動矯正ステッカー", buyBtn: "BitterCare を購入 →", navHome: "ホーム", navUsage: "使い方", navFaq: "よくある質問", navDog: "噛み癖", navSafety: "安全性", navBuy: "購入する", footerCol1: "製品案内", footerCol2: "情報", footerCol3: "購入", footerLink1: "使い方", footerLink2: "安全性案内", footerLink3: "よくある質問", footerLink4: "犬の噛み癖", footerBuy: "BitterCare を購入", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "このページはCoupangパートナーズ活動の一環として、手数料を受け取る場合があります。"},
+  vi: {card1desc: "Công ty hóa chất đặc biệt của Anh thành lập năm 1827, gần 200 năm dẫn đầu toàn cầu về cung cấp thành phần đặc biệt dược phẩm thực phẩm. Nay hoạt động dưới thương hiệu Veranova.", card2desc: "Veranova cung cấp nguyên liệu vị đắng đặc biệt bao gồm Denatonium Benzoate cho các quốc gia. BitterCare thực hiện công nghệ BitterINK dựa trên các nguyên liệu này.", compDesc: "Chất đắng nhất thế giới, nguyên liệu vị đắng an toàn đạt chuẩn FDA. Chỉ cần lượng nhỏ đã tạo vị đắng mạnh, không độc hại.", cert1p: "Sử dụng Denatonium Benzoate đạt chuẩn FDA Hoa Kỳ — thành phần đã được kiểm chứng an toàn.", cert2p: "Công nghệ BitterINK kết hợp nguyên liệu vị đắng với mực là công nghệ độc quyền đã được cấp bằng sáng chế.", cert3p: "Sử dụng dầu đậu nành làm nền mực, tăng tính thân thiện với môi trường.", note1: "<strong>Chỉ dùng trên bề mặt đồ dùng.</strong> Chỉ dán lên bề mặt thú cưng thường xuyên cắn.", note2: "<strong>Không dùng trực tiếp lên cơ thể.</strong> Tuyệt đối không dán lên da, lông hoặc móng.", note3: "<strong>Cẩn thận khi nuốt phải.</strong> Nếu nuốt lượng lớn, hãy đến bác sĩ ngay.", note4: "<strong>Để xa tầm tay trẻ em.</strong> Cẩn thận với vị trí thấp trẻ thường chạm vào.", note5: "<strong>Kiểm tra vật liệu nhạy cảm trước.</strong> Với bề mặt sơn, da — thử vùng nhỏ trước khi dùng.", tag1_1: "Lịch sử 200 năm", tag1_2: "Nhà cung cấp toàn cầu", tag1_3: "Cấp dược phẩm", tag2_2: "Nền tảng BitterINK", tag2_3: "Cấp cao cấp", pageTitle: "Nguyên Liệu Đáng Tin Cậy,<br />An Toàn Được Kiểm Chứng", pageDesc: "BitterCare được tạo ra dựa trên công nghệ nguyên liệu cao cấp của Anh Quốc từ năm 1827.", h2_ing: "Nhà Cung Cấp Nguyên Liệu Cao Cấp", ingDesc: "Chúng tôi sử dụng nguyên liệu vị đắng được tin cậy nhất thế giới.", since1: "SINCE 1827", card1title: "Macfarlan Smith", card1desc: "Công ty hóa chất đặc biệt của Anh thành lập năm 1827, dẫn đầu toàn cầu gần 200 năm trong lĩnh vực cung cấp thành phần đặc biệt cho dược phẩm và thực phẩm. Hiện hoạt động dưới thương hiệu Veranova.", tag1_1: "Lịch sử 200 năm", tag1_2: "Nhà cung cấp toàn cầu", tag1_3: "Cấp dược phẩm", since2: "VERANOVA UK", card2title: "Nguyên Liệu Vị Đắng Cao Cấp", card2desc: "Veranova cung cấp nguyên liệu vị đắng đặc biệt bao gồm Denatonium Benzoate cho các quốc gia trên thế giới. BitterCare thực hiện công nghệ BitterINK dựa trên các nguyên liệu này.", tag2_1: "Veranova UK", tag2_2: "Nền tảng BitterINK", tag2_3: "Cấp cao cấp", h2_comp: "Thành Phần Vị Đắng Chính", compName: "THÀNH PHẦN HOẠT TÍNH", compTitle: "Denatonium Benzoate", compDesc: "Được biết đến là chất đắng nhất thế giới, là nguyên liệu vị đắng an toàn đáp ứng tiêu chuẩn FDA. Chỉ cần lượng nhỏ đã tạo vị đắng mạnh, không độc hại, được ứng dụng rộng rãi trong sản phẩm điều chỉnh hành vi thú cưng.", fact1label: "Phân loại", fact1val: "Chất biến tính", fact2label: "Tiêu chuẩn", fact2val: "Đạt FDA", fact3label: "Độc tính", fact3val: "Không độc", h2_cert: "Chứng Nhận & Công Nghệ", cert1title: "Nguyên Liệu Chuẩn FDA", cert1p: "Sử dụng Denatonium Benzoate đạt chuẩn FDA Hoa Kỳ — thành phần đã được kiểm chứng an toàn.", cert2title: "Bằng Sáng Chế BitterINK", cert2p: "Công nghệ BitterINK kết hợp nguyên liệu vị đắng với mực là công nghệ độc quyền đã được cấp bằng sáng chế.", cert3title: "Nền Dầu Đậu Nành Thân Thiện Môi Trường", cert3p: "Sử dụng dầu đậu nành làm nền mực, tăng tính thân thiện với môi trường.", h3_notes: "Hướng Dẫn Sử Dụng An Toàn", note1: "<strong>Chỉ dùng trên bề mặt đồ dùng.</strong> Chỉ dán lên bề mặt thú cưng thường xuyên cắn.", note2: "<strong>Không dùng trực tiếp lên cơ thể.</strong> Tuyệt đối không dán lên da, lông hoặc móng.", note3: "<strong>Cẩn thận khi nuốt phải.</strong> Nếu nuốt lượng lớn, hãy đến bác sĩ ngay.", note4: "<strong>Để xa tầm tay trẻ em.</strong> Cẩn thận với vị trí thấp trẻ thường chạm vào.", note5: "<strong>Kiểm tra vật liệu nhạy cảm trước.</strong> Với bề mặt sơn, da — thử vùng nhỏ trước khi dùng.", ctaTitle: "Nguyên liệu đáng tin cậy,<br />bắt đầu với BitterCare", ctaDesc: "Nhãn dán điều chỉnh hành vi với 200 năm công nghệ nguyên liệu Anh Quốc", buyBtn: "Mua BitterCare →", navHome: "Trang chủ", navUsage: "Hướng dẫn", navFaq: "FAQ", navDog: "Chó cắn đồ", navSafety: "An toàn", navBuy: "Mua ngay", footerCol1: "Sản phẩm", footerCol2: "Thông tin", footerCol3: "Mua hàng", footerLink1: "Hướng dẫn sử dụng", footerLink2: "An toàn", footerLink3: "FAQ", footerLink4: "Chó cắn đồ", footerBuy: "Mua BitterCare", footerCopyright: "© 2025 BitterCare · Gunmuk Corp.", footerNotice: "Trang này tham gia chương trình Coupang Partners và có thể nhận hoa hồng."}
+};
+
+    function setLanguage(lang) {
+      const dict = translations[lang] || translations['ko'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+      const labels = {'ko':'한국어','en':'English','zh':'中文','ja':'日本語','vi':'Tiếng Việt'};
+      document.getElementById('currentLanguage').textContent = labels[lang] || '한국어';
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      localStorage.setItem('bc_lang', lang);
+    }
+
+    // 언어 스위처
+    const btn = document.getElementById('languageButton');
+    const menu = document.getElementById('languageMenu');
+    btn.addEventListener('click', () => {
+      const open = menu.style.display === 'block';
+      menu.style.display = open ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', !open);
+    });
+    document.querySelectorAll('[data-lang]').forEach(b => {
+      b.addEventListener('click', () => {
+        setLanguage(b.getAttribute('data-lang'));
+        menu.style.display = 'none';
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) menu.style.display = 'none';
+    });
+
+    // 초기 언어 적용
+    const saved = localStorage.getItem('bc_lang') || 'ko';
+    setLanguage(saved);
+  </script>
+</body>
+</html>
