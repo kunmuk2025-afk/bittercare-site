@@ -93,7 +93,7 @@
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; min-width: 0; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
@@ -101,6 +101,7 @@
       color: var(--ink);
       background: linear-gradient(180deg, #F5EDE0 0%, #FAF4E8 40%, #EDE2CC 100%);
       word-break: keep-all;
+      overflow-wrap: break-word;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -350,7 +351,8 @@
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .hero { padding-top: 48px; }
-      .hero-grid, .logic-grid, .split, .price-wrap { grid-template-columns: 1fr; }
+      .hero-grid, .logic-grid, .split, .price-wrap { grid-template-columns: minmax(0,1fr); }
+      .hero-grid > *, .logic-grid > *, .split > *, .price-wrap > * { min-width: 0; }
       .visual-frame { min-height: 420px; }
       .problem-grid, .value-grid, .use-grid { grid-template-columns: repeat(2, 1fr); }
       .price-card.best { transform: none; }
@@ -364,6 +366,7 @@
       .language-button { min-height: 40px; padding: 0 11px; font-size: 13px; }
       .language-button .label { display: none; }
       .language-menu { right: -2px; width: 168px; }
+      .brand [data-i18n="brandSub"] { display: none; }
       .hero { padding: 42px 0 56px; }
       .hero h1 { font-size: clamp(38px, 12vw, 48px); letter-spacing: -0.075em; }
       .visual-frame { min-height: 300px !important; border-radius: 20px 20px 0 0 !important; }
@@ -640,14 +643,14 @@
           <a href="#" onclick="openBS(event)" target="_blank" rel="noopener" class="nav-buy-btn" data-i18n="navBuy">구매하기</a>
         </nav>
         <div class="language-switcher" id="languageSwitcher">
-          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"><span class="globe">🌐</span><span class="label" id="currentLanguage">한국어</span><span class="lang-hint">Language</span></button>
+          <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"><span class="globe" id="currentFlag">🇰🇷</span><span class="label" id="currentLanguage">한국어</span><span class="lang-hint">Language</span></button>
           <div class="language-menu" role="menu" aria-label="Language selector">
             <div style="padding:10px 16px 8px;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:0.04em;border-bottom:1px solid rgba(28,48,80,0.07);margin-bottom:4px;">🌐 Select Language</div>
-            <button type="button" data-lang="ko" class="active">한국어 <span class="lang-code">KO</span></button>
-            <button type="button" data-lang="en">English <span class="lang-code">EN</span></button>
-            <button type="button" data-lang="zh">中文 <span class="lang-code">ZH</span></button>
-            <button type="button" data-lang="ja">日本語 <span class="lang-code">JA</span></button>
-            <button type="button" data-lang="vi">Tiếng Việt <span class="lang-code">VI</span></button>
+            <button type="button" data-lang="ko" class="active">🇰🇷 한국어</button>
+            <button type="button" data-lang="en">🇺🇸 English</button>
+            <button type="button" data-lang="zh">🇨🇳 中文</button>
+            <button type="button" data-lang="ja">🇯🇵 日本語</button>
+            <button type="button" data-lang="vi">🇻🇳 Tiếng Việt</button>
           </div>
         </div>
       </div>
@@ -1066,6 +1069,9 @@
       const dict = translations[lang] || translations.ko;
       document.documentElement.lang = lang;
       currentLanguage.textContent = dict.langName;
+      var FLAGS = {ko:'🇰🇷',en:'🇺🇸',zh:'🇨🇳',ja:'🇯🇵',vi:'🇻🇳'};
+      var flagEl = document.getElementById('currentFlag');
+      if (flagEl) flagEl.textContent = FLAGS[lang] || '🇰🇷';
       document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
         const k = el.getAttribute('data-i18n-alt');
         if (dict[k]) el.setAttribute('alt', dict[k]);

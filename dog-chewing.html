@@ -55,8 +55,9 @@
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(28,48,80,0.1); }
     .brand-sub { font-size: 11px; font-weight: 600; color: var(--muted); }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a { padding: 7px 13px; border-radius: 999px; font-size: 14px; font-weight: 750; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { padding: 7px 13px; border-radius: 999px; font-size: 14px; font-weight: 750; color: var(--ink); text-decoration: none; transition: background 0.15s; white-space: nowrap; flex: 0 0 auto; }
     .nav-links a:hover { background: rgba(28,48,80,0.07); }
     .nav-links a.active { color: var(--brown-950); font-weight: 900; }
     .nav-buy-btn { background: var(--brown-950) !important; color: #fff !important; font-weight: 900 !important; }
@@ -212,7 +213,7 @@
         <div class="language-switcher" id="languageSwitcher" style="position:relative;flex:0 0 auto;">
           <button class="language-button" type="button" id="languageButton" aria-haspopup="menu" aria-expanded="false"
             style="display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(28,48,80,0.12);background:rgba(250,244,232,0.9);color:#3D3830;font-weight:900;cursor:pointer;font-size:13px;font-family:inherit;">
-            <span style="font-size:17px;">🌐</span>
+            <span style="font-size:17px;" id="currentFlag">🇰🇷</span>
             <span id="currentLanguage">한국어</span>
             <span style="font-size:11px;font-weight:700;color:#8A7C68;padding:2px 6px;border-radius:999px;background:rgba(28,48,80,0.07);">Language</span>
           </button>
@@ -421,6 +422,9 @@
       });
       const labels = {'ko':'한국어','en':'English','zh':'中文','ja':'日本語','vi':'Tiếng Việt'};
       document.getElementById('currentLanguage').textContent = labels[lang] || '한국어';
+      var FLAGS = {ko:'🇰🇷',en:'🇺🇸',zh:'🇨🇳',ja:'🇯🇵',vi:'🇻🇳'};
+      var flagEl = document.getElementById('currentFlag');
+      if (flagEl) flagEl.textContent = FLAGS[lang] || '🇰🇷';
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
       localStorage.setItem('bittercare-lang', lang);
     }
