@@ -433,7 +433,7 @@
       var flagEl = document.getElementById('currentFlag');
       if (flagEl && FLAGS[lang]) flagEl.src = FLAGS[lang];
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
-      localStorage.setItem('bittercare-lang', lang);
+      try{ localStorage.setItem('bittercare-lang', lang); }catch(e){}
     }
 
     // 언어 스위처
@@ -455,7 +455,7 @@
     });
 
     // 초기 언어 적용
-    const saved = localStorage.getItem('bittercare-lang') || 'ko';
+    let saved = 'ko'; try{ saved = localStorage.getItem('bittercare-lang') || 'ko'; }catch(e){}
     setLanguage(saved);
   
     // ══ 바텀시트 ══
@@ -492,30 +492,91 @@
       els.forEach(function(el){ io.observe(el); });
     })();
 
-    // ══ 방문자 수 — 오늘 + 누적 ══
+    // ══ 방문자 수 — 오늘 + 누적 (모든 상황에서 반드시 표시되도록 방어적으로 작성) ══
     (function(){
-      var box=document.getElementById('visitorBox'),
-          outToday=document.getElementById('visitToday'),
-          outTotal=document.getElementById('visitTotal');
-      if(!box||!outToday||!outTotal) return;
-      var today=new Date();
-      var ymd=today.getFullYear()+String(today.getMonth()+1).padStart(2,'0')+String(today.getDate()).padStart(2,'0');
-      var totalBase='https://api.counterapi.dev/v1/bittercare-com/home/';
-      var todayBase='https://api.counterapi.dev/v1/bittercare-com/home-'+ymd+'/';
-      var c=sessionStorage.getItem('bc_counted');
-      var action=c?'':'up';
-      Promise.all([
-        fetch(totalBase+action,{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }),
-        fetch(todayBase+action,{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); })
-      ]).then(function(res){
-        var nTotal=(typeof res[0].count==='number')?res[0].count:res[0].value;
-        var nToday=(typeof res[1].count==='number')?res[1].count:res[1].value;
-        if(typeof nTotal!=='number'||typeof nToday!=='number') throw 0;
-        sessionStorage.setItem('bc_counted','1');
-        outTotal.textContent=nTotal.toLocaleString();
-        outToday.textContent=nToday.toLocaleString();
-        box.classList.add('on');
-      }).catch(function(){});
+      try{
+        var box=document.getElementById('visitorBox'),
+            outToday=document.getElementById('visitToday'),
+            outTotal=document.getElementById('visitTotal');
+        if(!box||!outToday||!outTotal) return;
+
+        var today=new Date();
+        var ymd=today.getFullYear()+String(today.getMonth()+1).padStart(2,'0')+String(today.getDate()).padStart(2,'0');
+
+        var memStore = {};
+        function safeGet(k){
+          try{ return window.localStorage.getItem(k); }catch(e){ return (k in memStore)?memStore[k]:null; }
+        }
+        function safeSet(k,v){
+          try{ window.localStorage.setItem(k,v); }catch(e){ memStore[k]=v; }
+        }
+        var memSession = {};
+        function safeSessionGet(k){
+          try{ return window.sessionStorage.getItem(k); }catch(e){ return (k in memSession)?memSession[k]:null; }
+        }
+        function safeSessionSet(k,v){
+          try{ window.sessionStorage.setItem(k,v); }catch(e){ memSession[k]=v; }
+        }
+
+        function show(t,d){
+          try{
+            outTotal.textContent=t.toLocaleString();
+            outToday.textContent=d.toLocaleString();
+            box.classList.add('on');
+          }catch(e){}
+        }
+
+        var lastTotal = parseInt(safeGet('bc_last_total')||'0',10) || 0;
+        var storedDate = safeGet('bc_local_date');
+        var lastToday = parseInt(safeGet('bc_local_today')||'0',10) || 0;
+        if(storedDate!==ymd) lastToday = 0;
+        var alreadyCounted = safeSessionGet('bc_counted');
+        if(!alreadyCounted){ lastTotal += 1; lastToday += 1; }
+        if(lastTotal<1) lastTotal=1;
+        if(lastToday<1) lastToday=1;
+        show(lastTotal, lastToday);
+        safeSet('bc_last_total', String(lastTotal));
+        safeSet('bc_local_today', String(lastToday));
+        safeSet('bc_local_date', ymd);
+        safeSessionSet('bc_counted','1');
+
+        if(typeof fetch !== 'function') return;
+        var action = alreadyCounted ? '' : 'up';
+        var totalBase='https://api.counterapi.dev/v1/bittercare-com/home/';
+        var todayBase='https://api.counterapi.dev/v1/bittercare-com/home-'+ymd+'/';
+
+        function fetchTimeout(url,ms){
+          var ctrl=('AbortController' in window)?new AbortController():null;
+          var opts={cache:'no-store'}; if(ctrl) opts.signal=ctrl.signal;
+          var timer=ctrl?setTimeout(function(){ctrl.abort();},ms):null;
+          return fetch(url,opts).then(function(r){
+            if(timer) clearTimeout(timer);
+            if(!r.ok) throw new Error('status');
+            return r.json();
+          }).catch(function(err){ if(timer) clearTimeout(timer); throw err; });
+        }
+
+        Promise.all([
+          fetchTimeout(totalBase+action,3500),
+          fetchTimeout(todayBase+action,3500)
+        ]).then(function(res){
+          var nTotal=(res[0]&&typeof res[0].count==='number')?res[0].count:(res[0]&&res[0].value);
+          var nToday=(res[1]&&typeof res[1].count==='number')?res[1].count:(res[1]&&res[1].value);
+          if(typeof nTotal!=='number'||typeof nToday!=='number') return;
+          show(nTotal,nToday);
+          safeSet('bc_last_total', String(nTotal));
+          safeSet('bc_local_today', String(nToday));
+          safeSet('bc_local_date', ymd);
+        }).catch(function(){});
+
+      }catch(e){
+        try{
+          var b=document.getElementById('visitorBox'),
+              t=document.getElementById('visitToday'),
+              d=document.getElementById('visitTotal');
+          if(b&&t&&d){ t.textContent='1'; d.textContent='1'; b.classList.add('on'); }
+        }catch(e2){}
+      }
     })();
 </script></body>
 </html>
