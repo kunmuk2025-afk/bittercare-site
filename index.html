@@ -616,9 +616,8 @@
     .to-top.on{opacity:1;pointer-events:auto;transform:none;}
 
     /* ══ 방문자 수 ══ */
-    .visitor{display:none;align-items:center;gap:6px;margin-left:14px;font-size:11px;
+    .visitor{display:inline-flex;align-items:center;gap:6px;margin-left:14px;font-size:11px;
       color:rgba(255,255,255,.42);font-weight:700;letter-spacing:.01em;}
-    .visitor.on{display:inline-flex;}
     .visitor .dot{width:5px;height:5px;border-radius:50%;background:#4ADE80;
       box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:vpulse 2.4s infinite;}
     @keyframes vpulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}70%{box-shadow:0 0 0 7px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
@@ -1125,7 +1124,7 @@
       </div>
       <div class="footer-bottom">
         <span><span data-i18n="copyright">© 2025 BitterCare · (주)건묵
-        </span> <span class="visitor" id="visitorBox" title="방문자 수"><span class="dot"></span><span data-i18n="visitorToday">오늘</span> <b id="visitToday">–</b><span class="v-sep">·</span><span data-i18n="visitorTotal">누적</span> <b id="visitTotal">–</b></span></span>
+        </span> <span class="visitor" id="visitorBox" title="방문자 수"><span class="dot"></span><span data-i18n="visitorToday">오늘</span> <b id="visitToday" data-icount="today">–</b><span class="v-sep">·</span><span data-i18n="visitorTotal">누적</span> <b id="visitTotal" data-icount="total">–</b></span></span>
         <span data-i18n="coupangNotice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
       </div>
     </div>
@@ -1320,98 +1319,63 @@
       if(e.key==='ArrowLeft') stepLB(-1);
     });
 
-    // 5) 방문자 수 — 오늘 + 누적 (모든 상황에서 반드시 표시되도록 방어적으로 작성)
-    (function(){
+        // 5) 방문자 수 — 비터북스(bitterbooks.com)와 동일한 icount.kr 위젯 방식
+    //    (외부 스크립트가 [data-icount="today"/"total"] 요소에 직접 숫자를 채워 넣음)
+    function loadVisitorCounter(){
       try{
-        var box=document.getElementById('visitorBox'),
-            outToday=document.getElementById('visitToday'),
-            outTotal=document.getElementById('visitTotal');
-        if(!box||!outToday||!outTotal) return;
+        var todayCounter = document.querySelector('[data-icount="today"]');
+        var totalCounter = document.querySelector('[data-icount="total"]');
+        if(!todayCounter || !totalCounter) return;
 
-        var today=new Date();
-        var ymd=today.getFullYear()+String(today.getMonth()+1).padStart(2,'0')+String(today.getDate()).padStart(2,'0');
+        var trackingScript = document.createElement('script');
+        var trackingParams = new URLSearchParams({
+          id: 'bittercare.com',
+          url: window.location.href,
+          ref: document.referrer,
+          t: String(Date.now())
+        });
+        trackingScript.src = 'https://icount.kr/count.php?' + trackingParams.toString();
+        trackingScript.async = true;
+        trackingScript.dataset.visitorCounter = 'true';
+        document.head.appendChild(trackingScript);
 
-        // ── storage는 시크릿 모드/프라이버시 설정에 따라 접근 자체가 예외를 던질 수 있어
-        //    반드시 try/catch로 감싸고, 실패 시 메모리 변수로 대체한다 ──
+        // ── 안전망: icount.kr 스크립트가 어떤 이유로든(차단·오류) 값을 못 채우면
+        //    잠시 후 로컬 추정치로 대체 표시한다 (항상 무언가는 보이도록) ──
         var memStore = {};
-        function safeGet(k){
-          try{ return window.localStorage.getItem(k); }catch(e){ return (k in memStore)?memStore[k]:null; }
-        }
-        function safeSet(k,v){
-          try{ window.localStorage.setItem(k,v); }catch(e){ memStore[k]=v; }
-        }
+        function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return (k in memStore)?memStore[k]:null; } }
+        function safeSet(k,v){ try{ window.localStorage.setItem(k,v); }catch(e){ memStore[k]=v; } }
         var memSession = {};
-        function safeSessionGet(k){
-          try{ return window.sessionStorage.getItem(k); }catch(e){ return (k in memSession)?memSession[k]:null; }
-        }
-        function safeSessionSet(k,v){
-          try{ window.sessionStorage.setItem(k,v); }catch(e){ memSession[k]=v; }
-        }
+        function safeSessionGet(k){ try{ return window.sessionStorage.getItem(k); }catch(e){ return (k in memSession)?memSession[k]:null; } }
+        function safeSessionSet(k,v){ try{ window.sessionStorage.setItem(k,v); }catch(e){ memSession[k]=v; } }
 
-        function show(t,d){
+        setTimeout(function(){
           try{
-            outTotal.textContent=t.toLocaleString();
-            outToday.textContent=d.toLocaleString();
-            box.classList.add('on');
-          }catch(e){ /* 렌더링 자체가 실패해도 페이지 나머지는 정상 동작하도록 무시 */ }
-        }
+            var stillEmpty = (todayCounter.textContent.trim()==='–' || todayCounter.textContent.trim()==='')
+                           && (totalCounter.textContent.trim()==='–' || totalCounter.textContent.trim()==='');
+            if(!stillEmpty) return; // icount.kr가 이미 값을 채웠으면 아무것도 하지 않는다
 
-        // ── 1단계: 저장된 값(또는 기본값)으로 즉시 먼저 보여준다 ──
-        //    네트워크를 기다리지 않으므로, 응답이 느리거나 차단돼도 "표시 안 됨" 구간이 없다.
-        var lastTotal = parseInt(safeGet('bc_last_total')||'0',10) || 0;
-        var storedDate = safeGet('bc_local_date');
-        var lastToday = parseInt(safeGet('bc_local_today')||'0',10) || 0;
-        if(storedDate!==ymd) lastToday = 0;
-        var alreadyCounted = safeSessionGet('bc_counted');
-        if(!alreadyCounted){ lastTotal += 1; lastToday += 1; }
-        if(lastTotal<1) lastTotal=1;
-        if(lastToday<1) lastToday=1;
-        show(lastTotal, lastToday);
-        safeSet('bc_last_total', String(lastTotal));
-        safeSet('bc_local_today', String(lastToday));
-        safeSet('bc_local_date', ymd);
-        safeSessionSet('bc_counted','1');
+            var today=new Date();
+            var ymd=today.getFullYear()+String(today.getMonth()+1).padStart(2,'0')+String(today.getDate()).padStart(2,'0');
+            var lastTotal = parseInt(safeGet('bc_last_total')||'0',10) || 0;
+            var storedDate = safeGet('bc_local_date');
+            var lastToday = parseInt(safeGet('bc_local_today')||'0',10) || 0;
+            if(storedDate!==ymd) lastToday = 0;
+            var alreadyCounted = safeSessionGet('bc_counted');
+            if(!alreadyCounted){ lastTotal += 1; lastToday += 1; }
+            if(lastTotal<1) lastTotal=1;
+            if(lastToday<1) lastToday=1;
+            todayCounter.textContent = lastToday.toLocaleString();
+            totalCounter.textContent = lastTotal.toLocaleString();
+            safeSet('bc_last_total', String(lastTotal));
+            safeSet('bc_local_today', String(lastToday));
+            safeSet('bc_local_date', ymd);
+            safeSessionSet('bc_counted','1');
+          }catch(e){}
+        }, 4000);
 
-        // ── 2단계: 네트워크가 가능하면 실제 값으로 조용히 갱신 ──
-        if(typeof fetch !== 'function') return; // 아주 오래된 브라우저는 1단계로 충분
-        var action = alreadyCounted ? '' : 'up';
-        var totalBase='https://api.counterapi.dev/v1/bittercare-com/home/';
-        var todayBase='https://api.counterapi.dev/v1/bittercare-com/home-'+ymd+'/';
-
-        function fetchTimeout(url,ms){
-          var ctrl=('AbortController' in window)?new AbortController():null;
-          var opts={cache:'no-store'}; if(ctrl) opts.signal=ctrl.signal;
-          var timer=ctrl?setTimeout(function(){ctrl.abort();},ms):null;
-          return fetch(url,opts).then(function(r){
-            if(timer) clearTimeout(timer);
-            if(!r.ok) throw new Error('status');
-            return r.json();
-          }).catch(function(err){ if(timer) clearTimeout(timer); throw err; });
-        }
-
-        Promise.all([
-          fetchTimeout(totalBase+action,3500),
-          fetchTimeout(todayBase+action,3500)
-        ]).then(function(res){
-          var nTotal=(res[0]&&typeof res[0].count==='number')?res[0].count:(res[0]&&res[0].value);
-          var nToday=(res[1]&&typeof res[1].count==='number')?res[1].count:(res[1]&&res[1].value);
-          if(typeof nTotal!=='number'||typeof nToday!=='number') return; // 실패해도 1단계 값이 이미 표시돼 있음
-          show(nTotal,nToday);
-          safeSet('bc_last_total', String(nTotal));
-          safeSet('bc_local_today', String(nToday));
-          safeSet('bc_local_date', ymd);
-        }).catch(function(){ /* 네트워크 실패 시에도 1단계 값이 이미 화면에 표시돼 있으므로 그대로 둔다 */ });
-
-      }catch(e){
-        // 예상 못한 어떤 오류가 나더라도 최소한의 값은 보여준다
-        try{
-          var b=document.getElementById('visitorBox'),
-              t=document.getElementById('visitToday'),
-              d=document.getElementById('visitTotal');
-          if(b&&t&&d){ t.textContent='1'; d.textContent='1'; b.classList.add('on'); }
-        }catch(e2){ /* 여기까지 실패하면 더 이상 손쓸 방법이 없으므로 조용히 종료 */ }
-      }
-    })();
+      }catch(e){}
+    }
+    loadVisitorCounter();
 
     // ══ 이형지 가이드 라이트박스 ══
     var PEEL_IMGS = ['bc-cut1.jpg','bc-cut2.jpg','bc-cut3.jpg'];
