@@ -1,1 +1,0 @@
-ALTER TABLE `diary_entries` ADD `comparison` text DEFAULT '' NOT NULL;
