@@ -1,0 +1,21 @@
+/* V9: consistent cards, quiet navigation and uncropped product photography. */
+.v7-site #peel .feature-card,.v7-site #peel .feature-card-media,.v7-site #peel .feature-card-body{background:#faf4f0}
+.v7-site #peel .feature-card-media.portrait{display:flex;justify-content:center;align-items:center;aspect-ratio:2/3;height:auto;max-height:570px}
+.v7-site #peel .guide-zoom{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:transparent}
+.v7-site #peel .feature-card-media img{display:block;max-width:100%;width:auto;height:100%;max-height:570px;object-fit:contain;margin-inline:auto}
+.store-link{grid-template-columns:100px minmax(0,1fr) 18px}.store-logo{display:flex;align-items:center;justify-content:center;width:100px;min-height:40px;background:white;border-radius:9px;padding:8px}.store-logo img{width:100%;height:30px;object-fit:contain}
+.affiliate-disclosure{font-size:11px;line-height:1.6;color:#52636c}
+.back-row{padding-top:20px}.back-link{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #d9e2df;border-radius:99px;color:#466269;background:#ffffffc9;font-size:13px}.back-link:hover{background:#eaf2ed}.back-link:focus-visible{outline:3px solid #186768;outline-offset:3px}
+.language-picker{display:flex;align-items:center;gap:4px;border:1px solid #d8e4df;border-radius:99px;padding:6px 9px;background:#fff;color:#153c53}.language-picker select{font:inherit;font-size:12px;border:0;background:transparent;color:inherit;max-width:94px;padding:5px 0}.language-picker:focus-within{outline:2px solid #186768}
+.v9-app-crop{position:relative;display:block;aspect-ratio:941/1355;overflow:hidden;width:100%}.homepage-v6 .v7-app .v9-app-crop img{position:absolute;display:block;top:-9.96%;left:0;width:100%;height:auto;max-height:none;transform:none;object-fit:contain}
+.v7-site .v9-faq-photo{height:auto!important;aspect-ratio:3/2;background:#faf4e8}.v7-site .v9-faq-photo img{width:100%;height:100%;object-fit:contain}
+.visitor-row{display:flex;justify-content:flex-end;align-items:center;gap:7px;padding-bottom:25px;font-size:11px;color:#65777b}.visitor-row b{font-variant-numeric:tabular-nums;font-weight:600;color:#254f5e}.visitor-row i{font-style:normal;margin:0 3px}
+html:not([lang=ko]) h1{font-size:clamp(34px,4vw,60px)!important}html:not([lang=ko]) .v6-quiz h2{font-size:22px}html:not([lang=ko]) .nav{gap:14px}html:not([lang=ko]) .v6-copy,html:not([lang=ko]) .v6-quiz{overflow-wrap:anywhere}
+@media(max-width:760px){.header-app{display:none!important}.header-tools{gap:6px}.language-picker{padding:3px 5px}.language-picker>span{display:none}.language-picker select{font-size:11px;max-width:75px}.store-link{grid-template-columns:85px minmax(0,1fr) 16px}.store-logo{width:85px}.affiliate-disclosure{font-size:10px}.v7-site #peel .feature-card-media.portrait{aspect-ratio:auto;height:510px}.v7-site #peel .feature-card-media img{max-height:510px}.back-row{padding-top:14px}}
+@media(max-width:380px){.header-inner{gap:6px}.site-logo{font-size:22px}.header-tools>.btn{padding-inline:9px}.language-picker select{max-width:67px}}
+
+@media(min-width:761px) and (max-width:1250px){.header-app{display:none!important}}
+
+@media(max-width:380px){.wordmark{font-size:22px!important}.header-buy{padding:10px!important}.header-inner{padding-inline:12px!important}.menu-toggle{width:32px!important}}
+
+.store-logo img[src$="logo-naver.png"]{width:36px;height:36px;border-radius:7px}
