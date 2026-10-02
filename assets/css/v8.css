@@ -1,0 +1,36 @@
+/* V8: contrast repair across all CTA panels, including inherited button colors. */
+.v7-site .cta-panel{color:#153c53;background:linear-gradient(110deg,#e9f3ee,#f9f3e8)}
+.v7-site .cta-panel h1,.v7-site .cta-panel h2,.v7-site .cta-panel h3{color:#153c53}
+.v7-site .cta-panel p{color:#405969}
+.v7-site .cta-panel .eyebrow{color:#416950}
+.v7-site .cta-panel .btn{color:#153c53;background:#fff;border:1px solid #879eab;font-weight:700}
+.v7-site .cta-panel .btn.primary{color:#fff;background:linear-gradient(120deg,#11696b,#092e4b);border-color:#124b5d}
+.v7-site .cta-panel .btn:hover{background:#e4eee9;color:#153c53}
+.v7-site .cta-panel .btn.primary:hover{background:#092e4b;color:#fff}
+/* The complete supplied usage poster is visible on desktop. Mobile keeps V7 geometry. */
+@media(min-width:761px){.v7-site.v8-usage .page-hero-media{height:auto;max-height:none;align-self:center;background:#fffdf8}.v7-site.v8-usage .page-hero-media img{width:100%;height:auto;max-height:none;object-fit:contain}}
+/* Desktop quiz sits in the copy column, between the introduction and actions. */
+@media(min-width:1001px){
+ .v6-hero-inner{display:grid;grid-template-columns:minmax(0,57%) minmax(0,1fr);gap:13px 0;align-items:start;align-content:center;min-height:780px;padding-top:35px;padding-bottom:45px}
+ .v6-copy{display:contents}
+ .v6-kicker{grid-column:1;grid-row:1;margin:0;font-size:20px}.v6-kicker br{display:none}
+ .hero.v6-hero h1{grid-column:1;grid-row:2;margin:0 0 6px;font-size:clamp(42px,4.4vw,72px)}
+ .v6-lead{grid-column:1;grid-row:3;margin:0;font-size:19px}
+ .v6-origin{grid-column:1;grid-row:5;margin:0}
+ .v6-actions{grid-column:1;grid-row:6}.v6-note{grid-column:1;grid-row:7;margin:0}
+ .v6-quiz{grid-column:1;grid-row:4;width:100%;max-width:620px;margin:3px 0 5px;display:grid;grid-template-columns:minmax(0,1fr) 185px;gap:7px 16px;padding:19px 22px;border-radius:19px;box-shadow:0 9px 25px #3c4c3412;background:#fffffff5}
+ .v6-quiz-label{grid-column:1;grid-row:1;margin:0;font-size:12px;color:#48626a}
+ .v6-quiz h2{grid-column:1;grid-row:2;margin:0;font-size:24px;line-height:1.35}.v6-quiz h2 br{display:none}
+ .v6-quiz p{grid-column:1;grid-row:3;margin:0;font-size:15px;line-height:1.55}.v6-quiz p br{display:none}
+ .v6-traits{grid-column:2;grid-row:1/3;margin:0;align-self:center;gap:5px}.v6-traits i{width:36px;height:36px;font-size:21px}.v6-traits>span{font-size:11px}
+ .v6-quiz .btn{grid-column:2;grid-row:3;font-size:14px;min-height:44px;padding:10px 12px;align-self:center}
+ .v6-quiz>small{grid-column:1/-1;grid-row:4;text-align:left;margin:0;color:#526970;font-size:12px}
+}
+/* Portrait web-app creative: no clipping, no overlaid caption, entire image is a link. */
+.homepage-v6 .v7-app .app-image.v8-app-link{display:block;align-self:center;height:auto;min-height:0;max-width:520px;width:100%;margin-inline:auto;border:4px solid #fff;background:#edf7f6;overflow:hidden;line-height:0}
+.homepage-v6 .v7-app .app-image.v8-app-link>img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;transform:none}
+.homepage-v6 .v7-app .app-image.v8-app-link:hover{box-shadow:0 20px 50px #3b7a7135}
+.homepage-v6 .v7-app .app-image.v8-app-link:focus-visible{outline:4px solid #11696b;outline-offset:6px}
+.store-icon.gmarket{background:#087b3e;color:#fff;font-weight:800}
+.affiliate-disclosure{font-size:13px;line-height:1.7;color:#52636c;padding:0 0 24px;margin-top:14px;margin-bottom:0;word-break:keep-all}
+@media(max-width:600px){.affiliate-disclosure{font-size:12px;line-height:1.8;padding-bottom:20px}.homepage-v6 .v7-app .app-image.v8-app-link{height:auto;min-height:0;max-width:440px}}

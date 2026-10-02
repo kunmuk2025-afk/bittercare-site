@@ -1,0 +1,5 @@
+/* Preserve the original portrait guide and personality-check layouts. */
+.v14-support-inner{box-shadow:none!important;background:transparent!important}
+@media(max-width:900px){
+ .v14-support .v14-support-inner{background:transparent!important;border:0!important;box-shadow:none!important}
+}

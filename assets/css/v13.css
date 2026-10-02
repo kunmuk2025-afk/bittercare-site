@@ -1,0 +1,8 @@
+/* V13: show localized instructional artwork in full, without clipped text. */
+.v7-site .page-hero-media:has(.v13-localized-art){height:auto;background:#fbf8ef;padding:10px}
+.v7-site .page-hero-media img.v13-localized-art{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}
+.v7-site .feature-card-media img.v13-localized-art{object-fit:contain}
+.v7-site .photo-card img.v13-localized-art{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;background:#fffdf6}
+.homepage-v6 .v7-app .v13-app-poster{display:block;min-height:0;height:auto;background:#fbfff7;overflow:hidden;padding:0;border-radius:26px}
+.homepage-v6 .v7-app .v13-app-poster img{position:static;display:block;width:100%;height:auto;max-height:none;object-fit:contain;transform:none}
+@media(max-width:760px){.v7-site .page-hero-media img.v13-localized-art{max-height:600px}.homepage-v6 .v7-app .v13-app-poster{height:auto;max-width:480px;margin-inline:auto}}
