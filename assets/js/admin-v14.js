@@ -2,7 +2,7 @@
  'use strict';
  const $=id=>document.getElementById(id),fmt=n=>new Intl.NumberFormat('ko-KR').format(Number(n)||0);
  let page=0,total=0,loading=false;
- const stateNames={new:'미처리',progress:'처리 중',done:'완료'};
+ const stateNames={new:'답변 필요',progress:'처리 중',done:'완료'};
  const categoryNames={product:'제품·사용법',order:'주문·배송',return:'교환·반품',other:'제휴·기타'};
  function loginView(){ $('login-panel').hidden=false;$('dashboard').hidden=true;$('logout').hidden=true;$('inquiries').replaceChildren() }
  async function api(path,options={}){
@@ -13,16 +13,25 @@
  }
  function element(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n}
  function dataRows(id,rows){const box=$(id);box.replaceChildren();if(!rows.length){box.append(element('p','아직 집계된 데이터가 없습니다.','small'));return}for(const [label,value]of rows){const row=element('div',undefined,'data-row');row.append(element('span',label),element('b',fmt(value)));box.append(row)}}
+ const pageNames={'/':'홈','/index.html':'홈','/about':'제품 이야기','/about.html':'제품 이야기','/usage-guide':'사용 가이드','/usage-guide.html':'사용 가이드','/safety':'사용 전 확인','/safety.html':'사용 전 확인','/faq':'자주 묻는 질문','/faq.html':'자주 묻는 질문','/dog-chewing':'물어뜯기 이해하기','/dog-chewing.html':'물어뜯기 이해하기','/dog-personality-test':'성격·물어뜯기 성향 체크','/dog-personality-test.html':'성격·물어뜯기 성향 체크','/contact':'고객 문의','/contact.html':'고객 문의'};
+ const pageLabel=path=>pageNames[path]||path;
  async function stats(){
   const data=await api('stats');$('login-panel').hidden=true;$('dashboard').hidden=false;$('logout').hidden=false;
-  $('summary-date').textContent=data.day+' · 집계 시작 '+(data.started||'아직 기록 없음');
-  $('today').textContent=fmt(data.visitors.today);$('total').textContent=fmt(data.visitors.total);$('unique').textContent=fmt(data.visitors.uniqueVisitors);$('pending').textContent=fmt(data.inquiries.pending);$('inquiry-total').textContent='보관 중인 전체 문의 '+fmt(data.inquiries.total)+'건';
+  $('summary-date').textContent=data.day+' 기준 · 데이터 수집 시작 '+(data.started||'아직 기록 없음');
+  $('today').textContent=fmt(data.visitors.today);$('pending').textContent=fmt(data.inquiries.pending);$('inquiry-total').textContent='보관 중인 전체 문의 '+fmt(data.inquiries.total)+'건';
   const counts=new Map(data.daily.map(r=>[r.day,r.visitors]));const dates=[];
   for(let i=29;i>=0;i--){const d=new Date(Date.parse(data.day+'T00:00:00Z')-i*86400000).toISOString().slice(0,10);dates.push([d,counts.get(d)||0])}
+  const thirtyTotal=dates.reduce((n,r)=>n+r[1],0),recentSeven=dates.slice(-8,-1),sevenAverage=recentSeven.reduce((n,r)=>n+r[1],0)/7,top=data.pages[0];
+  $('thirty-days').textContent=fmt(thirtyTotal);$('top-page').textContent=top?pageLabel(top.path):'아직 없음';$('top-page-views').textContent=top?'최근 30일 '+fmt(top.views)+'회 조회':'페이지 조회 데이터가 없습니다.';
+  const insights=$('ops-insights');insights.replaceChildren();
+  const visitMessage=sevenAverage?`오늘 방문은 최근 7일 평균 ${sevenAverage.toFixed(1)}명과 비교해 ${Number(data.visitors.today)>=sevenAverage?'좋은 흐름이에요.':'차분한 편이에요.'}`:'방문 데이터가 쌓이면 최근 평균과 오늘을 비교해 드립니다.';
+  const inquiryMessage=Number(data.inquiries.pending)>0?`답변이 필요한 문의가 ${fmt(data.inquiries.pending)}건 있어요. 고객 문의함에서 먼저 확인해 주세요.`:'새로 답변할 문의가 없습니다.';
+  const contentMessage=top?`최근 가장 관심을 받은 곳은 ‘${pageLabel(top.path)}’입니다. 관련 콘텐츠와 홍보 링크를 우선 활용해 보세요.`:'페이지 조회가 쌓이면 관심도가 높은 콘텐츠를 알려드립니다.';
+  for(const [title,message]of [['방문 흐름',visitMessage],['콘텐츠 관심도',contentMessage],['문의 응대',inquiryMessage]]){const card=element('article',undefined,'ops-card');card.append(element('strong',title),element('p',message));insights.append(card)}
   const max=Math.max(1,...dates.map(d=>d[1]));$('chart').replaceChildren();$('daily-table').replaceChildren();
-  $('chart').setAttribute('aria-label','최근 30일 방문 합계 '+fmt(dates.reduce((n,r)=>n+r[1],0))+'회. 날짜별 수치는 아래 표에서 확인할 수 있습니다.');
+  $('chart').setAttribute('aria-label','최근 30일 방문 합계 '+fmt(thirtyTotal)+'회. 날짜별 수치는 아래 표에서 확인할 수 있습니다.');
   for(const [day,n]of dates){const b=element('div',undefined,'bar');b.style.height=(n/max*100)+'%';b.title=day+': '+fmt(n);$('chart').append(b);const tr=element('tr');tr.append(element('td',day),element('td',fmt(n)));$('daily-table').append(tr)}
-  dataRows('top-pages',data.pages.map(r=>[r.path,r.views]));dataRows('languages',data.languages.map(r=>[({ko:'한국어',en:'English',ja:'日本語','zh-CN':'简体中文',vi:'Tiếng Việt'})[r.language]||r.language,r.views]));
+  dataRows('top-pages',data.pages.map(r=>[pageLabel(r.path),r.views]));dataRows('languages',data.languages.map(r=>[({ko:'한국어',en:'English',ja:'日本語','zh-CN':'简体中文',vi:'Tiếng Việt'})[r.language]||r.language,r.views]));
  }
  async function inbox(){
   const result=await api('inquiries?status='+encodeURIComponent($('filter').value)+'&page='+page);total=result.total;$('inquiries').replaceChildren();
