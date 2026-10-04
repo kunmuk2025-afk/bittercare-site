@@ -1,6 +1,6 @@
-# BitterCare Homepage V17
+# BitterCare Homepage V18
 
-GitHub 및 Cloudflare Pages 배포용으로 정리한 정적 홈페이지입니다.
+GitHub 및 Cloudflare Pages 배포용 정적 홈페이지입니다. V17의 디자인과 기능을 유지하면서 강아지 성격 테스트 검색 유입을 위한 전용 콘텐츠와 SEO 정보를 추가했습니다.
 
 ## 포함된 구성
 
@@ -9,6 +9,7 @@ GitHub 및 Cloudflare Pages 배포용으로 정리한 정적 홈페이지입니�
 - 관리자 페이지와 방문자·문의 API용 Cloudflare Worker
 - Cloudflare Pages 설정 파일과 D1 초기화 SQL
 - 검색엔진 설정 및 네이버 사이트 소유 확인 파일
+- 강아지 성격 테스트·기질 검사 전용 검색 페이지
 
 ## 배포
 

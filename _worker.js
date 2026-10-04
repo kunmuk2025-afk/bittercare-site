@@ -47,7 +47,7 @@ export default {async fetch(request,env){
    await limit(db,request,'visit',120,60);
    const b=await readBody(request);if(!UUID.test(b.session))return json({error:'Invalid visitor'},400);
    const page=typeof b.path==='string'?b.path:'/';
-   if(!/^\/(?:en\/|ja\/|zh-CN\/|vi\/)?(?:(?:index|about|usage-guide|safety|faq|dog-chewing|contact|404)(?:\.html)?)?$/.test(page))return json({error:'Invalid page'},400);
+   if(!/^\/(?:en\/|ja\/|zh-CN\/|vi\/)?(?:(?:index|about|usage-guide|safety|faq|dog-chewing|dog-personality-test|contact|404)(?:\.html)?)?$/.test(page))return json({error:'Invalid page'},400);
    const language=LANGS.includes(b.language)?b.language:'ko';
    await db.batch([db.prepare('INSERT OR IGNORE INTO visits(day,session) VALUES (?,?)').bind(today,b.session),db.prepare('INSERT INTO page_stats(day,path,language,views) VALUES (?,?,?,1) ON CONFLICT(day,path,language) DO UPDATE SET views=views+1').bind(today,page,language),db.prepare('DELETE FROM rate_limits WHERE expires <= ?').bind(now)]);
    return json({ok:true}); // Totals are private and only available through admin endpoints.
