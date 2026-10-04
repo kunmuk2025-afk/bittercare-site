@@ -6,6 +6,7 @@ V17을 기준으로 한 변경 내역입니다.
 
 - `dog-personality-test.html` — 강아지 성격 테스트·기질 검사 전용 검색 페이지
 - `assets/css/personality-seo.css` — 신규 페이지 전용 반응형 스타일
+- `assets/img/personality-types-v18.png` — 성격 테스트 대표 이미지
 - `CHANGELOG_V18.md` — V17 대비 변경 파일 기록
 
 ## 수정 파일
@@ -29,6 +30,7 @@ V17을 기준으로 한 변경 내역입니다.
   - 최근 30일 방문, 인기 페이지, 답변 필요 문의, 운영 체크 중심으로 재구성
 - `assets/js/admin-v14.js`
   - 최근 30일 합계·인기 콘텐츠·7일 평균 비교·문의 대응 안내 계산 추가
+  - 일부 카드 요소가 없을 때 통계 전체 로딩이 중단되던 오류 방지 처리
 - `assets/css/admin-v14.css`
   - 운영 체크 카드와 긴 인기 페이지 이름의 반응형 스타일 추가
 - `sitemap.xml`
