@@ -17,6 +17,20 @@ V17을 기준으로 한 변경 내역입니다.
   - 페이지 버전 표시를 V18로 변경
 - `assets/css/layout-wide.css`
   - 메인 페이지의 성격 테스트 안내 띠 반응형 스타일 추가
+  - 안내 띠의 NEW 표시를 제거하고 PC 중앙 정렬·모바일 한 줄 표시로 수정
+- `dog-personality-test.html`
+  - 홈 성향 체크 영역의 이미지로 교체
+  - 성격과 물어뜯기 성향을 함께 안내하도록 문구 보강
+  - 물어뜯기 안내를 자연스럽고 정다운 문어체로 수정
+- `assets/css/personality-seo.css`
+  - 교체 이미지 비율에 맞춰 PC·모바일 크기 최적화
+- `admin/index.html`
+  - 누적 고유 식별값과 기술 설명을 제거
+  - 최근 30일 방문, 인기 페이지, 답변 필요 문의, 운영 체크 중심으로 재구성
+- `assets/js/admin-v14.js`
+  - 최근 30일 합계·인기 콘텐츠·7일 평균 비교·문의 대응 안내 계산 추가
+- `assets/css/admin-v14.css`
+  - 운영 체크 카드와 긴 인기 페이지 이름의 반응형 스타일 추가
 - `sitemap.xml`
   - `https://www.bittercare.com/dog-personality-test.html` 등록
 - `_worker.js`
