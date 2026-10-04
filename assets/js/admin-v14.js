@@ -12,17 +12,18 @@
   return data;
  }
  function element(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n}
+ function setText(id,value){const node=$(id);if(node)node.textContent=value}
  function dataRows(id,rows){const box=$(id);box.replaceChildren();if(!rows.length){box.append(element('p','아직 집계된 데이터가 없습니다.','small'));return}for(const [label,value]of rows){const row=element('div',undefined,'data-row');row.append(element('span',label),element('b',fmt(value)));box.append(row)}}
  const pageNames={'/':'홈','/index.html':'홈','/about':'제품 이야기','/about.html':'제품 이야기','/usage-guide':'사용 가이드','/usage-guide.html':'사용 가이드','/safety':'사용 전 확인','/safety.html':'사용 전 확인','/faq':'자주 묻는 질문','/faq.html':'자주 묻는 질문','/dog-chewing':'물어뜯기 이해하기','/dog-chewing.html':'물어뜯기 이해하기','/dog-personality-test':'성격·물어뜯기 성향 체크','/dog-personality-test.html':'성격·물어뜯기 성향 체크','/contact':'고객 문의','/contact.html':'고객 문의'};
  const pageLabel=path=>pageNames[path]||path;
  async function stats(){
   const data=await api('stats');$('login-panel').hidden=true;$('dashboard').hidden=false;$('logout').hidden=false;
-  $('summary-date').textContent=data.day+' 기준 · 데이터 수집 시작 '+(data.started||'아직 기록 없음');
-  $('today').textContent=fmt(data.visitors.today);$('pending').textContent=fmt(data.inquiries.pending);$('inquiry-total').textContent='보관 중인 전체 문의 '+fmt(data.inquiries.total)+'건';
+  setText('summary-date',data.day+' 기준 · 데이터 수집 시작 '+(data.started||'아직 기록 없음'));
+  setText('today',fmt(data.visitors.today));setText('pending',fmt(data.inquiries.pending));setText('inquiry-total','보관 중인 전체 문의 '+fmt(data.inquiries.total)+'건');
   const counts=new Map(data.daily.map(r=>[r.day,r.visitors]));const dates=[];
   for(let i=29;i>=0;i--){const d=new Date(Date.parse(data.day+'T00:00:00Z')-i*86400000).toISOString().slice(0,10);dates.push([d,counts.get(d)||0])}
   const thirtyTotal=dates.reduce((n,r)=>n+r[1],0),recentSeven=dates.slice(-8,-1),sevenAverage=recentSeven.reduce((n,r)=>n+r[1],0)/7,top=data.pages[0];
-  $('thirty-days').textContent=fmt(thirtyTotal);$('top-page').textContent=top?pageLabel(top.path):'아직 없음';$('top-page-views').textContent=top?'최근 30일 '+fmt(top.views)+'회 조회':'페이지 조회 데이터가 없습니다.';
+  setText('thirty-days',fmt(thirtyTotal));setText('top-page',top?pageLabel(top.path):'아직 없음');setText('top-page-views',top?'최근 30일 '+fmt(top.views)+'회 조회':'페이지 조회 데이터가 없습니다.');
   const insights=$('ops-insights');insights.replaceChildren();
   const visitMessage=sevenAverage?`오늘 방문은 최근 7일 평균 ${sevenAverage.toFixed(1)}명과 비교해 ${Number(data.visitors.today)>=sevenAverage?'좋은 흐름이에요.':'차분한 편이에요.'}`:'방문 데이터가 쌓이면 최근 평균과 오늘을 비교해 드립니다.';
   const inquiryMessage=Number(data.inquiries.pending)>0?`답변이 필요한 문의가 ${fmt(data.inquiries.pending)}건 있어요. 고객 문의함에서 먼저 확인해 주세요.`:'새로 답변할 문의가 없습니다.';
