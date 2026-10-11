@@ -50,7 +50,7 @@
     if (!modal) return;
     returnFocus = button;
     if (typeof modal.showModal === 'function') { modal.showModal(); syncLock(); }
-    else { window.location.href = 'https://smartstore.naver.com/bittercare-bitterbooks'; }
+    else { window.location.href = 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634440161'; }
   }));
   document.querySelectorAll('[data-close-buy]').forEach(button => button.addEventListener('click', () => modal?.close()));
   modal?.addEventListener('click', e => { if (e.target === modal) modal.close(); });
