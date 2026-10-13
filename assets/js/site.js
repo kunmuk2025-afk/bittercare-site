@@ -49,12 +49,49 @@
     closeMenu();
     if (!modal) return;
     returnFocus = button;
+    const size = button.dataset.buySize;
+    modal.querySelectorAll('[data-store-size]').forEach(store => { store.hidden = !!size && store.dataset.storeSize !== size; });
+    const buyTitle = modal.querySelector('#buy-title');
+    if (buyTitle) buyTitle.textContent = size ? `비터케어 ${size}M 구매처` : '편한 곳에서 만나요.';
     if (typeof modal.showModal === 'function') { modal.showModal(); syncLock(); }
-    else { window.location.href = 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634440161'; }
+    else { window.location.href = size === '10' ? 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634441238' : 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634440161'; }
   }));
   document.querySelectorAll('[data-close-buy]').forEach(button => button.addEventListener('click', () => modal?.close()));
   modal?.addEventListener('click', e => { if (e.target === modal) modal.close(); });
   modal?.addEventListener('close', () => { syncLock(); returnFocus?.focus(); });
+
+  // Homepage entry promotion. Dismissal is local to this browser; manual reopening remains available.
+  const checkModal = document.querySelector('[data-check-modal]');
+  const checkPreferenceKey = 'bittercare:v19:hide-personality-promo';
+  let checkOpener = null;
+  function openCheckPromo(opener = null) {
+    if (!checkModal || checkModal.open || document.querySelector('dialog[open]')) return;
+    closeMenu();
+    checkOpener = opener || document.activeElement;
+    if (typeof checkModal.showModal === 'function') {
+      checkModal.showModal(); syncLock();
+    } else if (opener) {
+      window.location.href = 'https://app.bittercare.com';
+    }
+  }
+  document.querySelectorAll('[data-open-check]').forEach(button =>
+    button.addEventListener('click', () => openCheckPromo(button)));
+  checkModal?.querySelector('[data-close-check]').addEventListener('click', () => checkModal.close());
+  checkModal?.querySelector('[data-hide-check]').addEventListener('click', () => {
+    try { localStorage.setItem(checkPreferenceKey, '1'); }
+    catch { /* Restricted storage must never prevent dismissal. */ }
+    checkModal.close();
+  });
+  checkModal?.addEventListener('click', e => { if (e.target === checkModal) checkModal.close(); });
+  checkModal?.addEventListener('close', () => { syncLock(); checkOpener?.focus?.(); });
+  function showEntryPromo() {
+    let hidden = false;
+    try { hidden = localStorage.getItem(checkPreferenceKey) === '1'; }
+    catch { /* The popup can still be closed when storage is restricted. */ }
+    if (!hidden) openCheckPromo();
+  }
+  if (document.readyState === 'complete') showEntryPromo();
+  else window.addEventListener('load', showEntryPromo, { once: true });
 
   // Autoplay is optional. Respect reduced motion, data saving, visibility and manual pause.
   const video = document.querySelector('.hero-video video');
