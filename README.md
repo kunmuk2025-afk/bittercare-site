@@ -1,6 +1,6 @@
-# BitterCare Homepage V18
+# BitterCare Homepage V19
 
-GitHub 및 Cloudflare Pages 배포용 정적 홈페이지입니다. V17의 디자인과 기능을 유지하면서 강아지 성격 테스트 검색 유입을 위한 전용 콘텐츠와 SEO 정보를 추가했습니다.
+GitHub 및 Cloudflare Pages 배포용 정적 홈페이지입니다. V18을 기준으로 FAQ와 5M·10M 구매 디자인을 수정하고 기존 성향 체크·마무리 디자인을 복원했습니다. 무음 반복 영상과 관리자·문의 기능, 다국어 페이지를 포함합니다. V18 대비 변경 파일은 CHANGELOG_V19.md를 확인하세요.
 
 ## 포함된 구성
 
