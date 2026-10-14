@@ -1,6 +1,7 @@
 /* Progressive enhancement: content, internal links and native FAQs work without JS. */
 (() => {
   'use strict';
+  const ui = window.bitterUI || {open:'메뉴 열기',close:'메뉴 닫기',shop:'편한 곳에서 만나요.',size:'비터케어 {n}M 구매처',closeImage:'확대 이미지 닫기'};
   const body = document.body;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const menuButton = document.querySelector('[data-menu-toggle]');
@@ -13,7 +14,7 @@
     if (!menu || menu.hidden) return;
     menu.hidden = true;
     menuButton?.setAttribute('aria-expanded', 'false');
-    menuButton?.setAttribute('aria-label', '메뉴 열기');
+    menuButton?.setAttribute('aria-label', ui.open);
     menuInert.forEach(el => { el.inert = false; }); menuInert = [];
     syncLock();
     if (restore) menuButton?.focus();
@@ -23,7 +24,7 @@
     if (!menu.hidden) { closeMenu(true); return; }
     menu.hidden = false;
     menuButton.setAttribute('aria-expanded', 'true');
-    menuButton.setAttribute('aria-label', '메뉴 닫기');
+    menuButton.setAttribute('aria-label', ui.close);
     menuInert = [...document.querySelectorAll('main, footer, .mobile-dock')].filter(el => !el.inert);
     menuInert.forEach(el => { el.inert = true; });
     syncLock();
@@ -52,7 +53,7 @@
     const size = button.dataset.buySize;
     modal.querySelectorAll('[data-store-size]').forEach(store => { store.hidden = !!size && store.dataset.storeSize !== size; });
     const buyTitle = modal.querySelector('#buy-title');
-    if (buyTitle) buyTitle.textContent = size ? `비터케어 ${size}M 구매처` : '편한 곳에서 만나요.';
+    if (buyTitle) buyTitle.textContent = size ? ui.size.replace('{n}',size) : ui.shop;
     if (typeof modal.showModal === 'function') { modal.showModal(); syncLock(); }
     else { window.location.href = size === '10' ? 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634441238' : 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634440161'; }
   }));
@@ -63,6 +64,8 @@
   // Homepage entry promotion. Dismissal is local to this browser; manual reopening remains available.
   const checkModal = document.querySelector('[data-check-modal]');
   const checkPreferenceKey = 'bittercare:v19:hide-personality-promo';
+  const checkSessionKey = 'bittercare:v20:personality-promo-seen';
+  const checkBanner = document.querySelector('[data-check-banner]');
   let checkOpener = null;
   function openCheckPromo(opener = null) {
     if (!checkModal || checkModal.open || document.querySelector('dialog[open]')) return;
@@ -88,8 +91,16 @@
     let hidden = false;
     try { hidden = localStorage.getItem(checkPreferenceKey) === '1'; }
     catch { /* The popup can still be closed when storage is restricted. */ }
-    if (!hidden) openCheckPromo();
+    if (checkBanner) checkBanner.hidden = hidden;
+    if (hidden || window.matchMedia('(max-width: 760px)').matches) return;
+    let seen = false;
+    try { seen = sessionStorage.getItem(checkSessionKey) === '1'; } catch {}
+    if (!seen) {
+      openCheckPromo();
+      try { sessionStorage.setItem(checkSessionKey, '1'); } catch {}
+    }
   }
+  document.querySelector('[data-dismiss-banner]')?.addEventListener('click', () => { if (checkBanner) checkBanner.hidden = true; });
   if (document.readyState === 'complete') showEntryPromo();
   else window.addEventListener('load', showEntryPromo, { once: true });
 
@@ -217,7 +228,8 @@
   const guides = [...document.querySelectorAll('.photo-card img, .feature-card-media.portrait img')];
   if (guides.length && typeof HTMLDialogElement !== 'undefined') {
     const viewer = document.createElement('dialog'); viewer.className = 'image-dialog'; viewer.setAttribute('aria-labelledby','image-dialog-title');
-    viewer.innerHTML = '<div class="image-dialog-bar"><strong id="image-dialog-title"></strong><button type="button" class="icon-btn" aria-label="확대 이미지 닫기" autofocus>×</button></div><img alt="">';
+    viewer.innerHTML = '<div class="image-dialog-bar"><strong id="image-dialog-title"></strong><button type="button" class="icon-btn" autofocus>×</button></div><img alt="">';
+    viewer.querySelector('button').setAttribute('aria-label',ui.closeImage);
     body.append(viewer);
     const title = viewer.querySelector('strong'), fullImage = viewer.querySelector('img'); let opener;
     guides.forEach(img => {

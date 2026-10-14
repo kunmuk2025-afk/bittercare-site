@@ -9,10 +9,10 @@
   crop.setAttribute('role', 'img');
   crop.setAttribute('aria-label', '포근한 거실에서 비터케어 제품과 장난감 옆에 앉은 강아지');
   const image = document.createElement('img');
-  image.src = 'assets/img/product-photo-v16.png';
+  image.src = 'assets/img/product-photo-v20.webp';
   image.alt = '';
-  image.width = 1122;
-  image.height = 1402;
+  image.width = 900;
+  image.height = 1125;
   image.loading = 'lazy';
   crop.append(image);
   photo.replaceChildren(crop);

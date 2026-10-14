@@ -11,8 +11,7 @@ words.vi={open:'Mở menu',close:'Đóng menu',zoom:'Phóng to ảnh',closeImage
 window.bitterLocale=words[lang];
 const select=document.getElementById('site-language');
 if(select){select.value=lang;select.addEventListener('change',()=>{const next=select.value;try{localStorage.setItem('bittercare-language',next)}catch{};location.href=(lang==='ko'?'':'../')+(next==='ko'?'':next+'/')+file+location.hash;});}
-// Respect a visitor's saved choice when they return via a Korean URL.
-try{const saved=localStorage.getItem('bittercare-language');if(lang==='ko'&&saved&&saved!=='ko'&&supported.includes(saved)){location.replace(saved+'/'+file+location.hash);return;}}catch{}
+// Navigation follows the explicit language link; no automatic redirect away from Korean.
 document.querySelectorAll('[data-back]').forEach(a=>a.addEventListener('click',e=>{try{const prev=new URL(document.referrer);if(prev.origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch{}}));
 const menu=document.querySelector('[data-menu-toggle]');
 if(menu){const update=()=>{const value=menu.getAttribute('aria-expanded')==='true'?words[lang].close:words[lang].open;if(menu.getAttribute('aria-label')!==value)menu.setAttribute('aria-label',value)};update();new MutationObserver(update).observe(menu,{attributes:true,attributeFilter:['aria-expanded','aria-label']});}
