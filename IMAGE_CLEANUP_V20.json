@@ -1,0 +1,347 @@
+{
+  "sourceImageCount": 84,
+  "keptCount": 76,
+  "removedCount": 8,
+  "removedBytes": 9085032,
+  "rule": "Any HTML/CSS/JS/JSON/XML basename reference keeps the file; only unreferenced images in the V20 copy are removed.",
+  "removed": [
+    {
+      "file": "assets/img/personality-popup-v19.png",
+      "bytes": 352610
+    },
+    {
+      "file": "assets/img/personality-types-v18.png",
+      "bytes": 1474408
+    },
+    {
+      "file": "assets/img/product-photo-v16.png",
+      "bytes": 1922195
+    },
+    {
+      "file": "assets/img/product-scene-v12.png",
+      "bytes": 2577412
+    },
+    {
+      "file": "assets/img/review-play-v18.jpg",
+      "bytes": 2488
+    },
+    {
+      "file": "assets/img/review-poster-design-v18.jpg",
+      "bytes": 120027
+    },
+    {
+      "file": "assets/img/together-scene-v12.png",
+      "bytes": 2435284
+    },
+    {
+      "file": "assets/img/v16-icons.webp",
+      "bytes": 200608
+    }
+  ],
+  "retained": [
+    {
+      "file": "assets/img/app-lifestyle.webp",
+      "bytes": 139378
+    },
+    {
+      "file": "assets/img/app-promo-en-v10.png",
+      "bytes": 2445281
+    },
+    {
+      "file": "assets/img/app-promo-ja-v10.png",
+      "bytes": 2492226
+    },
+    {
+      "file": "assets/img/app-promo-v8.png",
+      "bytes": 2576911
+    },
+    {
+      "file": "assets/img/app-promo-zh-CN-v10.png",
+      "bytes": 2501719
+    },
+    {
+      "file": "assets/img/behavior-toy-v9.png",
+      "bytes": 329019
+    },
+    {
+      "file": "assets/img/bittercare-review-v18.jpg",
+      "bytes": 25681
+    },
+    {
+      "file": "assets/img/faq-background-v16.png",
+      "bytes": 712098
+    },
+    {
+      "file": "assets/img/faq-exact-reference-v16.png",
+      "bytes": 1322341
+    },
+    {
+      "file": "assets/img/faq-product-v9.png",
+      "bytes": 2718511
+    },
+    {
+      "file": "assets/img/guide-1.webp",
+      "bytes": 74904
+    },
+    {
+      "file": "assets/img/guide-2.webp",
+      "bytes": 87620
+    },
+    {
+      "file": "assets/img/guide-3.webp",
+      "bytes": 94526
+    },
+    {
+      "file": "assets/img/guide-4.webp",
+      "bytes": 88500
+    },
+    {
+      "file": "assets/img/guide-5.webp",
+      "bytes": 84142
+    },
+    {
+      "file": "assets/img/hero-lifestyle-v6.png",
+      "bytes": 1804941
+    },
+    {
+      "file": "assets/img/hero-poster.webp",
+      "bytes": 100258
+    },
+    {
+      "file": "assets/img/logo-coupang.png",
+      "bytes": 7448
+    },
+    {
+      "file": "assets/img/logo-gmarket.svg",
+      "bytes": 3345
+    },
+    {
+      "file": "assets/img/logo-naver-brand.png",
+      "bytes": 7788
+    },
+    {
+      "file": "assets/img/logo.webp",
+      "bytes": 30726
+    },
+    {
+      "file": "assets/img/og-home.jpg",
+      "bytes": 144894
+    },
+    {
+      "file": "assets/img/peel-1.webp",
+      "bytes": 87590
+    },
+    {
+      "file": "assets/img/peel-2.webp",
+      "bytes": 85764
+    },
+    {
+      "file": "assets/img/peel-3.webp",
+      "bytes": 73550
+    },
+    {
+      "file": "assets/img/product-ad.webp",
+      "bytes": 131164
+    },
+    {
+      "file": "assets/img/product-lifestyle.webp",
+      "bytes": 127130
+    },
+    {
+      "file": "assets/img/product-photo-v20.webp",
+      "bytes": 102382
+    },
+    {
+      "file": "assets/img/product-premium-v6.png",
+      "bytes": 3053245
+    },
+    {
+      "file": "assets/img/quiz-puppy-v10.png",
+      "bytes": 1897975
+    },
+    {
+      "file": "assets/img/review-background-v18.jpg",
+      "bytes": 30023
+    },
+    {
+      "file": "assets/img/review-icon-cut-v18.jpg",
+      "bytes": 2928
+    },
+    {
+      "file": "assets/img/review-icon-paw-v18.jpg",
+      "bytes": 2563
+    },
+    {
+      "file": "assets/img/review-icon-press-v18.jpg",
+      "bytes": 3546
+    },
+    {
+      "file": "assets/img/review-step-cut-v18.jpg",
+      "bytes": 4042
+    },
+    {
+      "file": "assets/img/review-step-paw-v18.jpg",
+      "bytes": 3494
+    },
+    {
+      "file": "assets/img/review-step-press-v18.jpg",
+      "bytes": 4805
+    },
+    {
+      "file": "assets/img/usage-hero.webp",
+      "bytes": 97802
+    },
+    {
+      "file": "assets/img/v16-check-background.webp",
+      "bytes": 128426
+    },
+    {
+      "file": "assets/img/v16-check-reference.webp",
+      "bytes": 183900
+    },
+    {
+      "file": "assets/img/v16-guide-background.webp",
+      "bytes": 114286
+    },
+    {
+      "file": "assets/img/v16-guide-reference.webp",
+      "bytes": 171186
+    },
+    {
+      "file": "assets/img/v19-faq-background.jpg",
+      "bytes": 87223
+    },
+    {
+      "file": "assets/img/v19-purchase-background.jpg",
+      "bytes": 132547
+    },
+    {
+      "file": "assets/img/v19-purchase-photo-mobile.jpg",
+      "bytes": 106600
+    },
+    {
+      "file": "assets/img/flags/cn.svg",
+      "bytes": 813
+    },
+    {
+      "file": "assets/img/flags/gb.svg",
+      "bytes": 504
+    },
+    {
+      "file": "assets/img/flags/jp.svg",
+      "bytes": 470
+    },
+    {
+      "file": "assets/img/flags/kr.svg",
+      "bytes": 1061
+    },
+    {
+      "file": "assets/img/flags/us.svg",
+      "bytes": 2045
+    },
+    {
+      "file": "assets/img/flags/vn.svg",
+      "bytes": 490
+    },
+    {
+      "file": "assets/img/i18n/en/guide-1.webp",
+      "bytes": 301974
+    },
+    {
+      "file": "assets/img/i18n/en/guide-2.webp",
+      "bytes": 364348
+    },
+    {
+      "file": "assets/img/i18n/en/guide-3.webp",
+      "bytes": 340412
+    },
+    {
+      "file": "assets/img/i18n/en/guide-4.webp",
+      "bytes": 346792
+    },
+    {
+      "file": "assets/img/i18n/en/guide-5.webp",
+      "bytes": 294964
+    },
+    {
+      "file": "assets/img/i18n/en/usage-hero.webp",
+      "bytes": 301930
+    },
+    {
+      "file": "assets/img/i18n/ja/guide-1.webp",
+      "bytes": 293710
+    },
+    {
+      "file": "assets/img/i18n/ja/guide-2.webp",
+      "bytes": 313828
+    },
+    {
+      "file": "assets/img/i18n/ja/guide-3.webp",
+      "bytes": 356922
+    },
+    {
+      "file": "assets/img/i18n/ja/guide-4.webp",
+      "bytes": 349418
+    },
+    {
+      "file": "assets/img/i18n/ja/guide-5.webp",
+      "bytes": 308130
+    },
+    {
+      "file": "assets/img/i18n/ja/usage-hero.webp",
+      "bytes": 278810
+    },
+    {
+      "file": "assets/img/i18n/vi/app-promo.webp",
+      "bytes": 290764
+    },
+    {
+      "file": "assets/img/i18n/vi/guide-1.webp",
+      "bytes": 297374
+    },
+    {
+      "file": "assets/img/i18n/vi/guide-2.webp",
+      "bytes": 318550
+    },
+    {
+      "file": "assets/img/i18n/vi/guide-3.webp",
+      "bytes": 341474
+    },
+    {
+      "file": "assets/img/i18n/vi/guide-4.webp",
+      "bytes": 341030
+    },
+    {
+      "file": "assets/img/i18n/vi/guide-5.webp",
+      "bytes": 302210
+    },
+    {
+      "file": "assets/img/i18n/vi/usage-hero.webp",
+      "bytes": 287512
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/guide-1.webp",
+      "bytes": 315148
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/guide-2.webp",
+      "bytes": 341328
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/guide-3.webp",
+      "bytes": 352178
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/guide-4.webp",
+      "bytes": 336992
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/guide-5.webp",
+      "bytes": 311702
+    },
+    {
+      "file": "assets/img/i18n/zh-CN/usage-hero.webp",
+      "bytes": 290738
+    }
+  ]
+}
