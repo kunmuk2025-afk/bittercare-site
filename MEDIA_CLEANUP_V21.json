@@ -1,0 +1,18 @@
+{
+  "base": "V20",
+  "removedFromV21Only": [
+    {
+      "file": "assets/video/bittercare-review-v18-muted.mp4",
+      "bytes": 847203
+    },
+    {
+      "file": "assets/video/bittercare-review-v18.mp4",
+      "bytes": 964825
+    },
+    {
+      "file": "assets/img/bittercare-review-v18.jpg",
+      "bytes": 25681
+    }
+  ],
+  "recoverableFrom": "BitterCare_Homepage_V20"
+}
