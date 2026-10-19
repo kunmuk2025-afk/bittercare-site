@@ -1,0 +1,11 @@
+/* BITTER INK: the technology behind BitterCare. */
+.bc-ink-teaser{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(29,55,45,.16);font-size:14px;line-height:1.85;color:#58665f}
+.bc-ink-teaser a{display:inline-block;padding:7px 0;color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:5px}
+.bc-ink-proof{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;margin-top:32px;padding:30px;border:1px solid rgba(36,70,51,.18);border-radius:20px;background:rgba(255,255,255,.65)}
+.bc-ink-proof .eyebrow{display:block;font-size:11px;letter-spacing:.14em;margin:0 0 12px;color:#526f5d}
+.bc-ink-proof h2{margin:0;font-size:clamp(21px,2.2vw,28px);line-height:1.55;letter-spacing:-.035em;word-break:keep-all}
+.bc-ink-proof p:not(.eyebrow){max-width:720px;margin:12px 0 0;font-size:14px;line-height:1.9;color:#5c6861}
+.bc-ink-actions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.bc-ink-actions a{display:inline-flex;align-items:center;gap:15px;min-height:44px;padding:8px 0;font-size:14px;font-weight:700;line-height:1.65;color:#244c39;text-decoration:underline;text-underline-offset:5px}
+.bc-ink-actions a:hover{color:#416f56}
+@media(max-width:760px){.bc-ink-proof{grid-template-columns:1fr;gap:20px;padding:24px;margin-top:25px}.bc-ink-proof h2{font-size:23px}.bc-ink-proof p:not(.eyebrow){font-size:14px}.bc-ink-teaser{font-size:13px}}
