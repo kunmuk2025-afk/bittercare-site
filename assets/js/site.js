@@ -45,16 +45,42 @@
     }
   });
   window.matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+  // Homepage buyers choose a length first; existing product-specific buttons skip this step.
+  const sizePicker = modal?.querySelector('[data-buy-size-picker]');
+  const buyStores = modal?.querySelector('.store-list');
+  const buyBack = modal?.querySelector('[data-buy-back]');
+  const buyHelp = modal?.querySelector('.buy-sheet-head p');
+  const storeHelp = buyHelp?.textContent;
+  function showBuyStep(size, focus = false) {
+    if (!modal) return;
+    const choosing = !!sizePicker && !size;
+    if (sizePicker) sizePicker.hidden = !choosing;
+    if (buyStores) buyStores.hidden = choosing;
+    if (buyBack) buyBack.hidden = choosing;
+    modal.querySelectorAll('[data-store-size]').forEach(store => {
+      store.hidden = choosing || (!!size && store.dataset.storeSize !== size);
+    });
+    const buyTitle = modal.querySelector('#buy-title');
+    if (buyTitle) buyTitle.textContent = choosing ? sizePicker.dataset.title : size ? ui.size.replace('{n}', size) : ui.shop;
+    if (buyHelp) buyHelp.textContent = choosing ? sizePicker.dataset.help : storeHelp;
+    if (focus) {
+      if (choosing) sizePicker.querySelector('button')?.focus();
+      else if (buyTitle) { buyTitle.tabIndex = -1; buyTitle.focus(); }
+    }
+  }
+  sizePicker?.querySelectorAll('[data-select-buy-size]').forEach(button => button.addEventListener('click', () => {
+    showBuyStep(button.dataset.selectBuySize, true);
+  }));
+  buyBack?.addEventListener('click', () => showBuyStep(null, true));
   document.querySelectorAll('[data-open-buy]').forEach(button => button.addEventListener('click', e => {
     e.preventDefault();
     closeMenu();
     if (!modal) return;
     returnFocus = button;
     const size = button.dataset.buySize;
-    modal.querySelectorAll('[data-store-size]').forEach(store => { store.hidden = !!size && store.dataset.storeSize !== size; });
-    const buyTitle = modal.querySelector('#buy-title');
-    if (buyTitle) buyTitle.textContent = size ? ui.size.replace('{n}',size) : ui.shop;
-    if (typeof modal.showModal === 'function') { modal.showModal(); syncLock(); }
+    showBuyStep(size);
+    if (typeof modal.showModal === 'function') { modal.showModal(); syncLock(); if (sizePicker && !size) sizePicker.querySelector('button')?.focus(); }
+    else if (!size && button.getAttribute('href')) { window.location.href = button.href; }
     else { window.location.href = size === '10' ? 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634441238' : 'https://smartstore.naver.com/bittercare-bitterbooks/products/13634440161'; }
   }));
   document.querySelectorAll('[data-close-buy]').forEach(button => button.addEventListener('click', () => modal?.close()));

@@ -1,0 +1,19 @@
+/* Two-step purchase dialog. Existing store links and native dialog behavior remain. */
+.buy-modal [hidden] { display: none !important; }
+.buy-size-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
+.buy-size-choice { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-height: 158px; padding: 24px 20px; border: 1px solid #cfdfd0; border-radius: 20px; background: #f2f8ef; color: #123e51; font: inherit; text-align: left; cursor: pointer; }
+.buy-size-choice:nth-child(2) { background: #edf7f5; border-color: #c9dfda; }
+.buy-size-choice strong { color: #137343; font-size: 38px; line-height: 1; letter-spacing: -.04em; }
+.buy-size-choice span { font-size: 14px; line-height: 1.6; }
+.buy-size-choice b { margin-top: auto; color: #174b3a; font-size: 16px; }
+.buy-size-choice:hover { border-color: #247454; background: #e6f2e4; }
+.buy-size-choice:focus-visible, .buy-back:focus-visible { outline: 3px solid #247454; outline-offset: 4px; }
+.buy-back { display: inline-flex; align-items: center; min-height: 44px; margin: 8px 0 10px; padding: 6px 0; border: 0; background: none; color: #315c59; font: inherit; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.buy-modal #buy-title:focus { outline: none; }
+@media (max-width: 480px) {
+  .buy-size-picker { gap: 10px; margin-top: 18px; }
+  .buy-size-choice { padding: 21px 16px; min-height: 160px; border-radius: 16px; }
+  .buy-size-choice strong { font-size: 34px; }
+  .buy-size-choice span { font-size: 13px; }
+}
+@media (max-width: 320px) { .buy-size-picker { grid-template-columns: 1fr; } .buy-size-choice { min-height: 128px; } }
